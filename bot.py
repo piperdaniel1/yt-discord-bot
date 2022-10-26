@@ -20,6 +20,12 @@ current_channel = None
 queue = []
 
 def play_next_song(error=None):
+    global current_channel
+    print("Current channel:", current_channel)
+
+    if current_channel != None:
+        print("Connection status:", current_channel.is_connected())
+
     if len(queue) > 1:
         queue.pop(0)
 
@@ -35,6 +41,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    global queue
     if message.author == client.user:
         return
 
@@ -70,10 +77,13 @@ async def on_message(message):
         activities = message.author.voice
 
         global current_channel
-        if activities.channel != current_channel or current_channel == None:
-            if current_channel != None:
-                await current_channel.disconnect()
+        if current_channel == None:
             current_channel = await activities.channel.connect()
+            print("Connecting to new channel")
+        else:
+            if not current_channel.is_connected():
+                current_channel = await activities.channel.connect()
+                print("Connecting to new channel")
 
         queue.append(path)
 
@@ -109,7 +119,9 @@ async def on_message(message):
             await message.channel.send(f"I'm not playing anything right now!")
             return
 
-        current_channel.stop()
+        await current_channel.disconnect()
+
+        queue = []
 
         emoji = '🛑'
         await message.add_reaction(emoji)
@@ -124,6 +136,9 @@ async def on_message(message):
 
         emoji = '⏭️'
         await message.add_reaction(emoji)
+
+    if message.content.startswith('$q') or message.content.startswith('$queue'):
+        await message.channel.send(f"Current queue: {queue}")
 
 with open(".dc-token", "r") as f:
     token = f.readline()
