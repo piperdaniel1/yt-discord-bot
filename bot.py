@@ -43,7 +43,7 @@ async def on_message(message):
     if message.content.startswith('$p ') or message.content.startswith('$play '):
         term = message.content[3:]
         await message.add_reaction('🔃')
-        val = download_from_search(term)
+        val = download_from_search(term, force=False)
 
         if val == 1 or val == None:
             await message.channel.send("Hmm, I'm a little confused.")
@@ -68,7 +68,7 @@ async def on_message(message):
         if current_channel.is_playing():
             current_channel.pause()
 
-        emoji = '✅'
+        emoji = '⏸️'
         await message.add_reaction(emoji)
 
     if message.content.startswith('$r') or message.content.startswith('$resume'):
@@ -79,8 +79,11 @@ async def on_message(message):
         if current_channel.is_paused():
             current_channel.resume()
 
-        emoji = '✅'
+        emoji = '▶️'
         await message.add_reaction(emoji)
 
-client.run('MTAzNDY5ODg1MTMyMTM4MDkxNA.GpYxCQ.-XTQEUh3ABBHGdiM_6qEh5Z3z0b1yCLBn4ItjU')
+with open(".dc-token", "r") as f:
+    token = f.readline()
+
+client.run(token)
 

@@ -1,4 +1,5 @@
 from yt_dlp import DownloadError, YoutubeDL
+from fuzzywuzzy import fuzz
 import time
 import asyncio
 import os
@@ -97,7 +98,33 @@ def get_search_url(term, type='yt'):
     except:
         return 1
 
-def download_from_search(term, type='yt'):
+def download_from_search(term, type='yt', force=False):
+    if not force:
+        media = os.listdir(MEDIA_PATH)
+
+        media = [entry for entry in media if os.path.isfile(MEDIA_PATH + "/" + entry) and entry != ".mediacache"]
+
+        best_title = ""
+        best_score = 0
+
+        for file_title in media:
+            original_title = file_title
+            file_title = file_title.split(".")[0]
+            file_title = file_title.lower()
+            term = term.lower()
+            file_title.strip("\n.!?,;:()[]{}-& ")
+            term.strip("\n.!?,;:()[]{}-& ")
+
+            print(term, file_title, fuzz.ratio(term, file_title))
+
+            if fuzz.ratio(term, file_title) > max(60, best_score):
+                best_title = original_title
+                best_score = fuzz.ratio(term, file_title)
+
+        if best_title != "":
+            dprint("Returning local MP3 file", type='media')
+            return MEDIA_PATH + "/" + best_title, best_title
+        
     assert(downloader != None)
     try:
         if type == 'yt':
