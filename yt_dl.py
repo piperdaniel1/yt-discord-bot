@@ -1,3 +1,4 @@
+from typing import Tuple, Union
 from yt_dlp import DownloadError, YoutubeDL
 from fuzzywuzzy import fuzz
 import time
@@ -98,7 +99,11 @@ def get_search_url(term, type='yt'):
     except:
         return 1
 
-def download_from_search(term, type='yt', force=False):
+# Returns a tuple of path, title to a song
+# Downloads from YouTube if neccessary, always
+# downloads form YouTube if force=True
+# Always uses local file if threshold=0
+def download_from_search(term, type='yt', force=False, threshold=60) -> Union[Tuple[str, str], Tuple[None, None]]:
     if not force:
         media = os.listdir(MEDIA_PATH)
 
@@ -117,7 +122,7 @@ def download_from_search(term, type='yt', force=False):
 
             print(term, file_title, fuzz.ratio(term, file_title))
 
-            if fuzz.ratio(term, file_title) > max(60, best_score):
+            if fuzz.ratio(term, file_title) > max(threshold, best_score):
                 best_title = original_title
                 best_score = fuzz.ratio(term, file_title)
 
@@ -126,6 +131,7 @@ def download_from_search(term, type='yt', force=False):
             return MEDIA_PATH + "/" + best_title, best_title
         
     assert(downloader != None)
+
     try:
         if type == 'yt':
             info = downloader.extract_info(f"ytsearch:{term}", download=True)
@@ -133,9 +139,9 @@ def download_from_search(term, type='yt', force=False):
                 print(info['entries'][0]['title'])
                 return f"{MEDIA_PATH}/{info['entries'][0]['title']}.mp3", \
                         info['entries'][0]['title']
-            return 1
+            return None, None
     except:
-        return 1
+        return None, None
 
 read_config()
 

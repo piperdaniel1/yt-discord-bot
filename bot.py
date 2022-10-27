@@ -2,6 +2,7 @@
 
 import discord
 from yt_dl import *
+from typing import List, Union
 
 # Must implement a global queue class
 # Should store paths to mp3 so that they
@@ -10,138 +11,118 @@ from yt_dl import *
 # Need to have a listener to change queue
 # when the bot finishes a song.
 
-intents = discord.Intents.default()
-intents.message_content = True
+class Song:
+    def __init__(self, path: str, title: str, user: Union[str, None]):
+        self.path: str = path
+        self.title: str = title
+        self.user: Union[str, None] = user
 
-client = discord.Client(intents=intents)
+# Keeps track of songs
+class MusicBot:
+    def __init__(self):
+        self.current_song: Union[Song, None] = None
+        self.backlog: List[Song] = []
+        self.is_playing: bool = False
+        self.latest_song: Union[Song, None] = None
 
-current_channel = None
+    def fmt_queue(self):
+        queue_str = ""
 
-queue = []
-
-def play_next_song(error=None):
-    global current_channel
-    print("Current channel:", current_channel)
-
-    if current_channel != None:
-        print("Connection status:", current_channel.is_connected())
-
-    if len(queue) > 1:
-        queue.pop(0)
-
-    if len(queue) > 0:
-        next = queue[0]
-
-        if current_channel != None:
-            current_channel.play(discord.FFmpegPCMAudio(next), after=play_next_song)
-
-@client.event
-async def on_ready():
-    print(f'We have logged in as {client.user}')
-
-@client.event
-async def on_message(message):
-    global queue
-    if message.author == client.user:
-        return
-
-    if message.content.startswith('$help'):
-        await message.channel.send(f'.\nCommand help:\n$play [song title or url]\
-                                    \n$stop - pause the current song\
-                                    \n$resume - unpause the current song\
-                                    \n$clear - clears the queue\
-                                    \n$next - skip the current song in the queue\
-                                    \n$help - shows this message\
-                                    \n\nMost commands can be abbreviated to one letter.')
-
-    if message.content.startswith('$t '):
-        activities = message.author.voice
-        print(activities)
-        print(activities.channel)
-        print(message.author)
-
-        my_channel = await activities.channel.connect()
-        print(my_channel)
-
-    if message.content.startswith('$p ') or message.content.startswith('$play '):
-        term = message.content[3:]
-        await message.add_reaction('🔃')
-        val = download_from_search(term, force=False)
-
-        if val == 1 or val == None:
-            await message.channel.send("Hmm, I'm a little confused.")
-            return
-
-        path, title = val
-
-        activities = message.author.voice
-
-        global current_channel
-        if current_channel == None:
-            current_channel = await activities.channel.connect()
-            print("Connecting to new channel")
+        if not self.is_playing:
+            queue_str += "The queue is currently empty."
         else:
-            if not current_channel.is_connected():
-                current_channel = await activities.channel.connect()
-                print("Connecting to new channel")
+            assert(self.current_song is not None)
 
-        queue.append(path)
+            queue_str += "Current Queue:\n"
+            queue_str += "🎶 " + self.current_song.title + "\n"
+            
+            for song in self.backlog:
+                queue_str += "▫️ " + song.title + "\n"
 
-        if len(queue) == 1:
-            play_next_song()
+        return queue_str
 
-        await message.channel.send(f"Added {title} to the queue!")
+    def clear_queue(self):
+        self.current_channel = None;
+        self.backlog = []
+        self.is_playing = False
+        self.latest_song = None
 
-    if message.content.startswith('$s') or message.content.startswith('$stop'):
-        if current_channel == None:
-            await message.channel.send(f"I'm not playing anything right now!")
-            return
+    def push_song_back(self, song: Song):
+        if self.current_song is None:
+            self.current_song = song
+            self.is_playing = True
+        else:
+            self.backlog.append(song)
 
-        if current_channel.is_playing():
-            current_channel.pause()
+        self.latest_song = song
 
-        emoji = '⏸️'
-        await message.add_reaction(emoji)
+    def push_song_front(self, song: Song):
+        if self.current_song is None:
+            self.current_song = song
+            self.is_playing = True
+        else:
+            self.backlog.insert(0, song)
 
-    if message.content.startswith('$r') or message.content.startswith('$resume'):
-        if current_channel == None:
-            await message.channel.send(f"I'm not playing anything right now!")
-            return
+        self.latest_song = song
 
-        if current_channel.is_paused():
-            current_channel.resume()
+    # Returns the number of songs that are left to play (including the current one)
+    def next_song(self):
+        if len(self.backlog) != 0:
+            self.current_song = self.backlog.pop(0)
+            return 1 + len(self.backlog)
+        else:
+            self.current_song = None
+            self.is_playing = False
+            self.current_channel = None
+            return 0
 
-        emoji = '▶️'
-        await message.add_reaction(emoji)
+    # Always gets the best match locally no matter how little it actually matches
+    def add_song_locally(self, query, user = None, add_next = None):
+        path, title = download_from_search(query, force=False, threshold=0)
 
-    if message.content.startswith('$c') or message.content.startswith('$clear'):
-        if current_channel == None:
-            await message.channel.send(f"I'm not playing anything right now!")
-            return
+        if path is None or title is None:
+            return 1
+        
+        new_song = Song(path, title, user)
 
-        await current_channel.disconnect()
+        if add_next:
+            self.push_song_front(new_song)
+        else:
+            self.push_song_back(new_song)
 
-        queue = []
+        return 0
+    
+    # Checks locally first, then gets from yt_dlp if needed
+    # Returns 0 everything was successful (song is now on queue)
+    # Returns 1 if there was some kind of error that prevented the song
+    # from entering the queue
+    def add_song_from_query(self, query, user = None, add_next=False):
+        path, title = download_from_search(query, force=False, threshold=60)
 
-        emoji = '🛑'
-        await message.add_reaction(emoji)
+        if path is None or title is None:
+            return 1
+        
+        new_song = Song(path, title, user)
 
-    if message.content.startswith('$n') or message.content.startswith('$next'):
-        if current_channel == None:
-            await message.channel.send(f"I'm not playing anything right now!")
-            return
+        if add_next:
+            self.push_song_front(new_song)
+        else:
+            self.push_song_back(new_song)
 
-        current_channel.stop()
-        play_next_song()
+        return 0
+    
+    # Finds song on YouTube with yt_dlp
+    def add_song_remotely(self, query, user = None, add_next = False):
+        path, title = download_from_search(query, force=True)
 
-        emoji = '⏭️'
-        await message.add_reaction(emoji)
+        if path is None or title is None:
+            return 1
+        
+        new_song = Song(path, title, user)
 
-    if message.content.startswith('$q') or message.content.startswith('$queue'):
-        await message.channel.send(f"Current queue: {queue}")
+        if add_next:
+            self.push_song_front(new_song)
+        else:
+            self.push_song_back(new_song)
 
-with open(".dc-token", "r") as f:
-    token = f.readline()
-
-client.run(token)
-
+        return 0
