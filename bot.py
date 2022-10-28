@@ -1,6 +1,7 @@
 # This example requires the 'message_content' intent.
 
 import discord
+from discord.member import Member
 from yt_dl import *
 from typing import List, Union
 
@@ -12,10 +13,18 @@ from typing import List, Union
 # when the bot finishes a song.
 
 class Song:
-    def __init__(self, path: str, title: str, user: Union[str, None]):
+    def __init__(self, path: str, title: str, user: Member):
+        assert(isinstance(user, Member))
+
         self.path: str = path
         self.title: str = title
-        self.user: Union[str, None] = user
+        self.user: Member = user
+
+    def __eq__(self, other) -> bool:
+        try:
+            return self.path == other.path and self.user.name == other.user.name
+        except AttributeError:
+            return False
 
 # Keeps track of songs
 class MusicBot:
@@ -76,8 +85,11 @@ class MusicBot:
             self.current_channel = None
             return 0
 
+    def next_song_exists(self):
+        return len(self.backlog) > 0
+
     # Always gets the best match locally no matter how little it actually matches
-    def add_song_locally(self, query, user = None, add_next = None):
+    def add_song_locally(self, query, user: Member, add_next = None):
         path, title = download_from_search(query, force=False, threshold=0)
 
         if path is None or title is None:
@@ -96,7 +108,7 @@ class MusicBot:
     # Returns 0 everything was successful (song is now on queue)
     # Returns 1 if there was some kind of error that prevented the song
     # from entering the queue
-    def add_song_from_query(self, query, user = None, add_next=False):
+    def add_song_from_query(self, query, user: Member, add_next=False):
         path, title = download_from_search(query, force=False, threshold=60)
 
         if path is None or title is None:
@@ -112,7 +124,7 @@ class MusicBot:
         return 0
     
     # Finds song on YouTube with yt_dlp
-    def add_song_remotely(self, query, user = None, add_next = False):
+    def add_song_remotely(self, query, user: Member, add_next = False):
         path, title = download_from_search(query, force=True)
 
         if path is None or title is None:

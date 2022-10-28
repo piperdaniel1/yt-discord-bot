@@ -1,0 +1,74 @@
+18:06:36, DEBUG on_ready has successfully been registered as an event
+18:06:36, DEBUG on_message has successfully been registered as an event
+18:06:36, DEBUG Using selector: EpollSelector
+18:06:36, INFO logging in using static token
+18:06:37, INFO Shard ID None has connected to Gateway (Session ID: d1ac560ad082daf8d7fc2880d1ed46f3).
+18:07:00, DEBUG [on_message] trying to play song...
+18:07:00, DEBUG [on_message] added song to queue
+18:07:00, DEBUG [sync_vc_status] syncing voice status
+18:07:00, DEBUG [sync_vc_status] we should be playing music
+18:07:00, DEBUG [sync_vc_status] connecting to the right channel
+18:07:00, INFO Connecting to voice...
+18:07:00, INFO Starting voice handshake... (connection attempt 1)
+18:07:01, INFO Voice handshake complete. Endpoint found seattle9661.discord.media
+18:07:01, DEBUG [sync_vc_status] attempting to play song in the right channel
+18:07:01, DEBUG [sync_vc_status] playing the correct song...
+18:08:12, DEBUG [play_next_song] advanced to next song
+18:08:12, DEBUG Using selector: EpollSelector
+18:08:12, DEBUG [sync_vc_status] syncing voice status
+18:08:12, DEBUG [sync_vc_status] we should not be playing music
+18:08:12, DEBUG [sync_vc_status] we are in a voice call but should not be playing
+18:08:12, DEBUG [sync_vc_status] voice call is still connected
+18:08:12, DEBUG [sync_vc_status] disconnecting from voice call...
+18:08:12, ERROR Calling the after function failed.
+Traceback (most recent call last):
+  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/player.py", line 711, in _call_after
+    self.after(error)
+  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 67, in play_next_song
+    new_loop.run_until_complete(coroutine)
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 646, in run_until_complete
+    return future.result()
+  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 108, in sync_vc_status
+    await current_vc.disconnect()
+  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/voice_client.py", line 506, in disconnect
+    await self.ws.close()
+  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/gateway.py", line 1012, in close
+    await self.ws.close(code=code)
+  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/gateway.py", line 236, in close
+    return await super().close(code=code, message=message)
+  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/aiohttp/client_ws.py", line 172, in close
+    await self._waiting
+RuntimeError: Task <Task pending name='Task-58' coro=<sync_vc_status() running at /home/daniel/personal-projects/yt-discord-bot/main.py:108> cb=[_run_until_complete_cb() at /usr/lib/python3.10/asyncio/base_events.py:184]> got Future <Future pending> attached to a different loop
+18:08:12, INFO Disconnecting from voice normally, close code 1000.
+18:08:12, INFO ffmpeg process 13980 successfully terminated with return code of 0.
+18:09:24, DEBUG [on_message] trying to play song...
+18:09:24, DEBUG [on_message] added song to queue
+18:09:24, DEBUG [sync_vc_status] syncing voice status
+18:09:24, DEBUG [sync_vc_status] we should be playing music
+18:09:24, DEBUG [sync_vc_status] attempting to play song in the right channel
+18:09:24, DEBUG [sync_vc_status] playing the correct song...
+18:09:24, WARNING [sync_vc_status] had error while syncing state, disconnecting and returning 2: Not connected to voice.
+18:09:24, INFO ffmpeg process 14072 has not terminated. Waiting to terminate...
+18:09:24, INFO ffmpeg process 14072 should have terminated with a return code of -9.
+18:09:35, DEBUG [on_message] showing queue to user
+18:10:23, DEBUG [on_message] clearing queue
+18:10:23, DEBUG [sync_vc_status] syncing voice status
+18:10:23, DEBUG [sync_vc_status] we should not be playing music
+18:10:23, DEBUG [sync_vc_status] good, we are not connected to a call
+18:10:46, DEBUG [on_message] trying to play song...
+18:10:47, DEBUG [on_message] added song to queue
+18:10:47, DEBUG [sync_vc_status] syncing voice status
+18:10:47, DEBUG [sync_vc_status] we should not be playing music
+18:10:47, DEBUG [sync_vc_status] good, we are not connected to a call
+18:11:06, DEBUG [on_message] showing queue to user
+18:11:13, DEBUG [on_message] trying to play song...
+18:11:13, DEBUG [on_message] added song to queue
+18:11:13, DEBUG [sync_vc_status] syncing voice status
+18:11:13, DEBUG [sync_vc_status] we should not be playing music
+18:11:13, DEBUG [sync_vc_status] good, we are not connected to a call
+18:11:15, DEBUG [on_message] showing queue to user
+18:11:28, DEBUG [on_message] trying to play song...
+18:11:28, DEBUG [on_message] added song to queue
+18:11:28, DEBUG [sync_vc_status] syncing voice status
+18:11:28, DEBUG [sync_vc_status] we should not be playing music
+18:11:28, DEBUG [sync_vc_status] good, we are not connected to a call
