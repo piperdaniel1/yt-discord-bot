@@ -1,5 +1,6 @@
 import discord
-from discord.member import Member
+from discord.channel import TextChannel
+from discord.member import Member, VoiceState
 from discord.message import Message
 from discord.player import FFmpegPCMAudio
 from discord.voice_client import VoiceClient
@@ -322,6 +323,20 @@ async def on_message(message: Message):
     if message.content.startswith('$q') or message.content.startswith('$queue'):
         logging.debug("[on_message] showing queue to user")
         await message.channel.send(f".\n{music.fmt_queue()}")
+
+@client.event
+async def on_voice_state_update(member: Member, before: VoiceState, after: VoiceState):
+    assert(client.user is not None)
+
+    if before.channel is None and after.channel is not None and member.id != client.user.id:
+        channels = list(client.get_all_channels())
+
+        for channel in channels:
+            if channel.name == "on-announcement" and \
+                    isinstance(channel, TextChannel) and \
+                    channel.guild.name == after.channel.guild.name:
+                await channel.send(f"{member.display_name} has joined the {after.channel.name} voice channel!")
+                break
 
 with open(".dc-token", "r") as f:
     token = f.readline()

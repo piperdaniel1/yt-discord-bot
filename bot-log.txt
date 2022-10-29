@@ -1452,3 +1452,21 @@ discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1001
 19:00:06, DEBUG [sync_vc_status] syncing voice status
 19:00:06, DEBUG [sync_vc_status] we should not be playing music
 19:00:06, DEBUG [sync_vc_status] good, we are not connected to a call
+11:36:06, DEBUG on_ready has successfully been registered as an event
+11:36:06, DEBUG on_message has successfully been registered as an event
+11:36:06, DEBUG on_voice_state_update has successfully been registered as an event
+11:36:06, DEBUG Using selector: EpollSelector
+11:36:06, INFO logging in using static token
+11:36:06, INFO Shard ID None has connected to Gateway (Session ID: 689c27c71446b23c8b4640c40160e662).
+11:41:26, DEBUG on_ready has successfully been registered as an event
+11:41:26, DEBUG on_message has successfully been registered as an event
+11:41:26, DEBUG on_voice_state_update has successfully been registered as an event
+11:41:26, DEBUG Using selector: EpollSelector
+11:41:26, INFO logging in using static token
+11:41:26, INFO Shard ID None has connected to Gateway (Session ID: ff317c08c34d049a0e13558ab0c4b80c).
+11:44:15, DEBUG on_ready has successfully been registered as an event
+11:44:15, DEBUG on_message has successfully been registered as an event
+11:44:15, DEBUG on_voice_state_update has successfully been registered as an event
+11:44:15, DEBUG Using selector: EpollSelector
+11:44:15, INFO logging in using static token
+11:44:16, INFO Shard ID None has connected to Gateway (Session ID: 766ab3686074a0a3807579ff76dcc2a9).
