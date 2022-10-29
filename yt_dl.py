@@ -4,7 +4,11 @@ from fuzzywuzzy import fuzz
 import time
 import asyncio
 import os
-
+import logging
+logging.basicConfig(filename='bot-log.txt',
+                    format='%(asctime)s, %(levelname)s %(message)s',
+                    datefmt='%H:%M:%S',
+                    level=logging.DEBUG)
 #
 # Idea, on query from discord bot:
 # Check file directory for a similar song name
@@ -84,6 +88,7 @@ def save_media(path, path_type='yt'):
         return 1
     return 0
 
+
 def get_search_url(term, type='yt'):
     assert(downloader != None)
     try:
@@ -104,7 +109,10 @@ def get_search_url(term, type='yt'):
 # downloads form YouTube if force=True
 # Always uses local file if threshold=0
 def download_from_search(term, type='yt', force=False, threshold=60) -> Union[Tuple[str, str], Tuple[None, None]]:
+    logging.debug(f"[download_from_search] - Searching for {term}")
+
     if not force:
+        logging.debug(f"[download_from_search] Searching local directory")
         media = os.listdir(MEDIA_PATH)
 
         media = [entry for entry in media if os.path.isfile(MEDIA_PATH + "/" + entry) and entry != ".mediacache"]
@@ -120,27 +128,37 @@ def download_from_search(term, type='yt', force=False, threshold=60) -> Union[Tu
             file_title.strip("\n.!?,;:()[]{}-& ")
             term.strip("\n.!?,;:()[]{}-& ")
 
-            print(term, file_title, fuzz.ratio(term, file_title))
-
             if fuzz.ratio(term, file_title) > max(threshold, best_score):
                 best_title = original_title
                 best_score = fuzz.ratio(term, file_title)
 
+
         if best_title != "":
+            logging.debug(f"[download_from_search] Found suitable local song with score {best_score}")
             dprint("Returning local MP3 file", type='media')
             return MEDIA_PATH + "/" + best_title, best_title
         
-    assert(downloader != None)
+        logging.debug(f"[download_from_search] No suitable local song found, searching remotely...")
+
+    try:
+        assert(downloader != None)
+    except AssertionError:
+        logging.warning(f"[download_from_search] Error, could not retrieve song because yt_dlp downloader was None.")
+        return None, None
 
     try:
         if type == 'yt':
             info = downloader.extract_info(f"ytsearch:{term}", download=True)
             if info != None:
                 print(info['entries'][0]['title'])
+                logging.debug(f"[download_from_search] Found song on YouTube, returning path and title...")
                 return f"{MEDIA_PATH}/{info['entries'][0]['title']}.mp3", \
                         info['entries'][0]['title']
-            return None, None
-    except:
+
+        logging.debug(f"[download_from_search] No suitable song found")
+        return None, None
+    except Exception as e:
+        logging.debug(f"[download_from_search] No suitable song found due to exception: {e}")
         return None, None
 
 read_config()

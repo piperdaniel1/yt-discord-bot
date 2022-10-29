@@ -3,10 +3,12 @@ from discord.member import Member
 from discord.message import Message
 from discord.player import FFmpegPCMAudio
 from discord.voice_client import VoiceClient
+from yt_dlp.extractor import myspace
 from yt_dl import *
 from bot import MusicBot, Song
 import logging
 import asyncio
+import re
 
 logging.basicConfig(filename='bot-log.txt',
                     format='%(asctime)s, %(levelname)s %(message)s',
@@ -28,23 +30,7 @@ music = MusicBot()
 current_vc: Union[VoiceClient, None] = None
 current_vc_song: Union[Song, None] = None
 
-'''
-def play_next_song(error=None):
-    global current_channel
-    print("Current channel:", current_channel)
-
-    if current_channel != None:
-        print("Connection status:", current_channel.is_connected())
-
-    if len(queue) > 1:
-        queue.pop(0)
-
-    if len(queue) > 0:
-        next = queue[0]
-
-        if current_channel != None:
-            current_channel.play(discord.FFmpegPCMAudio(next), after=play_next_song)
-'''
+MAIN_EVENT_LOOP = asyncio.get_event_loop()
 
 # Advances the queue and resyncs with the voice call
 def play_next_song(error):
@@ -63,8 +49,7 @@ def play_next_song(error):
     logging.debug("[play_next_song] advanced to next song") 
 
     coroutine = sync_vc_status()
-    new_loop = asyncio.new_event_loop()
-    new_loop.run_until_complete(coroutine)
+    MAIN_EVENT_LOOP.run_until_complete(coroutine)
 
     logging.debug("[play_next_song] synced vc status") 
 
@@ -79,7 +64,7 @@ def play_next_song(error):
 # 0 - Sync was successful
 # 1 - Not successful, only way to recover is to skip to the next song
 # 2 - Not successful, may be worth retrying the sync before skipping
-async def sync_vc_status(reconnect_to_vc = False):
+async def sync_vc_status(reconnect_to_vc = False, attempt = 0):
     logging.debug("[sync_vc_status] syncing voice status")
     global current_vc
     global current_vc_song
@@ -171,40 +156,30 @@ async def sync_vc_status(reconnect_to_vc = False):
             current_vc.play(FFmpegPCMAudio(music.current_song.path), after=play_next_song)
             current_vc_song = music.current_song
         except Exception as e:
-            logging.warning(f"[sync_vc_status] had error while syncing state, disconnecting and returning 2: {e}")
+            if attempt == 0:
+                logging.warning(f"[sync_vc_status] had error while syncing state: {e}, trying again with fresh call vars.")
+            else:
+                logging.warning(f"[sync_vc_status] had error while syncing state: {e}, returning 2 due to too many attempts.")
+                pass
 
             await current_vc.disconnect()
             current_vc = None
             current_vc_song = None
 
+            if attempt == 0:
+                return await sync_vc_status(attempt=attempt+1)
+
             return 2
-
-    '''
-    path, title = val
-
-    activities = message.author.voice
-
-    global current_channel
-    if current_channel == None:
-        current_channel = await activities.channel.connect()
-        print("Connecting to new channel")
-    else:
-        if not current_channel.is_connected():
-            current_channel = await activities.channel.connect()
-            print("Connecting to new channel")
-
-    queue.append(path)
-
-    if len(queue) == 1:
-        play_next_song()
-
-    await message.channel.send(f"Added {title} to the queue!")
-    '''
 
 @client.event
 async def on_ready():
     print(f'We have logged in as {client.user}')
 
+#
+# Checks if any message received by the bot is a command of some sort
+# Currently, all commands are received this way, the official discort
+# slash command system is not used
+#
 @client.event
 async def on_message(message: Message):
     global client
@@ -217,15 +192,31 @@ async def on_message(message: Message):
     if message.content.startswith('$help'):
         logging.debug("[on_message] Printing help message")
         await message.channel.send(f'.\nCommand help:\n$play [song title or url]\
+                                    \n    -l Only search locally for the song\
+                                    \n    -r Only search remotely for the song\
+                                    \n    -n Put this at the front of the queue\
                                     \n$stop - pause the current song\
                                     \n$resume - unpause the current song\
                                     \n$clear - clears the queue\
                                     \n$next - skip the current song in the queue\
+                                    \n$queue - shows the current queue\
                                     \n$help - shows this message\
-                                    \n\nMost commands can be abbreviated to one letter.')
+                                    \n\nMost commands can be abbreviated to one letter. Flags should be appended to the end of the command. You must include a space before your flags. For example:\
+                                    \n$play Avicii - The Nights -l-f')
 
     if message.content.startswith('$p ') or message.content.startswith('$play '):
-        logging.debug("[on_message] trying to play song...")
+        msg_content = message.content
+
+        try:
+            cmd_flags = message.content.split(" ")[-1].lower()
+
+            # Don't search for the flags
+            msg_content = " ".join(message.content.split(" ")[0:-1])
+        except:
+            cmd_flags = ""
+
+        logging.debug(f"[on_message] trying to play song with flags: '{cmd_flags}'")
+
         try:
             author = message.author
 
@@ -241,10 +232,19 @@ async def on_message(message: Message):
                 await message.channel.send(f"Join a voice channel first! 😴")
                 return
 
-            term = message.content[3:]
+            # Don't search for the command string
+            term = " ".join(msg_content.split(" ")[1:])
+
             await message.add_reaction('⌛')
 
-            status = music.add_song_from_query(term, user = author)
+            add_song_next = "-n" in cmd_flags
+
+            if "-l" in cmd_flags:
+                status = music.add_song_locally(term, user = author, add_next=add_song_next)
+            elif "-r" in cmd_flags:
+                status = music.add_song_remotely(term, user = author, add_next=add_song_next)
+            else:
+                status = music.add_song_from_query(term, user = author, add_next=add_song_next)
 
             if status == 0:
                 assert(music.latest_song is not None)
@@ -257,33 +257,24 @@ async def on_message(message: Message):
                 return
 
             await sync_vc_status()
+
+            try:
+                assert(client.user != None)
+                assert(message.guild != None)
+            except AssertionError:
+                logging.debug("[on_message] error, cannot play song outside of a guild")
+                return
+
+            myself = message.guild.get_member(client.user.id)
+
+            assert(myself != None)
+
+            await message.remove_reaction('⌛', myself)
+            #await message.add_reaction('🎵')
         except Exception as e:
             print("Caught exception while trying to play a song: ", e)
             logging.warning(f"[on_message] encountered exception while trying to play song: {e}")
             await message.channel.send(f"Sorry, I'm a little confused... 😕")
-
-
-        '''
-        path, title = val
-
-        activities = message.author.voice
-
-        global current_channel
-        if current_channel == None:
-            current_channel = await activities.channel.connect()
-            print("Connecting to new channel")
-        else:
-            if not current_channel.is_connected():
-                current_channel = await activities.channel.connect()
-                print("Connecting to new channel")
-
-        queue.append(path)
-
-        if len(queue) == 1:
-            play_next_song()
-
-        await message.channel.send(f"Added {title} to the queue!")
-        '''
 
     if message.content.startswith('$s') or message.content.startswith('$stop'):
         logging.debug("[on_message] stopping song")

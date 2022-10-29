@@ -4,6 +4,11 @@ import discord
 from discord.member import Member
 from yt_dl import *
 from typing import List, Union
+import logging
+logging.basicConfig(filename='bot-log.txt',
+                    format='%(asctime)s, %(levelname)s %(message)s',
+                    datefmt='%H:%M:%S',
+                    level=logging.DEBUG)
 
 # Must implement a global queue class
 # Should store paths to mp3 so that they

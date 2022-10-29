@@ -72,3 +72,506 @@ RuntimeError: Task <Task pending name='Task-58' coro=<sync_vc_status() running a
 18:11:28, DEBUG [sync_vc_status] syncing voice status
 18:11:28, DEBUG [sync_vc_status] we should not be playing music
 18:11:28, DEBUG [sync_vc_status] good, we are not connected to a call
+17:14:59, DEBUG on_ready has successfully been registered as an event
+17:14:59, DEBUG on_message has successfully been registered as an event
+17:14:59, DEBUG Using selector: EpollSelector
+17:14:59, INFO logging in using static token
+17:15:00, INFO Shard ID None has connected to Gateway (Session ID: c3445b9fddf71d685f9f97e7fd458c01).
+17:15:11, DEBUG [on_message] trying to play song...
+17:15:11, DEBUG [on_message] added song to queue
+17:15:12, DEBUG [sync_vc_status] syncing voice status
+17:15:12, DEBUG [sync_vc_status] we should be playing music
+17:15:12, DEBUG [sync_vc_status] connecting to the right channel
+17:15:12, INFO Connecting to voice...
+17:15:12, INFO Starting voice handshake... (connection attempt 1)
+17:15:12, INFO Voice handshake complete. Endpoint found seattle7364.discord.media
+17:15:12, DEBUG [sync_vc_status] attempting to play song in the right channel
+17:15:12, DEBUG [sync_vc_status] playing the correct song...
+17:15:30, DEBUG [on_message] trying to play song...
+17:15:31, DEBUG [on_message] added song to queue
+17:15:31, DEBUG [sync_vc_status] syncing voice status
+17:15:31, DEBUG [sync_vc_status] we should be playing music
+17:15:31, DEBUG [sync_vc_status] attempting to play song in the right channel
+17:15:31, DEBUG [sync_vc_status] we are already playing the right song
+17:18:49, DEBUG [play_next_song] advanced to next song
+17:18:49, DEBUG Using selector: EpollSelector
+17:18:49, DEBUG [sync_vc_status] syncing voice status
+17:18:49, DEBUG [sync_vc_status] we should be playing music
+17:18:49, DEBUG [sync_vc_status] attempting to play song in the right channel
+17:18:49, DEBUG [sync_vc_status] playing the correct song...
+17:18:49, DEBUG [play_next_song] synced vc status
+17:18:49, INFO ffmpeg process 4818 successfully terminated with return code of 0.
+17:19:28, DEBUG [on_message] trying to play song...
+17:19:39, DEBUG [on_message] added song to queue
+17:19:40, DEBUG [sync_vc_status] syncing voice status
+17:19:40, DEBUG [sync_vc_status] we should be playing music
+17:19:40, DEBUG [sync_vc_status] attempting to play song in the right channel
+17:19:40, DEBUG [sync_vc_status] we are already playing the right song
+17:21:59, DEBUG [play_next_song] advanced to next song
+17:21:59, DEBUG Using selector: EpollSelector
+17:21:59, DEBUG [sync_vc_status] syncing voice status
+17:21:59, DEBUG [sync_vc_status] we should be playing music
+17:21:59, DEBUG [sync_vc_status] attempting to play song in the right channel
+17:21:59, DEBUG [sync_vc_status] playing the correct song...
+17:21:59, DEBUG [play_next_song] synced vc status
+17:21:59, INFO ffmpeg process 5390 successfully terminated with return code of 0.
+17:22:07, DEBUG [on_message] showing queue to user
+17:22:25, DEBUG [on_message] trying to play song...
+17:22:34, DEBUG [on_message] added song to queue
+17:22:34, DEBUG [sync_vc_status] syncing voice status
+17:22:34, DEBUG [sync_vc_status] we should be playing music
+17:22:34, DEBUG [sync_vc_status] attempting to play song in the right channel
+17:22:34, DEBUG [sync_vc_status] we are already playing the right song
+17:22:38, DEBUG [on_message] showing queue to user
+17:23:53, INFO The voice handshake is being terminated for Channel ID 1034701393858146358 (Guild ID 1034701393858146354)
+17:23:53, DEBUG [play_next_song] advanced to next song
+17:23:53, DEBUG Using selector: EpollSelector
+17:23:53, DEBUG [sync_vc_status] syncing voice status
+17:23:53, DEBUG [sync_vc_status] we should be playing music
+17:23:53, DEBUG [sync_vc_status] attempting to play song in the right channel
+17:23:53, DEBUG [sync_vc_status] playing the correct song...
+17:23:53, WARNING [sync_vc_status] had error while syncing state, disconnecting and returning 2: Not connected to voice.
+17:23:53, INFO ffmpeg process 5607 has not terminated. Waiting to terminate...
+17:23:53, INFO ffmpeg process 5607 should have terminated with a return code of -9.
+17:23:53, DEBUG [play_next_song] synced vc status
+17:23:53, INFO ffmpeg process 5515 has not terminated. Waiting to terminate...
+17:23:53, INFO ffmpeg process 5515 should have terminated with a return code of -9.
+17:24:01, DEBUG on_ready has successfully been registered as an event
+17:24:01, DEBUG on_message has successfully been registered as an event
+17:24:01, DEBUG Using selector: EpollSelector
+17:24:01, INFO logging in using static token
+17:24:02, INFO Shard ID None has connected to Gateway (Session ID: 9a0d2d890c5fd33014907edaa23dcdab).
+17:24:11, DEBUG [on_message] trying to play song...
+17:24:11, DEBUG [on_message] added song to queue
+17:24:12, DEBUG [sync_vc_status] syncing voice status
+17:24:12, DEBUG [sync_vc_status] we should be playing music
+17:24:12, DEBUG [sync_vc_status] connecting to the right channel
+17:24:12, INFO Connecting to voice...
+17:24:12, INFO Starting voice handshake... (connection attempt 1)
+17:24:12, INFO Voice handshake complete. Endpoint found seattle7364.discord.media
+17:24:12, DEBUG [sync_vc_status] attempting to play song in the right channel
+17:24:12, DEBUG [sync_vc_status] playing the correct song...
+17:24:18, DEBUG [on_message] trying to play song...
+17:24:18, DEBUG [on_message] added song to queue
+17:24:19, DEBUG [sync_vc_status] syncing voice status
+17:24:19, DEBUG [sync_vc_status] we should be playing music
+17:24:19, DEBUG [sync_vc_status] attempting to play song in the right channel
+17:24:19, DEBUG [sync_vc_status] we are already playing the right song
+17:24:26, DEBUG [on_message] showing queue to user
+17:29:00, DEBUG [play_next_song] advanced to next song
+17:29:00, DEBUG Using selector: EpollSelector
+17:29:00, DEBUG [sync_vc_status] syncing voice status
+17:29:00, DEBUG [sync_vc_status] we should be playing music
+17:29:00, DEBUG [sync_vc_status] attempting to play song in the right channel
+17:29:00, DEBUG [sync_vc_status] playing the correct song...
+17:29:00, DEBUG [play_next_song] synced vc status
+17:29:00, INFO ffmpeg process 5626 successfully terminated with return code of 0.
+17:29:07, DEBUG [on_message] showing queue to user
+17:29:19, DEBUG [on_message] trying to play song...
+17:29:27, DEBUG [on_message] added song to queue
+17:29:27, DEBUG [sync_vc_status] syncing voice status
+17:29:27, DEBUG [sync_vc_status] we should be playing music
+17:29:27, DEBUG [sync_vc_status] attempting to play song in the right channel
+17:29:27, DEBUG [sync_vc_status] we are already playing the right song
+17:29:30, DEBUG [on_message] showing queue to user
+17:32:19, DEBUG [play_next_song] advanced to next song
+17:32:19, DEBUG Using selector: EpollSelector
+17:32:19, DEBUG [sync_vc_status] syncing voice status
+17:32:19, DEBUG [sync_vc_status] we should be playing music
+17:32:19, DEBUG [sync_vc_status] attempting to play song in the right channel
+17:32:19, DEBUG [sync_vc_status] playing the correct song...
+17:32:19, DEBUG [play_next_song] synced vc status
+17:32:19, INFO ffmpeg process 5802 successfully terminated with return code of 0.
+17:32:20, DEBUG [on_message] showing queue to user
+17:32:37, DEBUG [on_message] trying to play song...
+17:32:46, DEBUG [on_message] added song to queue
+17:32:46, DEBUG [sync_vc_status] syncing voice status
+17:32:46, DEBUG [sync_vc_status] we should be playing music
+17:32:46, DEBUG [sync_vc_status] attempting to play song in the right channel
+17:32:46, DEBUG [sync_vc_status] we are already playing the right song
+17:32:46, DEBUG [on_message] showing queue to user
+17:36:16, DEBUG [play_next_song] advanced to next song
+17:36:16, DEBUG Using selector: EpollSelector
+17:36:16, DEBUG [sync_vc_status] syncing voice status
+17:36:16, DEBUG [sync_vc_status] we should be playing music
+17:36:16, DEBUG [sync_vc_status] attempting to play song in the right channel
+17:36:16, DEBUG [sync_vc_status] playing the correct song...
+17:36:16, DEBUG [play_next_song] synced vc status
+17:36:16, INFO ffmpeg process 5916 successfully terminated with return code of 0.
+17:40:23, DEBUG [play_next_song] advanced to next song
+17:40:23, DEBUG Using selector: EpollSelector
+17:40:23, DEBUG [sync_vc_status] syncing voice status
+17:40:23, DEBUG [sync_vc_status] we should not be playing music
+17:40:23, DEBUG [sync_vc_status] we are in a voice call but should not be playing
+17:40:23, DEBUG [sync_vc_status] voice call is still connected
+17:40:23, DEBUG [sync_vc_status] disconnecting from voice call...
+17:40:23, ERROR Calling the after function failed.
+Traceback (most recent call last):
+  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/player.py", line 711, in _call_after
+    self.after(error)
+  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 67, in play_next_song
+    logging.debug("[sync_vc_status] syncing voice status")
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 646, in run_until_complete
+    return future.result()
+  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 110, in sync_vc_status
+    # If they are not, we just return because there is not a way to play
+  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/voice_client.py", line 506, in disconnect
+    await self.ws.close()
+  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/gateway.py", line 1012, in close
+    await self.ws.close(code=code)
+  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/gateway.py", line 236, in close
+    return await super().close(code=code, message=message)
+  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/aiohttp/client_ws.py", line 172, in close
+    await self._waiting
+RuntimeError: Task <Task pending name='Task-458' coro=<sync_vc_status() running at /home/daniel/personal-projects/yt-discord-bot/main.py:110> cb=[_run_until_complete_cb() at /usr/lib/python3.10/asyncio/base_events.py:184]> got Future <Future pending> attached to a different loop
+17:40:23, INFO Disconnecting from voice normally, close code 1000.
+17:40:23, INFO ffmpeg process 6044 successfully terminated with return code of 0.
+17:40:32, DEBUG [on_message] showing queue to user
+17:42:34, DEBUG [on_message] trying to play song...
+17:42:34, DEBUG [on_message] added song to queue
+17:42:35, DEBUG [sync_vc_status] syncing voice status
+17:42:35, DEBUG [sync_vc_status] we should be playing music
+17:42:35, DEBUG [sync_vc_status] attempting to play song in the right channel
+17:42:35, DEBUG [sync_vc_status] playing the correct song...
+17:42:35, WARNING [sync_vc_status] had error while syncing state, disconnecting and returning 2: Not connected to voice.
+17:42:35, INFO ffmpeg process 6169 has not terminated. Waiting to terminate...
+17:42:35, INFO ffmpeg process 6169 should have terminated with a return code of -9.
+17:47:49, DEBUG on_ready has successfully been registered as an event
+17:47:49, DEBUG on_message has successfully been registered as an event
+17:47:49, DEBUG Using selector: EpollSelector
+17:47:49, INFO logging in using static token
+17:47:50, INFO Shard ID None has connected to Gateway (Session ID: 34a144775e88cdd7ab4849cd5158ab62).
+17:48:02, DEBUG [on_message] trying to play song...
+17:48:03, DEBUG [download_from_search] - Searching for Simon Garfunkel America
+17:48:03, DEBUG [download_from_search] Searching local directory
+17:48:03, DEBUG [download_from_search] Found suitable local song with score 79
+17:48:03, DEBUG [on_message] added song to queue
+17:48:03, DEBUG [sync_vc_status] syncing voice status
+17:48:03, DEBUG [sync_vc_status] we should be playing music
+17:48:03, DEBUG [sync_vc_status] connecting to the right channel
+17:48:03, INFO Connecting to voice...
+17:48:03, INFO Starting voice handshake... (connection attempt 1)
+17:48:03, INFO Voice handshake complete. Endpoint found seattle7364.discord.media
+17:48:03, DEBUG [sync_vc_status] attempting to play song in the right channel
+17:48:03, DEBUG [sync_vc_status] playing the correct song...
+17:48:17, DEBUG [on_message] Printing help message
+17:51:40, DEBUG [play_next_song] advanced to next song
+17:51:40, DEBUG Using selector: EpollSelector
+17:51:40, DEBUG [sync_vc_status] syncing voice status
+17:51:40, DEBUG [sync_vc_status] we should not be playing music
+17:51:40, DEBUG [sync_vc_status] we are in a voice call but should not be playing
+17:51:40, DEBUG [sync_vc_status] voice call is still connected
+17:51:40, DEBUG [sync_vc_status] disconnecting from voice call...
+17:51:40, ERROR Calling the after function failed.
+Traceback (most recent call last):
+  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/player.py", line 711, in _call_after
+    self.after(error)
+  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 49, in play_next_song
+    new_loop.run_until_complete(coroutine)
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 646, in run_until_complete
+    return future.result()
+  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 92, in sync_vc_status
+    await current_vc.disconnect()
+  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/voice_client.py", line 506, in disconnect
+    await self.ws.close()
+  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/gateway.py", line 1012, in close
+    await self.ws.close(code=code)
+  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/gateway.py", line 236, in close
+    return await super().close(code=code, message=message)
+  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/aiohttp/client_ws.py", line 172, in close
+    await self._waiting
+RuntimeError: Task <Task pending name='Task-119' coro=<sync_vc_status() running at /home/daniel/personal-projects/yt-discord-bot/main.py:92> cb=[_run_until_complete_cb() at /usr/lib/python3.10/asyncio/base_events.py:184]> got Future <Future pending> attached to a different loop
+17:51:40, INFO Disconnecting from voice normally, close code 1000.
+17:51:40, INFO ffmpeg process 6386 successfully terminated with return code of 0.
+17:57:06, DEBUG on_ready has successfully been registered as an event
+17:57:06, DEBUG on_message has successfully been registered as an event
+17:57:06, DEBUG Using selector: EpollSelector
+17:57:06, INFO logging in using static token
+17:57:07, INFO Shard ID None has connected to Gateway (Session ID: 4d575cbd137c7e5920293f415d36766a).
+17:57:17, DEBUG [on_message] trying to play song with flags: 'avicii'
+17:57:17, DEBUG [download_from_search] - Searching for The Nights Avicii
+17:57:17, DEBUG [download_from_search] Searching local directory
+17:57:17, DEBUG [download_from_search] No suitable local song found, searching remotely...
+17:57:27, DEBUG [download_from_search] Found song on YouTube, returning path and title...
+17:57:27, DEBUG [on_message] added song to queue
+17:57:27, DEBUG [sync_vc_status] syncing voice status
+17:57:27, DEBUG [sync_vc_status] we should be playing music
+17:57:27, DEBUG [sync_vc_status] connecting to the right channel
+17:57:27, INFO Connecting to voice...
+17:57:27, INFO Starting voice handshake... (connection attempt 1)
+17:57:27, INFO Voice handshake complete. Endpoint found seattle7364.discord.media
+17:57:27, DEBUG [sync_vc_status] attempting to play song in the right channel
+17:57:27, DEBUG [sync_vc_status] playing the correct song...
+17:57:30, DEBUG [play_next_song] advanced to next song
+17:57:30, ERROR Calling the after function failed.
+Traceback (most recent call last):
+  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/player.py", line 711, in _call_after
+    self.after(error)
+  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 48, in play_next_song
+    event_loop = asyncio.get_event_loop()
+  File "/usr/lib/python3.10/asyncio/events.py", line 656, in get_event_loop
+    raise RuntimeError('There is no current event loop in thread %r.'
+RuntimeError: There is no current event loop in thread 'Thread-3'.
+17:57:30, INFO ffmpeg process 6885 has not terminated. Waiting to terminate...
+17:57:30, INFO The voice handshake is being terminated for Channel ID 1034701393858146358 (Guild ID 1034701393858146354)
+17:57:30, INFO ffmpeg process 6885 should have terminated with a return code of -9.
+17:57:31, DEBUG on_ready has successfully been registered as an event
+17:57:31, DEBUG on_message has successfully been registered as an event
+17:57:31, DEBUG Using selector: EpollSelector
+17:57:31, INFO logging in using static token
+17:57:32, INFO Shard ID None has connected to Gateway (Session ID: c0a7518617adcbdb74c72a3ba31b832d).
+17:57:43, DEBUG [on_message] trying to play song with flags: '-l'
+17:57:43, DEBUG [download_from_search] - Searching for the nights -l
+17:57:43, DEBUG [download_from_search] Searching local directory
+17:57:43, DEBUG [download_from_search] Found suitable local song with score 62
+17:57:43, DEBUG [on_message] added song to queue
+17:57:43, DEBUG [sync_vc_status] syncing voice status
+17:57:43, DEBUG [sync_vc_status] we should be playing music
+17:57:43, DEBUG [sync_vc_status] connecting to the right channel
+17:57:43, INFO Connecting to voice...
+17:57:43, INFO Starting voice handshake... (connection attempt 1)
+17:57:43, INFO Voice handshake complete. Endpoint found seattle7364.discord.media
+17:57:44, DEBUG [sync_vc_status] attempting to play song in the right channel
+17:57:44, DEBUG [sync_vc_status] playing the correct song...
+17:58:11, DEBUG [on_message] trying to play song with flags: '-l'
+17:58:11, DEBUG [download_from_search] - Searching for america -l
+17:58:11, DEBUG [download_from_search] Searching local directory
+17:58:11, DEBUG [download_from_search] Found suitable local song with score 36
+17:58:11, DEBUG [on_message] added song to queue
+17:58:11, DEBUG [sync_vc_status] syncing voice status
+17:58:11, DEBUG [sync_vc_status] we should be playing music
+17:58:11, DEBUG [sync_vc_status] attempting to play song in the right channel
+17:58:11, DEBUG [sync_vc_status] we are already playing the right song
+17:58:21, DEBUG [on_message] trying to play song with flags: '-l'
+17:58:21, DEBUG [download_from_search] - Searching for something just like this -l
+17:58:21, DEBUG [download_from_search] Searching local directory
+17:58:21, DEBUG [download_from_search] Found suitable local song with score 58
+17:58:21, DEBUG [on_message] added song to queue
+17:58:22, DEBUG [sync_vc_status] syncing voice status
+17:58:22, DEBUG [sync_vc_status] we should be playing music
+17:58:22, DEBUG [sync_vc_status] attempting to play song in the right channel
+17:58:22, DEBUG [sync_vc_status] we are already playing the right song
+17:58:45, DEBUG [on_message] trying to play song with flags: '-n'
+17:58:45, DEBUG [download_from_search] - Searching for fun - Why Am I the One -n
+17:58:45, DEBUG [download_from_search] Searching local directory
+17:58:45, DEBUG [download_from_search] No suitable local song found, searching remotely...
+17:58:55, DEBUG [download_from_search] Found song on YouTube, returning path and title...
+17:58:55, DEBUG [on_message] added song to queue
+17:58:55, DEBUG [sync_vc_status] syncing voice status
+17:58:55, DEBUG [sync_vc_status] we should be playing music
+17:58:55, DEBUG [sync_vc_status] attempting to play song in the right channel
+17:58:55, DEBUG [sync_vc_status] we are already playing the right song
+17:59:01, DEBUG [on_message] showing queue to user
+18:00:54, DEBUG [play_next_song] advanced to next song
+18:00:54, ERROR Calling the after function failed.
+Traceback (most recent call last):
+  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/player.py", line 711, in _call_after
+    self.after(error)
+  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 48, in play_next_song
+    coroutine = sync_vc_status()
+  File "/usr/lib/python3.10/asyncio/events.py", line 656, in get_event_loop
+    raise RuntimeError('There is no current event loop in thread %r.'
+RuntimeError: There is no current event loop in thread 'Thread-3'.
+18:00:54, INFO ffmpeg process 6905 successfully terminated with return code of 0.
+18:02:07, INFO The voice handshake is being terminated for Channel ID 1034701393858146358 (Guild ID 1034701393858146354)
+18:02:08, DEBUG Using selector: EpollSelector
+18:02:08, DEBUG on_ready has successfully been registered as an event
+18:02:08, DEBUG on_message has successfully been registered as an event
+18:02:08, DEBUG Using selector: EpollSelector
+18:02:08, INFO logging in using static token
+18:02:08, INFO Shard ID None has connected to Gateway (Session ID: 8e033dd030b4991a0f8fc199d61f8d48).
+18:02:12, DEBUG [on_message] trying to play song with flags: 'nights'
+18:02:13, DEBUG [download_from_search] - Searching for Avicii The Nights
+18:02:13, DEBUG [download_from_search] Searching local directory
+18:02:13, DEBUG [download_from_search] Found suitable local song with score 94
+18:02:13, DEBUG [on_message] added song to queue
+18:02:13, DEBUG [sync_vc_status] syncing voice status
+18:02:13, DEBUG [sync_vc_status] we should be playing music
+18:02:13, DEBUG [sync_vc_status] connecting to the right channel
+18:02:13, INFO Connecting to voice...
+18:02:13, INFO Starting voice handshake... (connection attempt 1)
+18:02:13, INFO Voice handshake complete. Endpoint found seattle7364.discord.media
+18:02:13, DEBUG [sync_vc_status] attempting to play song in the right channel
+18:02:13, DEBUG [sync_vc_status] playing the correct song...
+18:02:22, DEBUG [on_message] trying to play song with flags: '-l'
+18:02:22, DEBUG [download_from_search] - Searching for FUN why am i the -l
+18:02:22, DEBUG [download_from_search] Searching local directory
+18:02:22, DEBUG [download_from_search] Found suitable local song with score 69
+18:02:22, DEBUG [on_message] added song to queue
+18:02:22, DEBUG [sync_vc_status] syncing voice status
+18:02:22, DEBUG [sync_vc_status] we should be playing music
+18:02:22, DEBUG [sync_vc_status] attempting to play song in the right channel
+18:02:22, DEBUG [sync_vc_status] we are already playing the right song
+18:02:26, DEBUG [on_message] showing queue to user
+18:05:24, DEBUG [play_next_song] advanced to next song
+18:05:24, DEBUG [sync_vc_status] syncing voice status
+18:05:24, DEBUG [sync_vc_status] we should be playing music
+18:05:24, DEBUG [sync_vc_status] attempting to play song in the right channel
+18:05:24, DEBUG [sync_vc_status] playing the correct song...
+18:05:24, DEBUG [play_next_song] synced vc status
+18:05:24, INFO ffmpeg process 7068 successfully terminated with return code of 0.
+18:06:42, DEBUG [on_message] trying to play song with flags: '-l'
+18:06:42, DEBUG [download_from_search] - Searching for Simon Garfunkel America -l
+18:06:42, DEBUG [download_from_search] Searching local directory
+18:06:42, DEBUG [download_from_search] Found suitable local song with score 79
+18:06:42, DEBUG [on_message] added song to queue
+18:06:43, DEBUG [sync_vc_status] syncing voice status
+18:06:43, DEBUG [sync_vc_status] we should be playing music
+18:06:43, DEBUG [sync_vc_status] attempting to play song in the right channel
+18:06:43, DEBUG [sync_vc_status] we are already playing the right song
+18:10:11, DEBUG [play_next_song] advanced to next song
+18:10:11, DEBUG [sync_vc_status] syncing voice status
+18:10:11, DEBUG [sync_vc_status] we should be playing music
+18:10:11, DEBUG [sync_vc_status] attempting to play song in the right channel
+18:10:11, DEBUG [sync_vc_status] playing the correct song...
+18:10:11, DEBUG [play_next_song] synced vc status
+18:10:11, INFO ffmpeg process 7164 successfully terminated with return code of 0.
+18:10:26, DEBUG [on_message] trying to play song with flags: 'go'
+18:10:27, DEBUG [download_from_search] - Searching for Passenger - Let Her Go
+18:10:27, DEBUG [download_from_search] Searching local directory
+18:10:27, DEBUG [download_from_search] No suitable local song found, searching remotely...
+18:10:35, DEBUG [download_from_search] Found song on YouTube, returning path and title...
+18:10:35, DEBUG [on_message] added song to queue
+18:10:36, DEBUG [sync_vc_status] syncing voice status
+18:10:36, DEBUG [sync_vc_status] we should be playing music
+18:10:36, DEBUG [sync_vc_status] attempting to play song in the right channel
+18:10:36, DEBUG [sync_vc_status] we are already playing the right song
+18:13:48, DEBUG [play_next_song] advanced to next song
+18:13:48, DEBUG [sync_vc_status] syncing voice status
+18:13:48, DEBUG [sync_vc_status] we should be playing music
+18:13:48, DEBUG [sync_vc_status] attempting to play song in the right channel
+18:13:48, DEBUG [sync_vc_status] playing the correct song...
+18:13:48, DEBUG [play_next_song] synced vc status
+18:13:48, INFO ffmpeg process 7666 successfully terminated with return code of 0.
+18:18:02, DEBUG [play_next_song] advanced to next song
+18:18:02, DEBUG [sync_vc_status] syncing voice status
+18:18:02, DEBUG [sync_vc_status] we should not be playing music
+18:18:02, DEBUG [sync_vc_status] we are in a voice call but should not be playing
+18:18:02, DEBUG [sync_vc_status] voice call is still connected
+18:18:02, DEBUG [sync_vc_status] disconnecting from voice call...
+18:18:02, ERROR Calling the after function failed.
+Traceback (most recent call last):
+  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/player.py", line 711, in _call_after
+    self.after(error)
+  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 51, in play_next_song
+    MAIN_EVENT_LOOP.run_until_complete(coroutine)
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 646, in run_until_complete
+    return future.result()
+  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 92, in sync_vc_status
+    await current_vc.disconnect()
+  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/voice_client.py", line 506, in disconnect
+    await self.ws.close()
+  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/gateway.py", line 1012, in close
+    await self.ws.close(code=code)
+  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/gateway.py", line 236, in close
+    return await super().close(code=code, message=message)
+  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/aiohttp/client_ws.py", line 172, in close
+    await self._waiting
+RuntimeError: Task <Task pending name='Task-444' coro=<sync_vc_status() running at /home/daniel/personal-projects/yt-discord-bot/main.py:92> cb=[_run_until_complete_cb() at /usr/lib/python3.10/asyncio/base_events.py:184]> got Future <Future pending> attached to a different loop
+18:18:02, INFO Disconnecting from voice normally, close code 1000.
+18:18:02, INFO ffmpeg process 7929 successfully terminated with return code of 0.
+18:18:07, DEBUG [on_message] showing queue to user
+18:18:22, DEBUG [on_message] trying to play song with flags: 'nights'
+18:18:23, DEBUG [download_from_search] - Searching for Avicii The Nights
+18:18:23, DEBUG [download_from_search] Searching local directory
+18:18:23, DEBUG [download_from_search] Found suitable local song with score 94
+18:18:23, DEBUG [on_message] added song to queue
+18:18:23, DEBUG [sync_vc_status] syncing voice status
+18:18:23, DEBUG [sync_vc_status] we should be playing music
+18:18:23, DEBUG [sync_vc_status] attempting to play song in the right channel
+18:18:23, DEBUG [sync_vc_status] playing the correct song...
+18:18:23, WARNING [sync_vc_status] had error while syncing state: Not connected to voice., trying again with fresh call vars.
+18:18:23, DEBUG [sync_vc_status] syncing voice status
+18:18:23, DEBUG [sync_vc_status] we should be playing music
+18:18:23, DEBUG [sync_vc_status] connecting to the right channel
+18:18:23, INFO Connecting to voice...
+18:18:23, INFO Starting voice handshake... (connection attempt 1)
+18:19:23, INFO The voice handshake is being terminated for Channel ID 1034701393858146358 (Guild ID 1034701393858146354)
+18:19:23, INFO The voice handshake is being terminated for Channel ID 1034701393858146358 (Guild ID 1034701393858146354)
+18:19:23, WARNING [on_message] encountered exception while trying to play song: 
+18:19:23, INFO ffmpeg process 8311 has not terminated. Waiting to terminate...
+18:19:23, INFO ffmpeg process 8311 should have terminated with a return code of -9.
+18:22:12, DEBUG Using selector: EpollSelector
+18:22:12, DEBUG on_ready has successfully been registered as an event
+18:22:12, DEBUG on_message has successfully been registered as an event
+18:22:12, DEBUG Using selector: EpollSelector
+18:22:12, INFO logging in using static token
+18:22:13, INFO Shard ID None has connected to Gateway (Session ID: 94e9d1e8da9155d457e324b7efd367a5).
+18:22:23, DEBUG [on_message] trying to play song with flags: '-l'
+18:22:24, DEBUG [download_from_search] - Searching for Avicii The Nights
+18:22:24, DEBUG [download_from_search] Searching local directory
+18:22:24, DEBUG [download_from_search] Found suitable local song with score 94
+18:22:24, DEBUG [on_message] added song to queue
+18:22:24, DEBUG [sync_vc_status] syncing voice status
+18:22:24, DEBUG [sync_vc_status] we should be playing music
+18:22:24, DEBUG [sync_vc_status] connecting to the right channel
+18:22:24, INFO Connecting to voice...
+18:22:24, INFO Starting voice handshake... (connection attempt 1)
+18:22:24, INFO Voice handshake complete. Endpoint found seattle7364.discord.media
+18:22:24, DEBUG [sync_vc_status] attempting to play song in the right channel
+18:22:24, DEBUG [sync_vc_status] playing the correct song...
+18:23:10, INFO The voice handshake is being terminated for Channel ID 1034701393858146358 (Guild ID 1034701393858146354)
+18:23:10, DEBUG [play_next_song] advanced to next song
+18:23:10, DEBUG [sync_vc_status] syncing voice status
+18:23:10, DEBUG [sync_vc_status] we should not be playing music
+18:23:10, DEBUG [sync_vc_status] we are in a voice call but should not be playing
+18:23:10, DEBUG [sync_vc_status] voice call is not really connected, zeroing out variables
+18:23:10, DEBUG [play_next_song] synced vc status
+18:23:10, INFO ffmpeg process 8419 has not terminated. Waiting to terminate...
+18:23:10, INFO ffmpeg process 8419 should have terminated with a return code of -9.
+18:23:11, DEBUG Using selector: EpollSelector
+18:23:11, DEBUG on_ready has successfully been registered as an event
+18:23:11, DEBUG on_message has successfully been registered as an event
+18:23:11, DEBUG Using selector: EpollSelector
+18:23:11, INFO logging in using static token
+18:23:12, INFO Shard ID None has connected to Gateway (Session ID: 94c9e3395e2410903344471ae6aacf39).
+18:23:18, DEBUG [on_message] trying to play song with flags: '-l'
+18:23:18, DEBUG [download_from_search] - Searching for Avicii The Nights
+18:23:18, DEBUG [download_from_search] Searching local directory
+18:23:18, DEBUG [download_from_search] Found suitable local song with score 94
+18:23:18, DEBUG [on_message] added song to queue
+18:23:19, DEBUG [sync_vc_status] syncing voice status
+18:23:19, DEBUG [sync_vc_status] we should be playing music
+18:23:19, DEBUG [sync_vc_status] connecting to the right channel
+18:23:19, INFO Connecting to voice...
+18:23:19, INFO Starting voice handshake... (connection attempt 1)
+18:23:19, INFO Voice handshake complete. Endpoint found seattle7364.discord.media
+18:23:19, DEBUG [sync_vc_status] attempting to play song in the right channel
+18:23:19, DEBUG [sync_vc_status] playing the correct song...
+18:23:26, DEBUG [play_next_song] advanced to next song
+18:23:26, DEBUG [sync_vc_status] syncing voice status
+18:23:26, DEBUG [sync_vc_status] we should not be playing music
+18:23:26, DEBUG [sync_vc_status] we are in a voice call but should not be playing
+18:23:26, DEBUG [sync_vc_status] voice call is not really connected, zeroing out variables
+18:23:26, DEBUG [play_next_song] synced vc status
+18:23:26, INFO ffmpeg process 8457 has not terminated. Waiting to terminate...
+18:23:26, INFO The voice handshake is being terminated for Channel ID 1034701393858146358 (Guild ID 1034701393858146354)
+18:23:26, INFO ffmpeg process 8457 should have terminated with a return code of -9.
+18:23:27, DEBUG Using selector: EpollSelector
+18:23:27, DEBUG on_ready has successfully been registered as an event
+18:23:27, DEBUG on_message has successfully been registered as an event
+18:23:27, DEBUG Using selector: EpollSelector
+18:23:27, INFO logging in using static token
+18:23:27, INFO Shard ID None has connected to Gateway (Session ID: 3b6862f2fa3541f3217f3f1927f7552e).
+18:23:32, DEBUG [on_message] trying to play song with flags: '-l'
+18:23:32, DEBUG [download_from_search] - Searching for Avicii The Nights
+18:23:32, DEBUG [download_from_search] Searching local directory
+18:23:32, DEBUG [download_from_search] Found suitable local song with score 94
+18:23:32, DEBUG [on_message] added song to queue
+18:23:33, DEBUG [sync_vc_status] syncing voice status
+18:23:33, DEBUG [sync_vc_status] we should be playing music
+18:23:33, DEBUG [sync_vc_status] connecting to the right channel
+18:23:33, INFO Connecting to voice...
+18:23:33, INFO Starting voice handshake... (connection attempt 1)
+18:23:33, INFO Voice handshake complete. Endpoint found seattle7364.discord.media
+18:23:33, DEBUG [sync_vc_status] attempting to play song in the right channel
+18:23:33, DEBUG [sync_vc_status] playing the correct song...
+18:23:49, DEBUG [on_message] trying to play song with flags: '-l'
+18:23:49, DEBUG [download_from_search] - Searching for America
+18:23:49, DEBUG [download_from_search] Searching local directory
+18:23:49, DEBUG [download_from_search] Found suitable local song with score 33
+18:23:49, DEBUG [on_message] added song to queue
+18:23:49, DEBUG [sync_vc_status] syncing voice status
+18:23:49, DEBUG [sync_vc_status] we should be playing music
+18:23:49, DEBUG [sync_vc_status] attempting to play song in the right channel
+18:23:49, DEBUG [sync_vc_status] we are already playing the right song
