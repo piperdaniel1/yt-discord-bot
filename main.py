@@ -30,8 +30,6 @@ music = MusicBot()
 current_vc: Union[VoiceClient, None] = None
 current_vc_song: Union[Song, None] = None
 
-MAIN_EVENT_LOOP = asyncio.get_event_loop()
-
 # Advances the queue and resyncs with the voice call
 def play_next_song(error):
     # If there was an error we may as well replay
@@ -39,17 +37,14 @@ def play_next_song(error):
     if error is not None:
         logging.warning("[play_next_song] function called with error:", error) 
 
-        coroutine = sync_vc_status(reconnect_to_vc = True)
-        new_loop = asyncio.new_event_loop()
-        new_loop.run_until_complete(coroutine)
+        client.loop.create_task(sync_vc_status(reconnect_to_vc = True))
 
         return
 
     music.next_song()
     logging.debug("[play_next_song] advanced to next song") 
 
-    coroutine = sync_vc_status()
-    MAIN_EVENT_LOOP.run_until_complete(coroutine)
+    client.loop.create_task(sync_vc_status())
 
     logging.debug("[play_next_song] synced vc status") 
 
