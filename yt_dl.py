@@ -31,6 +31,27 @@ def dprint(str, type='other', priority='low'):
     if DEBUG_PROGRAM:
         print(f"[{type}]", str)
 
+def simplify_song_title(title):
+    # Remove anything wrapped in ()
+    title = re.sub(r"\([^\)]+\)", '', title)
+
+    # Remove anything wrapped in []
+    title = re.sub(r"\[[^\]]+\]", '', title)
+
+    # Remove featured artists
+    title = re.sub(r"ft.[^\.\(\)\[\]]*\.*", '', title)
+
+    # Remove three letter file extension
+    title = re.sub(r"\....$", '', title)
+
+    # Remove leading whitespace
+    title = re.sub(r"\s+$", '', title)
+
+    # Remove trailing whitespace
+    title = re.sub(r"^\s+", '', title)
+
+    return title
+
 # Look for a .botconfig in the current working directory
 # If it exists, read in the contents
 def read_config():
@@ -93,7 +114,7 @@ def get_search_url(term, type='yt'):
     try:
 
         if type == 'yt':
-            if re.match("[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)", term):
+            if re.match(r"[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)", term):
                 info = downloader.extract_info(f"{term}", download=False)
             else:
                 info = downloader.extract_info(f"ytsearch:{term}", download=False)
@@ -182,7 +203,7 @@ def download_from_search(term, type='yt', force=False, threshold=60) -> \
 
     try:
         if type == 'yt':
-            if re.match("[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)", term):
+            if re.match(r"[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)", term):
                 logging.debug(f"[download_from_search] Found URL, downloading specific video...")
                 info = downloader.extract_info(f"{term}", download=True)
             else:
@@ -190,8 +211,19 @@ def download_from_search(term, type='yt', force=False, threshold=60) -> \
             if info != None:
                 print(info['entries'][0]['title'])
                 logging.debug(f"[download_from_search] Found song on YouTube, returning path and title...")
-                return f"{MEDIA_PATH}/{info['entries'][0]['title']}.mp3", \
-                        info['entries'][0]['title']
+
+                unproc_title = f"{info['entries'][0]['title']}.mp3"
+                proc_title = simplify_song_title(unproc_title)
+
+                # Makes sure we still have some characters
+                if proc_title != "":
+                    os.rename(f'{MEDIA_PATH}/"{unproc_title}"', f'{MEDIA_PATH}/"{proc_title}"')
+
+                    return f"{MEDIA_PATH}/{proc_title}", \
+                            proc_title
+                else:
+                    return f"{MEDIA_PATH}/{info['entries'][0]['title']}.mp3", \
+                            info['entries'][0]['title']
 
         logging.debug(f"[download_from_search] No suitable song found")
         return None, None
