@@ -1,8 +1,7 @@
 from typing import Tuple, Union
 from yt_dlp import DownloadError, YoutubeDL
 from fuzzywuzzy import fuzz
-import time
-import asyncio
+import re
 import os
 import logging
 logging.basicConfig(filename='bot-log.txt',
@@ -92,8 +91,12 @@ def save_media(path, path_type='yt'):
 def get_search_url(term, type='yt'):
     assert(downloader != None)
     try:
+
         if type == 'yt':
-            info = downloader.extract_info(f"ytsearch:{term}", download=False)
+            if re.match("[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)", term):
+                info = downloader.extract_info(f"{term}", download=False)
+            else:
+                info = downloader.extract_info(f"ytsearch:{term}", download=False)
 
             if info != None:
                 video = info['entries'][0]
@@ -104,37 +107,68 @@ def get_search_url(term, type='yt'):
     except:
         return 1
 
+def find_local_file(term, threshold):
+    media = os.listdir(MEDIA_PATH)
+
+    media = [entry for entry in media if os.path.isfile(MEDIA_PATH + "/" + entry) and\
+            entry != ".mediacache"]
+
+    best_title = ""
+    best_score = 999999999
+
+    # Match using subset
+    # Favor song titles that are shorter to break ties
+    for file_title in media:
+        original_title = file_title
+        file_title = file_title.split(".")[0]
+        file_title = file_title.lower()
+        term = term.lower()
+        file_title.strip("\n.!?,;:()[]{}-& ")
+        term.strip("\n.!?,;:()[]{}-& ")
+
+        if term in file_title:
+            if len(file_title) < best_score:
+                best_score = len(file_title)
+                best_title = file_title
+
+    if best_title != "":
+        return best_title, best_score, "strict subset"
+
+    # Match using Fuzzy Finder
+    # This approach is a bit limited, sometimes it can be great sometimes
+    # it really does a poor job. Therefore, we leave it for a last resort.
+    best_title = ""
+    best_score = 0
+
+    for file_title in media:
+        original_title = file_title
+        file_title = file_title.split(".")[0]
+        file_title = file_title.lower()
+        term = term.lower()
+        file_title.strip("\n.!?,;:()[]{}-& ")
+        term.strip("\n.!?,;:()[]{}-& ")
+
+        if fuzz.ratio(term, file_title) > max(threshold, best_score):
+            best_title = original_title
+            best_score = fuzz.ratio(term, file_title)
+
+    return best_title, best_score, "fuzzy find"
+
 # Returns a tuple of path, title to a song
 # Downloads from YouTube if neccessary, always
 # downloads form YouTube if force=True
 # Always uses local file if threshold=0
-def download_from_search(term, type='yt', force=False, threshold=60) -> Union[Tuple[str, str], Tuple[None, None]]:
+def download_from_search(term, type='yt', force=False, threshold=60) -> \
+        Union[Tuple[str, str], Tuple[None, None]]:
     logging.debug(f"[download_from_search] - Searching for {term}")
 
     if not force:
         logging.debug(f"[download_from_search] Searching local directory")
-        media = os.listdir(MEDIA_PATH)
 
-        media = [entry for entry in media if os.path.isfile(MEDIA_PATH + "/" + entry) and entry != ".mediacache"]
-
-        best_title = ""
-        best_score = 0
-
-        for file_title in media:
-            original_title = file_title
-            file_title = file_title.split(".")[0]
-            file_title = file_title.lower()
-            term = term.lower()
-            file_title.strip("\n.!?,;:()[]{}-& ")
-            term.strip("\n.!?,;:()[]{}-& ")
-
-            if fuzz.ratio(term, file_title) > max(threshold, best_score):
-                best_title = original_title
-                best_score = fuzz.ratio(term, file_title)
-
+        best_title, best_score, method = find_local_file(term, threshold)
 
         if best_title != "":
-            logging.debug(f"[download_from_search] Found suitable local song with score {best_score}")
+            logging.debug(f"[download_from_search] Found suitable local song with score {best_score} using {method} method.")
             dprint("Returning local MP3 file", type='media')
             return MEDIA_PATH + "/" + best_title, best_title
         
@@ -148,7 +182,11 @@ def download_from_search(term, type='yt', force=False, threshold=60) -> Union[Tu
 
     try:
         if type == 'yt':
-            info = downloader.extract_info(f"ytsearch:{term}", download=True)
+            if re.match("[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)", term):
+                logging.debug(f"[download_from_search] Found URL, downloading specific video...")
+                info = downloader.extract_info(f"{term}", download=True)
+            else:
+                info = downloader.extract_info(f"ytsearch:{term}", download=True)
             if info != None:
                 print(info['entries'][0]['title'])
                 logging.debug(f"[download_from_search] Found song on YouTube, returning path and title...")
