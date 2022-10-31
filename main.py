@@ -138,9 +138,14 @@ async def sync_vc_status(reconnect_to_vc = False, attempt = 0):
         try:
             logging.debug(f"[sync_vc_status] attempting to play song in the right channel")
             # we may not be able to have play_next_song be a coroutine
-            if current_vc.is_playing() and current_vc_song != music.current_song:
+            if (current_vc.is_playing() and current_vc_song != music.current_song) or music.skip_flag:
                 logging.debug(f"[sync_vc_status] stopped current song to play other one")
+                music.skip_flag = False
                 current_vc.stop()
+                # Once we call the stop function the after function will be called,
+                # it will handle everything
+
+                return
 
             # if this is true then we are already playing the right song and
             # therefore do not need to do anything to sync
@@ -181,6 +186,15 @@ async def on_message(message: Message):
     global client
     global dc_bot
     global current_vc
+
+    try:
+        assert(isinstance(message.channel, TextChannel))
+    except AssertionError:
+        logging.warning("[on_message] skipping analysis due to invalid channel")
+        return
+
+    if message.channel.name != "harlough":
+        return
 
     if message.author == client.user:
         return
@@ -312,7 +326,8 @@ async def on_message(message: Message):
     if message.content.startswith('$n') or message.content.startswith('$next'):
         logging.debug("[on_message] skipping to next song")
         refresh_state = music.current_song is not None
-        music.next_song()
+        #music.next_song()
+        music.skip_flag = True
 
         if refresh_state:
             await sync_vc_status()
@@ -328,7 +343,8 @@ async def on_message(message: Message):
 async def on_voice_state_update(member: Member, before: VoiceState, after: VoiceState):
     assert(client.user is not None)
 
-    if before.channel is None and after.channel is not None and member.id != client.user.id:
+    if before.channel is None and after.channel is not None \
+       and member.id != client.user.id and after.channel.name != "afk":
         channels = list(client.get_all_channels())
 
         for channel in channels:

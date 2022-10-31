@@ -38,6 +38,7 @@ class MusicBot:
         self.backlog: List[Song] = []
         self.is_playing: bool = False
         self.latest_song: Union[Song, None] = None
+        self.skip_flag = False
 
     def fmt_queue(self):
         queue_str = ""

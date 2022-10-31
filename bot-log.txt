@@ -1,1472 +1,506 @@
-18:06:36, DEBUG on_ready has successfully been registered as an event
-18:06:36, DEBUG on_message has successfully been registered as an event
-18:06:36, DEBUG Using selector: EpollSelector
-18:06:36, INFO logging in using static token
-18:06:37, INFO Shard ID None has connected to Gateway (Session ID: d1ac560ad082daf8d7fc2880d1ed46f3).
-18:07:00, DEBUG [on_message] trying to play song...
-18:07:00, DEBUG [on_message] added song to queue
-18:07:00, DEBUG [sync_vc_status] syncing voice status
-18:07:00, DEBUG [sync_vc_status] we should be playing music
-18:07:00, DEBUG [sync_vc_status] connecting to the right channel
-18:07:00, INFO Connecting to voice...
-18:07:00, INFO Starting voice handshake... (connection attempt 1)
-18:07:01, INFO Voice handshake complete. Endpoint found seattle9661.discord.media
-18:07:01, DEBUG [sync_vc_status] attempting to play song in the right channel
-18:07:01, DEBUG [sync_vc_status] playing the correct song...
-18:08:12, DEBUG [play_next_song] advanced to next song
-18:08:12, DEBUG Using selector: EpollSelector
-18:08:12, DEBUG [sync_vc_status] syncing voice status
-18:08:12, DEBUG [sync_vc_status] we should not be playing music
-18:08:12, DEBUG [sync_vc_status] we are in a voice call but should not be playing
-18:08:12, DEBUG [sync_vc_status] voice call is still connected
-18:08:12, DEBUG [sync_vc_status] disconnecting from voice call...
-18:08:12, ERROR Calling the after function failed.
+00:06:50, DEBUG on_ready has successfully been registered as an event
+00:06:50, DEBUG on_message has successfully been registered as an event
+00:06:50, DEBUG on_voice_state_update has successfully been registered as an event
+00:06:50, DEBUG Using selector: EpollSelector
+00:06:50, INFO logging in using static token
+00:06:51, INFO Shard ID None has connected to Gateway (Session ID: 163102d65042cebc8f63fe5e45b87db9).
+00:08:45, DEBUG on_ready has successfully been registered as an event
+00:08:45, DEBUG on_message has successfully been registered as an event
+00:08:45, DEBUG on_voice_state_update has successfully been registered as an event
+00:08:45, DEBUG Using selector: EpollSelector
+00:08:45, INFO logging in using static token
+00:08:45, INFO Shard ID None has connected to Gateway (Session ID: 582192021a661da16fed4f03802ae85b).
+00:09:49, DEBUG on_ready has successfully been registered as an event
+00:09:49, DEBUG on_message has successfully been registered as an event
+00:09:49, DEBUG on_voice_state_update has successfully been registered as an event
+00:09:49, DEBUG Using selector: EpollSelector
+00:09:49, INFO logging in using static token
+00:09:50, INFO Shard ID None has connected to Gateway (Session ID: f0a5f16bbdcebc3a91e2f3cf1ca88e74).
+00:10:12, DEBUG [on_message] showing queue to user
+00:17:14, DEBUG on_ready has successfully been registered as an event
+00:17:14, DEBUG on_message has successfully been registered as an event
+00:17:14, DEBUG on_voice_state_update has successfully been registered as an event
+00:17:14, DEBUG Using selector: EpollSelector
+00:17:14, INFO logging in using static token
+00:17:15, INFO Shard ID None has connected to Gateway (Session ID: 4433a478e6a08d195fc52484260a7d58).
+00:17:28, ERROR Ignoring exception in on_message
 Traceback (most recent call last):
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/player.py", line 711, in _call_after
-    self.after(error)
-  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 67, in play_next_song
-    new_loop.run_until_complete(coroutine)
-  File "/usr/lib/python3.10/asyncio/base_events.py", line 646, in run_until_complete
-    return future.result()
-  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 108, in sync_vc_status
-    await current_vc.disconnect()
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/voice_client.py", line 506, in disconnect
-    await self.ws.close()
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/gateway.py", line 1012, in close
-    await self.ws.close(code=code)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/gateway.py", line 236, in close
-    return await super().close(code=code, message=message)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/aiohttp/client_ws.py", line 172, in close
-    await self._waiting
-RuntimeError: Task <Task pending name='Task-58' coro=<sync_vc_status() running at /home/daniel/personal-projects/yt-discord-bot/main.py:108> cb=[_run_until_complete_cb() at /usr/lib/python3.10/asyncio/base_events.py:184]> got Future <Future pending> attached to a different loop
-18:08:12, INFO Disconnecting from voice normally, close code 1000.
-18:08:12, INFO ffmpeg process 13980 successfully terminated with return code of 0.
-18:09:24, DEBUG [on_message] trying to play song...
-18:09:24, DEBUG [on_message] added song to queue
-18:09:24, DEBUG [sync_vc_status] syncing voice status
-18:09:24, DEBUG [sync_vc_status] we should be playing music
-18:09:24, DEBUG [sync_vc_status] attempting to play song in the right channel
-18:09:24, DEBUG [sync_vc_status] playing the correct song...
-18:09:24, WARNING [sync_vc_status] had error while syncing state, disconnecting and returning 2: Not connected to voice.
-18:09:24, INFO ffmpeg process 14072 has not terminated. Waiting to terminate...
-18:09:24, INFO ffmpeg process 14072 should have terminated with a return code of -9.
-18:09:35, DEBUG [on_message] showing queue to user
-18:10:23, DEBUG [on_message] clearing queue
-18:10:23, DEBUG [sync_vc_status] syncing voice status
-18:10:23, DEBUG [sync_vc_status] we should not be playing music
-18:10:23, DEBUG [sync_vc_status] good, we are not connected to a call
-18:10:46, DEBUG [on_message] trying to play song...
-18:10:47, DEBUG [on_message] added song to queue
-18:10:47, DEBUG [sync_vc_status] syncing voice status
-18:10:47, DEBUG [sync_vc_status] we should not be playing music
-18:10:47, DEBUG [sync_vc_status] good, we are not connected to a call
-18:11:06, DEBUG [on_message] showing queue to user
-18:11:13, DEBUG [on_message] trying to play song...
-18:11:13, DEBUG [on_message] added song to queue
-18:11:13, DEBUG [sync_vc_status] syncing voice status
-18:11:13, DEBUG [sync_vc_status] we should not be playing music
-18:11:13, DEBUG [sync_vc_status] good, we are not connected to a call
-18:11:15, DEBUG [on_message] showing queue to user
-18:11:28, DEBUG [on_message] trying to play song...
-18:11:28, DEBUG [on_message] added song to queue
-18:11:28, DEBUG [sync_vc_status] syncing voice status
-18:11:28, DEBUG [sync_vc_status] we should not be playing music
-18:11:28, DEBUG [sync_vc_status] good, we are not connected to a call
-17:14:59, DEBUG on_ready has successfully been registered as an event
-17:14:59, DEBUG on_message has successfully been registered as an event
-17:14:59, DEBUG Using selector: EpollSelector
-17:14:59, INFO logging in using static token
-17:15:00, INFO Shard ID None has connected to Gateway (Session ID: c3445b9fddf71d685f9f97e7fd458c01).
-17:15:11, DEBUG [on_message] trying to play song...
-17:15:11, DEBUG [on_message] added song to queue
-17:15:12, DEBUG [sync_vc_status] syncing voice status
-17:15:12, DEBUG [sync_vc_status] we should be playing music
-17:15:12, DEBUG [sync_vc_status] connecting to the right channel
-17:15:12, INFO Connecting to voice...
-17:15:12, INFO Starting voice handshake... (connection attempt 1)
-17:15:12, INFO Voice handshake complete. Endpoint found seattle7364.discord.media
-17:15:12, DEBUG [sync_vc_status] attempting to play song in the right channel
-17:15:12, DEBUG [sync_vc_status] playing the correct song...
-17:15:30, DEBUG [on_message] trying to play song...
-17:15:31, DEBUG [on_message] added song to queue
-17:15:31, DEBUG [sync_vc_status] syncing voice status
-17:15:31, DEBUG [sync_vc_status] we should be playing music
-17:15:31, DEBUG [sync_vc_status] attempting to play song in the right channel
-17:15:31, DEBUG [sync_vc_status] we are already playing the right song
-17:18:49, DEBUG [play_next_song] advanced to next song
-17:18:49, DEBUG Using selector: EpollSelector
-17:18:49, DEBUG [sync_vc_status] syncing voice status
-17:18:49, DEBUG [sync_vc_status] we should be playing music
-17:18:49, DEBUG [sync_vc_status] attempting to play song in the right channel
-17:18:49, DEBUG [sync_vc_status] playing the correct song...
-17:18:49, DEBUG [play_next_song] synced vc status
-17:18:49, INFO ffmpeg process 4818 successfully terminated with return code of 0.
-17:19:28, DEBUG [on_message] trying to play song...
-17:19:39, DEBUG [on_message] added song to queue
-17:19:40, DEBUG [sync_vc_status] syncing voice status
-17:19:40, DEBUG [sync_vc_status] we should be playing music
-17:19:40, DEBUG [sync_vc_status] attempting to play song in the right channel
-17:19:40, DEBUG [sync_vc_status] we are already playing the right song
-17:21:59, DEBUG [play_next_song] advanced to next song
-17:21:59, DEBUG Using selector: EpollSelector
-17:21:59, DEBUG [sync_vc_status] syncing voice status
-17:21:59, DEBUG [sync_vc_status] we should be playing music
-17:21:59, DEBUG [sync_vc_status] attempting to play song in the right channel
-17:21:59, DEBUG [sync_vc_status] playing the correct song...
-17:21:59, DEBUG [play_next_song] synced vc status
-17:21:59, INFO ffmpeg process 5390 successfully terminated with return code of 0.
-17:22:07, DEBUG [on_message] showing queue to user
-17:22:25, DEBUG [on_message] trying to play song...
-17:22:34, DEBUG [on_message] added song to queue
-17:22:34, DEBUG [sync_vc_status] syncing voice status
-17:22:34, DEBUG [sync_vc_status] we should be playing music
-17:22:34, DEBUG [sync_vc_status] attempting to play song in the right channel
-17:22:34, DEBUG [sync_vc_status] we are already playing the right song
-17:22:38, DEBUG [on_message] showing queue to user
-17:23:53, INFO The voice handshake is being terminated for Channel ID 1034701393858146358 (Guild ID 1034701393858146354)
-17:23:53, DEBUG [play_next_song] advanced to next song
-17:23:53, DEBUG Using selector: EpollSelector
-17:23:53, DEBUG [sync_vc_status] syncing voice status
-17:23:53, DEBUG [sync_vc_status] we should be playing music
-17:23:53, DEBUG [sync_vc_status] attempting to play song in the right channel
-17:23:53, DEBUG [sync_vc_status] playing the correct song...
-17:23:53, WARNING [sync_vc_status] had error while syncing state, disconnecting and returning 2: Not connected to voice.
-17:23:53, INFO ffmpeg process 5607 has not terminated. Waiting to terminate...
-17:23:53, INFO ffmpeg process 5607 should have terminated with a return code of -9.
-17:23:53, DEBUG [play_next_song] synced vc status
-17:23:53, INFO ffmpeg process 5515 has not terminated. Waiting to terminate...
-17:23:53, INFO ffmpeg process 5515 should have terminated with a return code of -9.
-17:24:01, DEBUG on_ready has successfully been registered as an event
-17:24:01, DEBUG on_message has successfully been registered as an event
-17:24:01, DEBUG Using selector: EpollSelector
-17:24:01, INFO logging in using static token
-17:24:02, INFO Shard ID None has connected to Gateway (Session ID: 9a0d2d890c5fd33014907edaa23dcdab).
-17:24:11, DEBUG [on_message] trying to play song...
-17:24:11, DEBUG [on_message] added song to queue
-17:24:12, DEBUG [sync_vc_status] syncing voice status
-17:24:12, DEBUG [sync_vc_status] we should be playing music
-17:24:12, DEBUG [sync_vc_status] connecting to the right channel
-17:24:12, INFO Connecting to voice...
-17:24:12, INFO Starting voice handshake... (connection attempt 1)
-17:24:12, INFO Voice handshake complete. Endpoint found seattle7364.discord.media
-17:24:12, DEBUG [sync_vc_status] attempting to play song in the right channel
-17:24:12, DEBUG [sync_vc_status] playing the correct song...
-17:24:18, DEBUG [on_message] trying to play song...
-17:24:18, DEBUG [on_message] added song to queue
-17:24:19, DEBUG [sync_vc_status] syncing voice status
-17:24:19, DEBUG [sync_vc_status] we should be playing music
-17:24:19, DEBUG [sync_vc_status] attempting to play song in the right channel
-17:24:19, DEBUG [sync_vc_status] we are already playing the right song
-17:24:26, DEBUG [on_message] showing queue to user
-17:29:00, DEBUG [play_next_song] advanced to next song
-17:29:00, DEBUG Using selector: EpollSelector
-17:29:00, DEBUG [sync_vc_status] syncing voice status
-17:29:00, DEBUG [sync_vc_status] we should be playing music
-17:29:00, DEBUG [sync_vc_status] attempting to play song in the right channel
-17:29:00, DEBUG [sync_vc_status] playing the correct song...
-17:29:00, DEBUG [play_next_song] synced vc status
-17:29:00, INFO ffmpeg process 5626 successfully terminated with return code of 0.
-17:29:07, DEBUG [on_message] showing queue to user
-17:29:19, DEBUG [on_message] trying to play song...
-17:29:27, DEBUG [on_message] added song to queue
-17:29:27, DEBUG [sync_vc_status] syncing voice status
-17:29:27, DEBUG [sync_vc_status] we should be playing music
-17:29:27, DEBUG [sync_vc_status] attempting to play song in the right channel
-17:29:27, DEBUG [sync_vc_status] we are already playing the right song
-17:29:30, DEBUG [on_message] showing queue to user
-17:32:19, DEBUG [play_next_song] advanced to next song
-17:32:19, DEBUG Using selector: EpollSelector
-17:32:19, DEBUG [sync_vc_status] syncing voice status
-17:32:19, DEBUG [sync_vc_status] we should be playing music
-17:32:19, DEBUG [sync_vc_status] attempting to play song in the right channel
-17:32:19, DEBUG [sync_vc_status] playing the correct song...
-17:32:19, DEBUG [play_next_song] synced vc status
-17:32:19, INFO ffmpeg process 5802 successfully terminated with return code of 0.
-17:32:20, DEBUG [on_message] showing queue to user
-17:32:37, DEBUG [on_message] trying to play song...
-17:32:46, DEBUG [on_message] added song to queue
-17:32:46, DEBUG [sync_vc_status] syncing voice status
-17:32:46, DEBUG [sync_vc_status] we should be playing music
-17:32:46, DEBUG [sync_vc_status] attempting to play song in the right channel
-17:32:46, DEBUG [sync_vc_status] we are already playing the right song
-17:32:46, DEBUG [on_message] showing queue to user
-17:36:16, DEBUG [play_next_song] advanced to next song
-17:36:16, DEBUG Using selector: EpollSelector
-17:36:16, DEBUG [sync_vc_status] syncing voice status
-17:36:16, DEBUG [sync_vc_status] we should be playing music
-17:36:16, DEBUG [sync_vc_status] attempting to play song in the right channel
-17:36:16, DEBUG [sync_vc_status] playing the correct song...
-17:36:16, DEBUG [play_next_song] synced vc status
-17:36:16, INFO ffmpeg process 5916 successfully terminated with return code of 0.
-17:40:23, DEBUG [play_next_song] advanced to next song
-17:40:23, DEBUG Using selector: EpollSelector
-17:40:23, DEBUG [sync_vc_status] syncing voice status
-17:40:23, DEBUG [sync_vc_status] we should not be playing music
-17:40:23, DEBUG [sync_vc_status] we are in a voice call but should not be playing
-17:40:23, DEBUG [sync_vc_status] voice call is still connected
-17:40:23, DEBUG [sync_vc_status] disconnecting from voice call...
-17:40:23, ERROR Calling the after function failed.
-Traceback (most recent call last):
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/player.py", line 711, in _call_after
-    self.after(error)
-  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 67, in play_next_song
-    logging.debug("[sync_vc_status] syncing voice status")
-  File "/usr/lib/python3.10/asyncio/base_events.py", line 646, in run_until_complete
-    return future.result()
-  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 110, in sync_vc_status
-    # If they are not, we just return because there is not a way to play
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/voice_client.py", line 506, in disconnect
-    await self.ws.close()
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/gateway.py", line 1012, in close
-    await self.ws.close(code=code)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/gateway.py", line 236, in close
-    return await super().close(code=code, message=message)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/aiohttp/client_ws.py", line 172, in close
-    await self._waiting
-RuntimeError: Task <Task pending name='Task-458' coro=<sync_vc_status() running at /home/daniel/personal-projects/yt-discord-bot/main.py:110> cb=[_run_until_complete_cb() at /usr/lib/python3.10/asyncio/base_events.py:184]> got Future <Future pending> attached to a different loop
-17:40:23, INFO Disconnecting from voice normally, close code 1000.
-17:40:23, INFO ffmpeg process 6044 successfully terminated with return code of 0.
-17:40:32, DEBUG [on_message] showing queue to user
-17:42:34, DEBUG [on_message] trying to play song...
-17:42:34, DEBUG [on_message] added song to queue
-17:42:35, DEBUG [sync_vc_status] syncing voice status
-17:42:35, DEBUG [sync_vc_status] we should be playing music
-17:42:35, DEBUG [sync_vc_status] attempting to play song in the right channel
-17:42:35, DEBUG [sync_vc_status] playing the correct song...
-17:42:35, WARNING [sync_vc_status] had error while syncing state, disconnecting and returning 2: Not connected to voice.
-17:42:35, INFO ffmpeg process 6169 has not terminated. Waiting to terminate...
-17:42:35, INFO ffmpeg process 6169 should have terminated with a return code of -9.
-17:47:49, DEBUG on_ready has successfully been registered as an event
-17:47:49, DEBUG on_message has successfully been registered as an event
-17:47:49, DEBUG Using selector: EpollSelector
-17:47:49, INFO logging in using static token
-17:47:50, INFO Shard ID None has connected to Gateway (Session ID: 34a144775e88cdd7ab4849cd5158ab62).
-17:48:02, DEBUG [on_message] trying to play song...
-17:48:03, DEBUG [download_from_search] - Searching for Simon Garfunkel America
-17:48:03, DEBUG [download_from_search] Searching local directory
-17:48:03, DEBUG [download_from_search] Found suitable local song with score 79
-17:48:03, DEBUG [on_message] added song to queue
-17:48:03, DEBUG [sync_vc_status] syncing voice status
-17:48:03, DEBUG [sync_vc_status] we should be playing music
-17:48:03, DEBUG [sync_vc_status] connecting to the right channel
-17:48:03, INFO Connecting to voice...
-17:48:03, INFO Starting voice handshake... (connection attempt 1)
-17:48:03, INFO Voice handshake complete. Endpoint found seattle7364.discord.media
-17:48:03, DEBUG [sync_vc_status] attempting to play song in the right channel
-17:48:03, DEBUG [sync_vc_status] playing the correct song...
-17:48:17, DEBUG [on_message] Printing help message
-17:51:40, DEBUG [play_next_song] advanced to next song
-17:51:40, DEBUG Using selector: EpollSelector
-17:51:40, DEBUG [sync_vc_status] syncing voice status
-17:51:40, DEBUG [sync_vc_status] we should not be playing music
-17:51:40, DEBUG [sync_vc_status] we are in a voice call but should not be playing
-17:51:40, DEBUG [sync_vc_status] voice call is still connected
-17:51:40, DEBUG [sync_vc_status] disconnecting from voice call...
-17:51:40, ERROR Calling the after function failed.
-Traceback (most recent call last):
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/player.py", line 711, in _call_after
-    self.after(error)
-  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 49, in play_next_song
-    new_loop.run_until_complete(coroutine)
-  File "/usr/lib/python3.10/asyncio/base_events.py", line 646, in run_until_complete
-    return future.result()
-  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 92, in sync_vc_status
-    await current_vc.disconnect()
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/voice_client.py", line 506, in disconnect
-    await self.ws.close()
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/gateway.py", line 1012, in close
-    await self.ws.close(code=code)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/gateway.py", line 236, in close
-    return await super().close(code=code, message=message)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/aiohttp/client_ws.py", line 172, in close
-    await self._waiting
-RuntimeError: Task <Task pending name='Task-119' coro=<sync_vc_status() running at /home/daniel/personal-projects/yt-discord-bot/main.py:92> cb=[_run_until_complete_cb() at /usr/lib/python3.10/asyncio/base_events.py:184]> got Future <Future pending> attached to a different loop
-17:51:40, INFO Disconnecting from voice normally, close code 1000.
-17:51:40, INFO ffmpeg process 6386 successfully terminated with return code of 0.
-17:57:06, DEBUG on_ready has successfully been registered as an event
-17:57:06, DEBUG on_message has successfully been registered as an event
-17:57:06, DEBUG Using selector: EpollSelector
-17:57:06, INFO logging in using static token
-17:57:07, INFO Shard ID None has connected to Gateway (Session ID: 4d575cbd137c7e5920293f415d36766a).
-17:57:17, DEBUG [on_message] trying to play song with flags: 'avicii'
-17:57:17, DEBUG [download_from_search] - Searching for The Nights Avicii
-17:57:17, DEBUG [download_from_search] Searching local directory
-17:57:17, DEBUG [download_from_search] No suitable local song found, searching remotely...
-17:57:27, DEBUG [download_from_search] Found song on YouTube, returning path and title...
-17:57:27, DEBUG [on_message] added song to queue
-17:57:27, DEBUG [sync_vc_status] syncing voice status
-17:57:27, DEBUG [sync_vc_status] we should be playing music
-17:57:27, DEBUG [sync_vc_status] connecting to the right channel
-17:57:27, INFO Connecting to voice...
-17:57:27, INFO Starting voice handshake... (connection attempt 1)
-17:57:27, INFO Voice handshake complete. Endpoint found seattle7364.discord.media
-17:57:27, DEBUG [sync_vc_status] attempting to play song in the right channel
-17:57:27, DEBUG [sync_vc_status] playing the correct song...
-17:57:30, DEBUG [play_next_song] advanced to next song
-17:57:30, ERROR Calling the after function failed.
-Traceback (most recent call last):
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/player.py", line 711, in _call_after
-    self.after(error)
-  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 48, in play_next_song
-    event_loop = asyncio.get_event_loop()
-  File "/usr/lib/python3.10/asyncio/events.py", line 656, in get_event_loop
-    raise RuntimeError('There is no current event loop in thread %r.'
-RuntimeError: There is no current event loop in thread 'Thread-3'.
-17:57:30, INFO ffmpeg process 6885 has not terminated. Waiting to terminate...
-17:57:30, INFO The voice handshake is being terminated for Channel ID 1034701393858146358 (Guild ID 1034701393858146354)
-17:57:30, INFO ffmpeg process 6885 should have terminated with a return code of -9.
-17:57:31, DEBUG on_ready has successfully been registered as an event
-17:57:31, DEBUG on_message has successfully been registered as an event
-17:57:31, DEBUG Using selector: EpollSelector
-17:57:31, INFO logging in using static token
-17:57:32, INFO Shard ID None has connected to Gateway (Session ID: c0a7518617adcbdb74c72a3ba31b832d).
-17:57:43, DEBUG [on_message] trying to play song with flags: '-l'
-17:57:43, DEBUG [download_from_search] - Searching for the nights -l
-17:57:43, DEBUG [download_from_search] Searching local directory
-17:57:43, DEBUG [download_from_search] Found suitable local song with score 62
-17:57:43, DEBUG [on_message] added song to queue
-17:57:43, DEBUG [sync_vc_status] syncing voice status
-17:57:43, DEBUG [sync_vc_status] we should be playing music
-17:57:43, DEBUG [sync_vc_status] connecting to the right channel
-17:57:43, INFO Connecting to voice...
-17:57:43, INFO Starting voice handshake... (connection attempt 1)
-17:57:43, INFO Voice handshake complete. Endpoint found seattle7364.discord.media
-17:57:44, DEBUG [sync_vc_status] attempting to play song in the right channel
-17:57:44, DEBUG [sync_vc_status] playing the correct song...
-17:58:11, DEBUG [on_message] trying to play song with flags: '-l'
-17:58:11, DEBUG [download_from_search] - Searching for america -l
-17:58:11, DEBUG [download_from_search] Searching local directory
-17:58:11, DEBUG [download_from_search] Found suitable local song with score 36
-17:58:11, DEBUG [on_message] added song to queue
-17:58:11, DEBUG [sync_vc_status] syncing voice status
-17:58:11, DEBUG [sync_vc_status] we should be playing music
-17:58:11, DEBUG [sync_vc_status] attempting to play song in the right channel
-17:58:11, DEBUG [sync_vc_status] we are already playing the right song
-17:58:21, DEBUG [on_message] trying to play song with flags: '-l'
-17:58:21, DEBUG [download_from_search] - Searching for something just like this -l
-17:58:21, DEBUG [download_from_search] Searching local directory
-17:58:21, DEBUG [download_from_search] Found suitable local song with score 58
-17:58:21, DEBUG [on_message] added song to queue
-17:58:22, DEBUG [sync_vc_status] syncing voice status
-17:58:22, DEBUG [sync_vc_status] we should be playing music
-17:58:22, DEBUG [sync_vc_status] attempting to play song in the right channel
-17:58:22, DEBUG [sync_vc_status] we are already playing the right song
-17:58:45, DEBUG [on_message] trying to play song with flags: '-n'
-17:58:45, DEBUG [download_from_search] - Searching for fun - Why Am I the One -n
-17:58:45, DEBUG [download_from_search] Searching local directory
-17:58:45, DEBUG [download_from_search] No suitable local song found, searching remotely...
-17:58:55, DEBUG [download_from_search] Found song on YouTube, returning path and title...
-17:58:55, DEBUG [on_message] added song to queue
-17:58:55, DEBUG [sync_vc_status] syncing voice status
-17:58:55, DEBUG [sync_vc_status] we should be playing music
-17:58:55, DEBUG [sync_vc_status] attempting to play song in the right channel
-17:58:55, DEBUG [sync_vc_status] we are already playing the right song
-17:59:01, DEBUG [on_message] showing queue to user
-18:00:54, DEBUG [play_next_song] advanced to next song
-18:00:54, ERROR Calling the after function failed.
-Traceback (most recent call last):
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/player.py", line 711, in _call_after
-    self.after(error)
-  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 48, in play_next_song
-    coroutine = sync_vc_status()
-  File "/usr/lib/python3.10/asyncio/events.py", line 656, in get_event_loop
-    raise RuntimeError('There is no current event loop in thread %r.'
-RuntimeError: There is no current event loop in thread 'Thread-3'.
-18:00:54, INFO ffmpeg process 6905 successfully terminated with return code of 0.
-18:02:07, INFO The voice handshake is being terminated for Channel ID 1034701393858146358 (Guild ID 1034701393858146354)
-18:02:08, DEBUG Using selector: EpollSelector
-18:02:08, DEBUG on_ready has successfully been registered as an event
-18:02:08, DEBUG on_message has successfully been registered as an event
-18:02:08, DEBUG Using selector: EpollSelector
-18:02:08, INFO logging in using static token
-18:02:08, INFO Shard ID None has connected to Gateway (Session ID: 8e033dd030b4991a0f8fc199d61f8d48).
-18:02:12, DEBUG [on_message] trying to play song with flags: 'nights'
-18:02:13, DEBUG [download_from_search] - Searching for Avicii The Nights
-18:02:13, DEBUG [download_from_search] Searching local directory
-18:02:13, DEBUG [download_from_search] Found suitable local song with score 94
-18:02:13, DEBUG [on_message] added song to queue
-18:02:13, DEBUG [sync_vc_status] syncing voice status
-18:02:13, DEBUG [sync_vc_status] we should be playing music
-18:02:13, DEBUG [sync_vc_status] connecting to the right channel
-18:02:13, INFO Connecting to voice...
-18:02:13, INFO Starting voice handshake... (connection attempt 1)
-18:02:13, INFO Voice handshake complete. Endpoint found seattle7364.discord.media
-18:02:13, DEBUG [sync_vc_status] attempting to play song in the right channel
-18:02:13, DEBUG [sync_vc_status] playing the correct song...
-18:02:22, DEBUG [on_message] trying to play song with flags: '-l'
-18:02:22, DEBUG [download_from_search] - Searching for FUN why am i the -l
-18:02:22, DEBUG [download_from_search] Searching local directory
-18:02:22, DEBUG [download_from_search] Found suitable local song with score 69
-18:02:22, DEBUG [on_message] added song to queue
-18:02:22, DEBUG [sync_vc_status] syncing voice status
-18:02:22, DEBUG [sync_vc_status] we should be playing music
-18:02:22, DEBUG [sync_vc_status] attempting to play song in the right channel
-18:02:22, DEBUG [sync_vc_status] we are already playing the right song
-18:02:26, DEBUG [on_message] showing queue to user
-18:05:24, DEBUG [play_next_song] advanced to next song
-18:05:24, DEBUG [sync_vc_status] syncing voice status
-18:05:24, DEBUG [sync_vc_status] we should be playing music
-18:05:24, DEBUG [sync_vc_status] attempting to play song in the right channel
-18:05:24, DEBUG [sync_vc_status] playing the correct song...
-18:05:24, DEBUG [play_next_song] synced vc status
-18:05:24, INFO ffmpeg process 7068 successfully terminated with return code of 0.
-18:06:42, DEBUG [on_message] trying to play song with flags: '-l'
-18:06:42, DEBUG [download_from_search] - Searching for Simon Garfunkel America -l
-18:06:42, DEBUG [download_from_search] Searching local directory
-18:06:42, DEBUG [download_from_search] Found suitable local song with score 79
-18:06:42, DEBUG [on_message] added song to queue
-18:06:43, DEBUG [sync_vc_status] syncing voice status
-18:06:43, DEBUG [sync_vc_status] we should be playing music
-18:06:43, DEBUG [sync_vc_status] attempting to play song in the right channel
-18:06:43, DEBUG [sync_vc_status] we are already playing the right song
-18:10:11, DEBUG [play_next_song] advanced to next song
-18:10:11, DEBUG [sync_vc_status] syncing voice status
-18:10:11, DEBUG [sync_vc_status] we should be playing music
-18:10:11, DEBUG [sync_vc_status] attempting to play song in the right channel
-18:10:11, DEBUG [sync_vc_status] playing the correct song...
-18:10:11, DEBUG [play_next_song] synced vc status
-18:10:11, INFO ffmpeg process 7164 successfully terminated with return code of 0.
-18:10:26, DEBUG [on_message] trying to play song with flags: 'go'
-18:10:27, DEBUG [download_from_search] - Searching for Passenger - Let Her Go
-18:10:27, DEBUG [download_from_search] Searching local directory
-18:10:27, DEBUG [download_from_search] No suitable local song found, searching remotely...
-18:10:35, DEBUG [download_from_search] Found song on YouTube, returning path and title...
-18:10:35, DEBUG [on_message] added song to queue
-18:10:36, DEBUG [sync_vc_status] syncing voice status
-18:10:36, DEBUG [sync_vc_status] we should be playing music
-18:10:36, DEBUG [sync_vc_status] attempting to play song in the right channel
-18:10:36, DEBUG [sync_vc_status] we are already playing the right song
-18:13:48, DEBUG [play_next_song] advanced to next song
-18:13:48, DEBUG [sync_vc_status] syncing voice status
-18:13:48, DEBUG [sync_vc_status] we should be playing music
-18:13:48, DEBUG [sync_vc_status] attempting to play song in the right channel
-18:13:48, DEBUG [sync_vc_status] playing the correct song...
-18:13:48, DEBUG [play_next_song] synced vc status
-18:13:48, INFO ffmpeg process 7666 successfully terminated with return code of 0.
-18:18:02, DEBUG [play_next_song] advanced to next song
-18:18:02, DEBUG [sync_vc_status] syncing voice status
-18:18:02, DEBUG [sync_vc_status] we should not be playing music
-18:18:02, DEBUG [sync_vc_status] we are in a voice call but should not be playing
-18:18:02, DEBUG [sync_vc_status] voice call is still connected
-18:18:02, DEBUG [sync_vc_status] disconnecting from voice call...
-18:18:02, ERROR Calling the after function failed.
-Traceback (most recent call last):
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/player.py", line 711, in _call_after
-    self.after(error)
-  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 51, in play_next_song
-    MAIN_EVENT_LOOP.run_until_complete(coroutine)
-  File "/usr/lib/python3.10/asyncio/base_events.py", line 646, in run_until_complete
-    return future.result()
-  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 92, in sync_vc_status
-    await current_vc.disconnect()
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/voice_client.py", line 506, in disconnect
-    await self.ws.close()
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/gateway.py", line 1012, in close
-    await self.ws.close(code=code)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/gateway.py", line 236, in close
-    return await super().close(code=code, message=message)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/aiohttp/client_ws.py", line 172, in close
-    await self._waiting
-RuntimeError: Task <Task pending name='Task-444' coro=<sync_vc_status() running at /home/daniel/personal-projects/yt-discord-bot/main.py:92> cb=[_run_until_complete_cb() at /usr/lib/python3.10/asyncio/base_events.py:184]> got Future <Future pending> attached to a different loop
-18:18:02, INFO Disconnecting from voice normally, close code 1000.
-18:18:02, INFO ffmpeg process 7929 successfully terminated with return code of 0.
-18:18:07, DEBUG [on_message] showing queue to user
-18:18:22, DEBUG [on_message] trying to play song with flags: 'nights'
-18:18:23, DEBUG [download_from_search] - Searching for Avicii The Nights
-18:18:23, DEBUG [download_from_search] Searching local directory
-18:18:23, DEBUG [download_from_search] Found suitable local song with score 94
-18:18:23, DEBUG [on_message] added song to queue
-18:18:23, DEBUG [sync_vc_status] syncing voice status
-18:18:23, DEBUG [sync_vc_status] we should be playing music
-18:18:23, DEBUG [sync_vc_status] attempting to play song in the right channel
-18:18:23, DEBUG [sync_vc_status] playing the correct song...
-18:18:23, WARNING [sync_vc_status] had error while syncing state: Not connected to voice., trying again with fresh call vars.
-18:18:23, DEBUG [sync_vc_status] syncing voice status
-18:18:23, DEBUG [sync_vc_status] we should be playing music
-18:18:23, DEBUG [sync_vc_status] connecting to the right channel
-18:18:23, INFO Connecting to voice...
-18:18:23, INFO Starting voice handshake... (connection attempt 1)
-18:19:23, INFO The voice handshake is being terminated for Channel ID 1034701393858146358 (Guild ID 1034701393858146354)
-18:19:23, INFO The voice handshake is being terminated for Channel ID 1034701393858146358 (Guild ID 1034701393858146354)
-18:19:23, WARNING [on_message] encountered exception while trying to play song: 
-18:19:23, INFO ffmpeg process 8311 has not terminated. Waiting to terminate...
-18:19:23, INFO ffmpeg process 8311 should have terminated with a return code of -9.
-18:22:12, DEBUG Using selector: EpollSelector
-18:22:12, DEBUG on_ready has successfully been registered as an event
-18:22:12, DEBUG on_message has successfully been registered as an event
-18:22:12, DEBUG Using selector: EpollSelector
-18:22:12, INFO logging in using static token
-18:22:13, INFO Shard ID None has connected to Gateway (Session ID: 94e9d1e8da9155d457e324b7efd367a5).
-18:22:23, DEBUG [on_message] trying to play song with flags: '-l'
-18:22:24, DEBUG [download_from_search] - Searching for Avicii The Nights
-18:22:24, DEBUG [download_from_search] Searching local directory
-18:22:24, DEBUG [download_from_search] Found suitable local song with score 94
-18:22:24, DEBUG [on_message] added song to queue
-18:22:24, DEBUG [sync_vc_status] syncing voice status
-18:22:24, DEBUG [sync_vc_status] we should be playing music
-18:22:24, DEBUG [sync_vc_status] connecting to the right channel
-18:22:24, INFO Connecting to voice...
-18:22:24, INFO Starting voice handshake... (connection attempt 1)
-18:22:24, INFO Voice handshake complete. Endpoint found seattle7364.discord.media
-18:22:24, DEBUG [sync_vc_status] attempting to play song in the right channel
-18:22:24, DEBUG [sync_vc_status] playing the correct song...
-18:23:10, INFO The voice handshake is being terminated for Channel ID 1034701393858146358 (Guild ID 1034701393858146354)
-18:23:10, DEBUG [play_next_song] advanced to next song
-18:23:10, DEBUG [sync_vc_status] syncing voice status
-18:23:10, DEBUG [sync_vc_status] we should not be playing music
-18:23:10, DEBUG [sync_vc_status] we are in a voice call but should not be playing
-18:23:10, DEBUG [sync_vc_status] voice call is not really connected, zeroing out variables
-18:23:10, DEBUG [play_next_song] synced vc status
-18:23:10, INFO ffmpeg process 8419 has not terminated. Waiting to terminate...
-18:23:10, INFO ffmpeg process 8419 should have terminated with a return code of -9.
-18:23:11, DEBUG Using selector: EpollSelector
-18:23:11, DEBUG on_ready has successfully been registered as an event
-18:23:11, DEBUG on_message has successfully been registered as an event
-18:23:11, DEBUG Using selector: EpollSelector
-18:23:11, INFO logging in using static token
-18:23:12, INFO Shard ID None has connected to Gateway (Session ID: 94c9e3395e2410903344471ae6aacf39).
-18:23:18, DEBUG [on_message] trying to play song with flags: '-l'
-18:23:18, DEBUG [download_from_search] - Searching for Avicii The Nights
-18:23:18, DEBUG [download_from_search] Searching local directory
-18:23:18, DEBUG [download_from_search] Found suitable local song with score 94
-18:23:18, DEBUG [on_message] added song to queue
-18:23:19, DEBUG [sync_vc_status] syncing voice status
-18:23:19, DEBUG [sync_vc_status] we should be playing music
-18:23:19, DEBUG [sync_vc_status] connecting to the right channel
-18:23:19, INFO Connecting to voice...
-18:23:19, INFO Starting voice handshake... (connection attempt 1)
-18:23:19, INFO Voice handshake complete. Endpoint found seattle7364.discord.media
-18:23:19, DEBUG [sync_vc_status] attempting to play song in the right channel
-18:23:19, DEBUG [sync_vc_status] playing the correct song...
-18:23:26, DEBUG [play_next_song] advanced to next song
-18:23:26, DEBUG [sync_vc_status] syncing voice status
-18:23:26, DEBUG [sync_vc_status] we should not be playing music
-18:23:26, DEBUG [sync_vc_status] we are in a voice call but should not be playing
-18:23:26, DEBUG [sync_vc_status] voice call is not really connected, zeroing out variables
-18:23:26, DEBUG [play_next_song] synced vc status
-18:23:26, INFO ffmpeg process 8457 has not terminated. Waiting to terminate...
-18:23:26, INFO The voice handshake is being terminated for Channel ID 1034701393858146358 (Guild ID 1034701393858146354)
-18:23:26, INFO ffmpeg process 8457 should have terminated with a return code of -9.
-18:23:27, DEBUG Using selector: EpollSelector
-18:23:27, DEBUG on_ready has successfully been registered as an event
-18:23:27, DEBUG on_message has successfully been registered as an event
-18:23:27, DEBUG Using selector: EpollSelector
-18:23:27, INFO logging in using static token
-18:23:27, INFO Shard ID None has connected to Gateway (Session ID: 3b6862f2fa3541f3217f3f1927f7552e).
-18:23:32, DEBUG [on_message] trying to play song with flags: '-l'
-18:23:32, DEBUG [download_from_search] - Searching for Avicii The Nights
-18:23:32, DEBUG [download_from_search] Searching local directory
-18:23:32, DEBUG [download_from_search] Found suitable local song with score 94
-18:23:32, DEBUG [on_message] added song to queue
-18:23:33, DEBUG [sync_vc_status] syncing voice status
-18:23:33, DEBUG [sync_vc_status] we should be playing music
-18:23:33, DEBUG [sync_vc_status] connecting to the right channel
-18:23:33, INFO Connecting to voice...
-18:23:33, INFO Starting voice handshake... (connection attempt 1)
-18:23:33, INFO Voice handshake complete. Endpoint found seattle7364.discord.media
-18:23:33, DEBUG [sync_vc_status] attempting to play song in the right channel
-18:23:33, DEBUG [sync_vc_status] playing the correct song...
-18:23:49, DEBUG [on_message] trying to play song with flags: '-l'
-18:23:49, DEBUG [download_from_search] - Searching for America
-18:23:49, DEBUG [download_from_search] Searching local directory
-18:23:49, DEBUG [download_from_search] Found suitable local song with score 33
-18:23:49, DEBUG [on_message] added song to queue
-18:23:49, DEBUG [sync_vc_status] syncing voice status
-18:23:49, DEBUG [sync_vc_status] we should be playing music
-18:23:49, DEBUG [sync_vc_status] attempting to play song in the right channel
-18:23:49, DEBUG [sync_vc_status] we are already playing the right song
-18:26:44, DEBUG [play_next_song] advanced to next song
-18:26:44, DEBUG [sync_vc_status] syncing voice status
-18:26:44, DEBUG [sync_vc_status] we should be playing music
-18:26:44, DEBUG [sync_vc_status] attempting to play song in the right channel
-18:26:44, DEBUG [sync_vc_status] playing the correct song...
-18:26:44, DEBUG [play_next_song] synced vc status
-18:26:44, INFO ffmpeg process 8488 successfully terminated with return code of 0.
-18:30:21, DEBUG [play_next_song] advanced to next song
-18:30:21, DEBUG [sync_vc_status] syncing voice status
-18:30:21, DEBUG [sync_vc_status] we should not be playing music
-18:30:21, DEBUG [sync_vc_status] we are in a voice call but should not be playing
-18:30:21, DEBUG [sync_vc_status] voice call is still connected
-18:30:21, DEBUG [sync_vc_status] disconnecting from voice call...
-18:30:21, ERROR Calling the after function failed.
-Traceback (most recent call last):
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/player.py", line 711, in _call_after
-    self.after(error)
-  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 52, in play_next_song
-    MAIN_EVENT_LOOP.run_until_complete(coroutine)
-  File "/usr/lib/python3.10/asyncio/base_events.py", line 646, in run_until_complete
-    return future.result()
-  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 93, in sync_vc_status
-    await current_vc.disconnect()
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/voice_client.py", line 506, in disconnect
-    await self.ws.close()
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/gateway.py", line 1012, in close
-    await self.ws.close(code=code)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/gateway.py", line 236, in close
-    return await super().close(code=code, message=message)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/aiohttp/client_ws.py", line 172, in close
-    await self._waiting
-RuntimeError: Task <Task pending name='Task-207' coro=<sync_vc_status() running at /home/daniel/personal-projects/yt-discord-bot/main.py:93> cb=[_run_until_complete_cb() at /usr/lib/python3.10/asyncio/base_events.py:184]> got Future <Future pending> attached to a different loop
-18:30:21, INFO Disconnecting from voice normally, close code 1000.
-18:30:21, INFO ffmpeg process 8692 successfully terminated with return code of 0.
-18:30:54, DEBUG Using selector: EpollSelector
-18:30:54, DEBUG on_ready has successfully been registered as an event
-18:30:54, DEBUG on_message has successfully been registered as an event
-18:30:54, DEBUG Using selector: EpollSelector
-18:30:54, INFO logging in using static token
-18:30:54, INFO Shard ID None has connected to Gateway (Session ID: 4663dfdd4d8e5d6e118a5985596eead5).
-18:30:59, DEBUG [on_message] trying to play song with flags: '-l'
-18:31:00, DEBUG [download_from_search] - Searching for Avicii The Nights
-18:31:00, DEBUG [download_from_search] Searching local directory
-18:31:00, DEBUG [download_from_search] Found suitable local song with score 94
-18:31:00, DEBUG [on_message] added song to queue
-18:31:00, DEBUG [sync_vc_status] syncing voice status
-18:31:00, DEBUG [sync_vc_status] we should be playing music
-18:31:00, DEBUG [sync_vc_status] connecting to the right channel
-18:31:00, INFO Connecting to voice...
-18:31:00, INFO Starting voice handshake... (connection attempt 1)
-18:31:00, INFO Voice handshake complete. Endpoint found seattle7364.discord.media
-18:31:00, DEBUG [sync_vc_status] attempting to play song in the right channel
-18:31:00, DEBUG [sync_vc_status] playing the correct song...
-18:31:02, DEBUG [on_message] clearing queue
-18:31:02, DEBUG [sync_vc_status] syncing voice status
-18:31:02, DEBUG [sync_vc_status] we should not be playing music
-18:31:02, DEBUG [sync_vc_status] we are in a voice call but should not be playing
-18:31:02, DEBUG [sync_vc_status] voice call is still connected
-18:31:02, DEBUG [sync_vc_status] pausing currently playing audio
-18:31:02, DEBUG [sync_vc_status] disconnecting from voice call...
-18:31:02, INFO The voice handshake is being terminated for Channel ID 1034701393858146358 (Guild ID 1034701393858146354)
-18:31:02, DEBUG [sync_vc_status] disconnected. zeroing out variables...
-18:31:02, DEBUG [play_next_song] advanced to next song
-18:31:02, DEBUG [sync_vc_status] syncing voice status
-18:31:02, DEBUG [sync_vc_status] we should not be playing music
-18:31:02, DEBUG [sync_vc_status] good, we are not connected to a call
-18:31:02, INFO Disconnecting from voice normally, close code 1000.
-18:31:02, DEBUG [play_next_song] synced vc status
-18:31:02, INFO ffmpeg process 8813 has not terminated. Waiting to terminate...
-18:31:02, INFO ffmpeg process 8813 should have terminated with a return code of -9.
-18:33:40, DEBUG [on_message] trying to play song with flags: 'nights'
-18:33:41, DEBUG [download_from_search] - Searching for Avicii The
-18:33:41, DEBUG [download_from_search] Searching local directory
-18:33:41, DEBUG [download_from_search] Found suitable local song with score 69
-18:33:41, DEBUG [on_message] added song to queue
-18:33:41, DEBUG [sync_vc_status] syncing voice status
-18:33:41, DEBUG [sync_vc_status] we should be playing music
-18:33:41, DEBUG [sync_vc_status] connecting to the right channel
-18:33:41, INFO Connecting to voice...
-18:33:41, INFO Starting voice handshake... (connection attempt 1)
-18:33:41, INFO Voice handshake complete. Endpoint found seattle8645.discord.media
-18:33:41, DEBUG [sync_vc_status] attempting to play song in the right channel
-18:33:41, DEBUG [sync_vc_status] playing the correct song...
-18:33:50, DEBUG [on_message] trying to play song with flags: 'america'
-18:33:50, DEBUG [download_from_search] - Searching for Simon Garfunkel
-18:33:50, DEBUG [download_from_search] Searching local directory
-18:33:50, DEBUG [download_from_search] No suitable local song found, searching remotely...
-18:34:01, WARNING Shard ID None voice heartbeat blocked for more than 10 seconds
-Loop thread traceback (most recent call last):
-  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 334, in <module>
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/client.py", line 828, in run
-    asyncio.run(runner())
-  File "/usr/lib/python3.10/asyncio/runners.py", line 44, in run
-    return loop.run_until_complete(main)
-  File "/usr/lib/python3.10/asyncio/base_events.py", line 633, in run_until_complete
-    self.run_forever()
-  File "/usr/lib/python3.10/asyncio/base_events.py", line 600, in run_forever
-    self._run_once()
-  File "/usr/lib/python3.10/asyncio/base_events.py", line 1896, in _run_once
-    handle._run()
-  File "/usr/lib/python3.10/asyncio/events.py", line 80, in _run
-    self._context.run(self._callback, *self._args)
   File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/client.py", line 409, in _run_event
     await coro(*args, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 247, in on_message
-  File "/home/daniel/personal-projects/yt-discord-bot/bot.py", line 117, in add_song_from_query
-    path, title = download_from_search(query, force=False, threshold=60)
-  File "/home/daniel/personal-projects/yt-discord-bot/yt_dl.py", line 151, in download_from_search
-    info = downloader.extract_info(f"ytsearch:{term}", download=True)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1466, in extract_info
-    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1477, in wrapper
-    return func(self, *args, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1574, in __extract_info
-    return self.process_ie_result(ie_result, download, extra_info)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1702, in process_ie_result
-    return self.__process_playlist(ie_result, download)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1850, in __process_playlist
-    entry_result = self.__process_iterable_entry(entry, download, extra)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1477, in wrapper
-    return func(self, *args, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1876, in __process_iterable_entry
-    return self.process_ie_result(
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1652, in process_ie_result
-    return self.extract_info(
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1466, in extract_info
-    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1477, in wrapper
-    return func(self, *args, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1574, in __extract_info
-    return self.process_ie_result(ie_result, download, extra_info)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1632, in process_ie_result
-    ie_result = self.process_video_result(ie_result, download=download)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 2733, in process_video_result
-    self.process_info(new_info)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 3272, in process_info
-    replace_info_dict(self.post_process(dl_filename, info_dict, files_to_move))
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 3449, in post_process
-    info = self.run_all_pps('post_process', info, additional_pps=info.get('__postprocessors'))
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 3431, in run_all_pps
-    info = self.run_pp(pp, info)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 3410, in run_pp
-    files_to_delete, infodict = pp.run(infodict)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/common.py", line 24, in run
-    ret = func(self, info, *args, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/common.py", line 129, in wrapper
-    return func(self, info)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/ffmpeg.py", line 525, in run
-    self.run_ffmpeg(path, temp_path, acodec, more_opts)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/ffmpeg.py", line 473, in run_ffmpeg
-    FFmpegPostProcessor.run_ffmpeg(self, path, out_path, opts)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/ffmpeg.py", line 368, in run_ffmpeg
-    return self.run_ffmpeg_multiple_files([path], out_path, opts, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/ffmpeg.py", line 323, in run_ffmpeg_multiple_files
-    return self.real_run_ffmpeg(
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/ffmpeg.py", line 357, in real_run_ffmpeg
-    _, stderr, returncode = Popen.run(
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/utils.py", line 895, in run
-    stdout, stderr = proc.communicate_or_kill(timeout=timeout)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/utils.py", line 881, in communicate_or_kill
-    return self.communicate(*args, **kwargs)
-  File "/usr/lib/python3.10/subprocess.py", line 1152, in communicate
-    stdout, stderr = self._communicate(input, endtime, timeout)
-  File "/usr/lib/python3.10/subprocess.py", line 2003, in _communicate
-    ready = selector.select(timeout)
-  File "/usr/lib/python3.10/selectors.py", line 416, in select
-    fd_event_list = self._selector.poll(timeout)
-
-18:34:11, WARNING Shard ID None voice heartbeat blocked for more than 20 seconds
-Loop thread traceback (most recent call last):
-  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 334, in <module>
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/client.py", line 828, in run
-    asyncio.run(runner())
-  File "/usr/lib/python3.10/asyncio/runners.py", line 44, in run
-    return loop.run_until_complete(main)
-  File "/usr/lib/python3.10/asyncio/base_events.py", line 633, in run_until_complete
-    self.run_forever()
-  File "/usr/lib/python3.10/asyncio/base_events.py", line 600, in run_forever
-    self._run_once()
-  File "/usr/lib/python3.10/asyncio/base_events.py", line 1896, in _run_once
-    handle._run()
-  File "/usr/lib/python3.10/asyncio/events.py", line 80, in _run
-    self._context.run(self._callback, *self._args)
+  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 185, in on_message
+    if message.channel.name != "harlough":
+AttributeError: 'DMChannel' object has no attribute 'name'
+00:17:48, DEBUG on_ready has successfully been registered as an event
+00:17:48, DEBUG on_message has successfully been registered as an event
+00:17:48, DEBUG on_voice_state_update has successfully been registered as an event
+00:17:48, DEBUG Using selector: EpollSelector
+00:17:48, INFO logging in using static token
+00:17:49, INFO Shard ID None has connected to Gateway (Session ID: 27409f3cc8425abd477a6c5c08dfef62).
+00:17:51, ERROR Ignoring exception in on_message
+Traceback (most recent call last):
   File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/client.py", line 409, in _run_event
     await coro(*args, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 247, in on_message
-  File "/home/daniel/personal-projects/yt-discord-bot/bot.py", line 117, in add_song_from_query
-    path, title = download_from_search(query, force=False, threshold=60)
-  File "/home/daniel/personal-projects/yt-discord-bot/yt_dl.py", line 151, in download_from_search
-    info = downloader.extract_info(f"ytsearch:{term}", download=True)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1466, in extract_info
-    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1477, in wrapper
-    return func(self, *args, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1574, in __extract_info
-    return self.process_ie_result(ie_result, download, extra_info)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1702, in process_ie_result
-    return self.__process_playlist(ie_result, download)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1850, in __process_playlist
-    entry_result = self.__process_iterable_entry(entry, download, extra)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1477, in wrapper
-    return func(self, *args, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1876, in __process_iterable_entry
-    return self.process_ie_result(
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1652, in process_ie_result
-    return self.extract_info(
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1466, in extract_info
-    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1477, in wrapper
-    return func(self, *args, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1574, in __extract_info
-    return self.process_ie_result(ie_result, download, extra_info)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1632, in process_ie_result
-    ie_result = self.process_video_result(ie_result, download=download)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 2733, in process_video_result
-    self.process_info(new_info)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 3272, in process_info
-    replace_info_dict(self.post_process(dl_filename, info_dict, files_to_move))
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 3449, in post_process
-    info = self.run_all_pps('post_process', info, additional_pps=info.get('__postprocessors'))
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 3431, in run_all_pps
-    info = self.run_pp(pp, info)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 3410, in run_pp
-    files_to_delete, infodict = pp.run(infodict)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/common.py", line 24, in run
-    ret = func(self, info, *args, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/common.py", line 129, in wrapper
-    return func(self, info)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/ffmpeg.py", line 525, in run
-    self.run_ffmpeg(path, temp_path, acodec, more_opts)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/ffmpeg.py", line 473, in run_ffmpeg
-    FFmpegPostProcessor.run_ffmpeg(self, path, out_path, opts)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/ffmpeg.py", line 368, in run_ffmpeg
-    return self.run_ffmpeg_multiple_files([path], out_path, opts, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/ffmpeg.py", line 323, in run_ffmpeg_multiple_files
-    return self.real_run_ffmpeg(
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/ffmpeg.py", line 357, in real_run_ffmpeg
-    _, stderr, returncode = Popen.run(
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/utils.py", line 895, in run
-    stdout, stderr = proc.communicate_or_kill(timeout=timeout)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/utils.py", line 881, in communicate_or_kill
-    return self.communicate(*args, **kwargs)
-  File "/usr/lib/python3.10/subprocess.py", line 1152, in communicate
-    stdout, stderr = self._communicate(input, endtime, timeout)
-  File "/usr/lib/python3.10/subprocess.py", line 2003, in _communicate
-    ready = selector.select(timeout)
-  File "/usr/lib/python3.10/selectors.py", line 416, in select
-    fd_event_list = self._selector.poll(timeout)
-
-18:34:21, WARNING Shard ID None voice heartbeat blocked for more than 30 seconds
-Loop thread traceback (most recent call last):
-  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 334, in <module>
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/client.py", line 828, in run
-    asyncio.run(runner())
-  File "/usr/lib/python3.10/asyncio/runners.py", line 44, in run
-    return loop.run_until_complete(main)
-  File "/usr/lib/python3.10/asyncio/base_events.py", line 633, in run_until_complete
-    self.run_forever()
-  File "/usr/lib/python3.10/asyncio/base_events.py", line 600, in run_forever
-    self._run_once()
-  File "/usr/lib/python3.10/asyncio/base_events.py", line 1896, in _run_once
-    handle._run()
-  File "/usr/lib/python3.10/asyncio/events.py", line 80, in _run
-    self._context.run(self._callback, *self._args)
+  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 186, in on_message
+    if message.channel.name != "harlough":
+AttributeError: 'DMChannel' object has no attribute 'name'
+00:18:36, DEBUG on_ready has successfully been registered as an event
+00:18:36, DEBUG on_message has successfully been registered as an event
+00:18:36, DEBUG on_voice_state_update has successfully been registered as an event
+00:18:36, DEBUG Using selector: EpollSelector
+00:18:36, INFO logging in using static token
+00:18:36, INFO Shard ID None has connected to Gateway (Session ID: 49e58f423abba95b724795decb1ebd87).
+00:18:44, ERROR Ignoring exception in on_message
+Traceback (most recent call last):
   File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/client.py", line 409, in _run_event
     await coro(*args, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 247, in on_message
-  File "/home/daniel/personal-projects/yt-discord-bot/bot.py", line 117, in add_song_from_query
-    path, title = download_from_search(query, force=False, threshold=60)
-  File "/home/daniel/personal-projects/yt-discord-bot/yt_dl.py", line 151, in download_from_search
-    info = downloader.extract_info(f"ytsearch:{term}", download=True)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1466, in extract_info
-    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1477, in wrapper
-    return func(self, *args, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1574, in __extract_info
-    return self.process_ie_result(ie_result, download, extra_info)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1702, in process_ie_result
-    return self.__process_playlist(ie_result, download)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1850, in __process_playlist
-    entry_result = self.__process_iterable_entry(entry, download, extra)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1477, in wrapper
-    return func(self, *args, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1876, in __process_iterable_entry
-    return self.process_ie_result(
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1652, in process_ie_result
-    return self.extract_info(
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1466, in extract_info
-    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1477, in wrapper
-    return func(self, *args, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1574, in __extract_info
-    return self.process_ie_result(ie_result, download, extra_info)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1632, in process_ie_result
-    ie_result = self.process_video_result(ie_result, download=download)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 2733, in process_video_result
-    self.process_info(new_info)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 3272, in process_info
-    replace_info_dict(self.post_process(dl_filename, info_dict, files_to_move))
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 3449, in post_process
-    info = self.run_all_pps('post_process', info, additional_pps=info.get('__postprocessors'))
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 3431, in run_all_pps
-    info = self.run_pp(pp, info)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 3410, in run_pp
-    files_to_delete, infodict = pp.run(infodict)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/common.py", line 24, in run
-    ret = func(self, info, *args, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/common.py", line 129, in wrapper
-    return func(self, info)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/ffmpeg.py", line 525, in run
-    self.run_ffmpeg(path, temp_path, acodec, more_opts)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/ffmpeg.py", line 473, in run_ffmpeg
-    FFmpegPostProcessor.run_ffmpeg(self, path, out_path, opts)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/ffmpeg.py", line 368, in run_ffmpeg
-    return self.run_ffmpeg_multiple_files([path], out_path, opts, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/ffmpeg.py", line 323, in run_ffmpeg_multiple_files
-    return self.real_run_ffmpeg(
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/ffmpeg.py", line 357, in real_run_ffmpeg
-    _, stderr, returncode = Popen.run(
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/utils.py", line 895, in run
-    stdout, stderr = proc.communicate_or_kill(timeout=timeout)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/utils.py", line 881, in communicate_or_kill
-    return self.communicate(*args, **kwargs)
-  File "/usr/lib/python3.10/subprocess.py", line 1152, in communicate
-    stdout, stderr = self._communicate(input, endtime, timeout)
-  File "/usr/lib/python3.10/subprocess.py", line 2003, in _communicate
-    ready = selector.select(timeout)
-  File "/usr/lib/python3.10/selectors.py", line 416, in select
-    fd_event_list = self._selector.poll(timeout)
-
-18:34:31, WARNING Shard ID None heartbeat blocked for more than 10 seconds.
-Loop thread traceback (most recent call last):
-  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 334, in <module>
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/client.py", line 828, in run
-    asyncio.run(runner())
-  File "/usr/lib/python3.10/asyncio/runners.py", line 44, in run
-    return loop.run_until_complete(main)
-  File "/usr/lib/python3.10/asyncio/base_events.py", line 633, in run_until_complete
-    self.run_forever()
-  File "/usr/lib/python3.10/asyncio/base_events.py", line 600, in run_forever
-    self._run_once()
-  File "/usr/lib/python3.10/asyncio/base_events.py", line 1896, in _run_once
-    handle._run()
-  File "/usr/lib/python3.10/asyncio/events.py", line 80, in _run
-    self._context.run(self._callback, *self._args)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/client.py", line 409, in _run_event
-    await coro(*args, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 247, in on_message
-  File "/home/daniel/personal-projects/yt-discord-bot/bot.py", line 117, in add_song_from_query
-    path, title = download_from_search(query, force=False, threshold=60)
-  File "/home/daniel/personal-projects/yt-discord-bot/yt_dl.py", line 151, in download_from_search
-    info = downloader.extract_info(f"ytsearch:{term}", download=True)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1466, in extract_info
-    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1477, in wrapper
-    return func(self, *args, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1574, in __extract_info
-    return self.process_ie_result(ie_result, download, extra_info)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1702, in process_ie_result
-    return self.__process_playlist(ie_result, download)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1850, in __process_playlist
-    entry_result = self.__process_iterable_entry(entry, download, extra)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1477, in wrapper
-    return func(self, *args, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1876, in __process_iterable_entry
-    return self.process_ie_result(
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1652, in process_ie_result
-    return self.extract_info(
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1466, in extract_info
-    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1477, in wrapper
-    return func(self, *args, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1574, in __extract_info
-    return self.process_ie_result(ie_result, download, extra_info)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1632, in process_ie_result
-    ie_result = self.process_video_result(ie_result, download=download)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 2733, in process_video_result
-    self.process_info(new_info)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 3272, in process_info
-    replace_info_dict(self.post_process(dl_filename, info_dict, files_to_move))
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 3449, in post_process
-    info = self.run_all_pps('post_process', info, additional_pps=info.get('__postprocessors'))
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 3431, in run_all_pps
-    info = self.run_pp(pp, info)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 3410, in run_pp
-    files_to_delete, infodict = pp.run(infodict)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/common.py", line 24, in run
-    ret = func(self, info, *args, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/common.py", line 129, in wrapper
-    return func(self, info)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/ffmpeg.py", line 525, in run
-    self.run_ffmpeg(path, temp_path, acodec, more_opts)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/ffmpeg.py", line 473, in run_ffmpeg
-    FFmpegPostProcessor.run_ffmpeg(self, path, out_path, opts)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/ffmpeg.py", line 368, in run_ffmpeg
-    return self.run_ffmpeg_multiple_files([path], out_path, opts, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/ffmpeg.py", line 323, in run_ffmpeg_multiple_files
-    return self.real_run_ffmpeg(
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/ffmpeg.py", line 357, in real_run_ffmpeg
-    _, stderr, returncode = Popen.run(
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/utils.py", line 895, in run
-    stdout, stderr = proc.communicate_or_kill(timeout=timeout)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/utils.py", line 881, in communicate_or_kill
-    return self.communicate(*args, **kwargs)
-  File "/usr/lib/python3.10/subprocess.py", line 1152, in communicate
-    stdout, stderr = self._communicate(input, endtime, timeout)
-  File "/usr/lib/python3.10/subprocess.py", line 2003, in _communicate
-    ready = selector.select(timeout)
-  File "/usr/lib/python3.10/selectors.py", line 416, in select
-    fd_event_list = self._selector.poll(timeout)
-
-18:34:31, WARNING Shard ID None voice heartbeat blocked for more than 40 seconds
-Loop thread traceback (most recent call last):
-  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 334, in <module>
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/client.py", line 828, in run
-    asyncio.run(runner())
-  File "/usr/lib/python3.10/asyncio/runners.py", line 44, in run
-    return loop.run_until_complete(main)
-  File "/usr/lib/python3.10/asyncio/base_events.py", line 633, in run_until_complete
-    self.run_forever()
-  File "/usr/lib/python3.10/asyncio/base_events.py", line 600, in run_forever
-    self._run_once()
-  File "/usr/lib/python3.10/asyncio/base_events.py", line 1896, in _run_once
-    handle._run()
-  File "/usr/lib/python3.10/asyncio/events.py", line 80, in _run
-    self._context.run(self._callback, *self._args)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/client.py", line 409, in _run_event
-    await coro(*args, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 247, in on_message
-  File "/home/daniel/personal-projects/yt-discord-bot/bot.py", line 117, in add_song_from_query
-    path, title = download_from_search(query, force=False, threshold=60)
-  File "/home/daniel/personal-projects/yt-discord-bot/yt_dl.py", line 151, in download_from_search
-    info = downloader.extract_info(f"ytsearch:{term}", download=True)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1466, in extract_info
-    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1477, in wrapper
-    return func(self, *args, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1574, in __extract_info
-    return self.process_ie_result(ie_result, download, extra_info)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1702, in process_ie_result
-    return self.__process_playlist(ie_result, download)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1850, in __process_playlist
-    entry_result = self.__process_iterable_entry(entry, download, extra)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1477, in wrapper
-    return func(self, *args, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1876, in __process_iterable_entry
-    return self.process_ie_result(
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1652, in process_ie_result
-    return self.extract_info(
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1466, in extract_info
-    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1477, in wrapper
-    return func(self, *args, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1574, in __extract_info
-    return self.process_ie_result(ie_result, download, extra_info)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1632, in process_ie_result
-    ie_result = self.process_video_result(ie_result, download=download)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 2733, in process_video_result
-    self.process_info(new_info)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 3272, in process_info
-    replace_info_dict(self.post_process(dl_filename, info_dict, files_to_move))
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 3449, in post_process
-    info = self.run_all_pps('post_process', info, additional_pps=info.get('__postprocessors'))
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 3431, in run_all_pps
-    info = self.run_pp(pp, info)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 3410, in run_pp
-    files_to_delete, infodict = pp.run(infodict)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/common.py", line 24, in run
-    ret = func(self, info, *args, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/common.py", line 129, in wrapper
-    return func(self, info)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/ffmpeg.py", line 525, in run
-    self.run_ffmpeg(path, temp_path, acodec, more_opts)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/ffmpeg.py", line 473, in run_ffmpeg
-    FFmpegPostProcessor.run_ffmpeg(self, path, out_path, opts)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/ffmpeg.py", line 368, in run_ffmpeg
-    return self.run_ffmpeg_multiple_files([path], out_path, opts, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/ffmpeg.py", line 323, in run_ffmpeg_multiple_files
-    return self.real_run_ffmpeg(
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/ffmpeg.py", line 357, in real_run_ffmpeg
-    _, stderr, returncode = Popen.run(
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/utils.py", line 895, in run
-    stdout, stderr = proc.communicate_or_kill(timeout=timeout)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/utils.py", line 881, in communicate_or_kill
-    return self.communicate(*args, **kwargs)
-  File "/usr/lib/python3.10/subprocess.py", line 1152, in communicate
-    stdout, stderr = self._communicate(input, endtime, timeout)
-  File "/usr/lib/python3.10/subprocess.py", line 2003, in _communicate
-    ready = selector.select(timeout)
-  File "/usr/lib/python3.10/selectors.py", line 416, in select
-    fd_event_list = self._selector.poll(timeout)
-
-18:34:31, INFO The voice handshake is being terminated for Channel ID 1035728052740702298 (Guild ID 1034701393858146354)
-18:34:31, DEBUG [play_next_song] advanced to next song
-18:34:31, DEBUG [sync_vc_status] syncing voice status
-18:34:31, DEBUG [sync_vc_status] we should not be playing music
-18:34:31, DEBUG [sync_vc_status] we are in a voice call but should not be playing
-18:34:31, DEBUG [sync_vc_status] voice call is not really connected, zeroing out variables
-18:34:31, DEBUG [play_next_song] synced vc status
-18:34:31, INFO ffmpeg process 8938 has not terminated. Waiting to terminate...
-18:34:31, INFO ffmpeg process 8938 should have terminated with a return code of -9.
-18:34:31, ERROR Task exception was never retrieved
-future: <Task finished name='discord.py: on_message' coro=<Client._run_event() done, defined at /home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/client.py:401> exception=KeyboardInterrupt()>
-Traceback (most recent call last):
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/client.py", line 828, in run
-    asyncio.run(runner())
-  File "/usr/lib/python3.10/asyncio/runners.py", line 44, in run
-    return loop.run_until_complete(main)
-  File "/usr/lib/python3.10/asyncio/base_events.py", line 633, in run_until_complete
-    self.run_forever()
-  File "/usr/lib/python3.10/asyncio/base_events.py", line 600, in run_forever
-    self._run_once()
-  File "/usr/lib/python3.10/asyncio/base_events.py", line 1896, in _run_once
-    handle._run()
-  File "/usr/lib/python3.10/asyncio/events.py", line 80, in _run
-    self._context.run(self._callback, *self._args)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/client.py", line 409, in _run_event
-    await coro(*args, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 247, in on_message
-  File "/home/daniel/personal-projects/yt-discord-bot/bot.py", line 117, in add_song_from_query
-    path, title = download_from_search(query, force=False, threshold=60)
-  File "/home/daniel/personal-projects/yt-discord-bot/yt_dl.py", line 151, in download_from_search
-    info = downloader.extract_info(f"ytsearch:{term}", download=True)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1466, in extract_info
-    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1477, in wrapper
-    return func(self, *args, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1574, in __extract_info
-    return self.process_ie_result(ie_result, download, extra_info)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1702, in process_ie_result
-    return self.__process_playlist(ie_result, download)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1850, in __process_playlist
-    entry_result = self.__process_iterable_entry(entry, download, extra)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1477, in wrapper
-    return func(self, *args, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1876, in __process_iterable_entry
-    return self.process_ie_result(
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1652, in process_ie_result
-    return self.extract_info(
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1466, in extract_info
-    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1477, in wrapper
-    return func(self, *args, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1574, in __extract_info
-    return self.process_ie_result(ie_result, download, extra_info)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1632, in process_ie_result
-    ie_result = self.process_video_result(ie_result, download=download)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 2733, in process_video_result
-    self.process_info(new_info)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 3272, in process_info
-    replace_info_dict(self.post_process(dl_filename, info_dict, files_to_move))
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 3449, in post_process
-    info = self.run_all_pps('post_process', info, additional_pps=info.get('__postprocessors'))
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 3431, in run_all_pps
-    info = self.run_pp(pp, info)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 3410, in run_pp
-    files_to_delete, infodict = pp.run(infodict)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/common.py", line 24, in run
-    ret = func(self, info, *args, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/common.py", line 129, in wrapper
-    return func(self, info)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/ffmpeg.py", line 525, in run
-    self.run_ffmpeg(path, temp_path, acodec, more_opts)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/ffmpeg.py", line 473, in run_ffmpeg
-    FFmpegPostProcessor.run_ffmpeg(self, path, out_path, opts)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/ffmpeg.py", line 368, in run_ffmpeg
-    return self.run_ffmpeg_multiple_files([path], out_path, opts, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/ffmpeg.py", line 323, in run_ffmpeg_multiple_files
-    return self.real_run_ffmpeg(
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/postprocessor/ffmpeg.py", line 357, in real_run_ffmpeg
-    _, stderr, returncode = Popen.run(
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/utils.py", line 895, in run
-    stdout, stderr = proc.communicate_or_kill(timeout=timeout)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/utils.py", line 881, in communicate_or_kill
-    return self.communicate(*args, **kwargs)
-  File "/usr/lib/python3.10/subprocess.py", line 1152, in communicate
-    stdout, stderr = self._communicate(input, endtime, timeout)
-  File "/usr/lib/python3.10/subprocess.py", line 2003, in _communicate
-    ready = selector.select(timeout)
-  File "/usr/lib/python3.10/selectors.py", line 416, in select
-    fd_event_list = self._selector.poll(timeout)
-KeyboardInterrupt
-18:34:33, DEBUG Using selector: EpollSelector
-18:34:33, DEBUG on_ready has successfully been registered as an event
-18:34:33, DEBUG on_message has successfully been registered as an event
-18:34:33, DEBUG Using selector: EpollSelector
-18:34:33, INFO logging in using static token
-18:34:33, INFO Shard ID None has connected to Gateway (Session ID: 0082f7f532ab2e9a09d5af16ffe5f699).
-18:34:43, DEBUG [on_message] trying to play song with flags: '-l'
-18:34:43, DEBUG [download_from_search] - Searching for Avicii The Nights
-18:34:43, DEBUG [download_from_search] Searching local directory
-18:34:43, DEBUG [download_from_search] Found suitable local song with score 94
-18:34:43, DEBUG [on_message] added song to queue
-18:34:43, DEBUG [sync_vc_status] syncing voice status
-18:34:43, DEBUG [sync_vc_status] we should be playing music
-18:34:43, DEBUG [sync_vc_status] connecting to the right channel
-18:34:43, INFO Connecting to voice...
-18:34:43, INFO Starting voice handshake... (connection attempt 1)
-18:34:43, INFO Voice handshake complete. Endpoint found seattle5189.discord.media
-18:34:44, DEBUG [sync_vc_status] attempting to play song in the right channel
-18:34:44, DEBUG [sync_vc_status] playing the correct song...
-18:34:49, DEBUG [on_message] trying to play song with flags: 'l'
-18:34:50, DEBUG [download_from_search] - Searching for america -
-18:34:50, DEBUG [download_from_search] Searching local directory
-18:34:50, DEBUG [download_from_search] No suitable local song found, searching remotely...
-18:34:51, INFO The voice handshake is being terminated for Channel ID 1035728052740702298 (Guild ID 1034701393858146354)
-18:34:51, DEBUG [play_next_song] advanced to next song
-18:34:51, DEBUG [sync_vc_status] syncing voice status
-18:34:51, DEBUG [sync_vc_status] we should not be playing music
-18:34:51, DEBUG [sync_vc_status] we are in a voice call but should not be playing
-18:34:51, DEBUG [sync_vc_status] voice call is not really connected, zeroing out variables
-18:34:51, DEBUG [play_next_song] synced vc status
-18:34:51, INFO ffmpeg process 8998 has not terminated. Waiting to terminate...
-18:34:51, INFO ffmpeg process 8998 should have terminated with a return code of -9.
-18:34:51, ERROR Task exception was never retrieved
-future: <Task finished name='discord.py: on_message' coro=<Client._run_event() done, defined at /home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/client.py:401> exception=KeyboardInterrupt()>
-Traceback (most recent call last):
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/client.py", line 828, in run
-    asyncio.run(runner())
-  File "/usr/lib/python3.10/asyncio/runners.py", line 44, in run
-    return loop.run_until_complete(main)
-  File "/usr/lib/python3.10/asyncio/base_events.py", line 633, in run_until_complete
-    self.run_forever()
-  File "/usr/lib/python3.10/asyncio/base_events.py", line 600, in run_forever
-    self._run_once()
-  File "/usr/lib/python3.10/asyncio/base_events.py", line 1896, in _run_once
-    handle._run()
-  File "/usr/lib/python3.10/asyncio/events.py", line 80, in _run
-    self._context.run(self._callback, *self._args)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/client.py", line 409, in _run_event
-    await coro(*args, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 246, in on_message
-    status = music.add_song_from_query(term, user = author, add_next=add_song_next)
-  File "/home/daniel/personal-projects/yt-discord-bot/bot.py", line 117, in add_song_from_query
-    path, title = download_from_search(query, force=False, threshold=60)
-  File "/home/daniel/personal-projects/yt-discord-bot/yt_dl.py", line 151, in download_from_search
-    info = downloader.extract_info(f"ytsearch:{term}", download=True)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1466, in extract_info
-    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1477, in wrapper
-    return func(self, *args, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1574, in __extract_info
-    return self.process_ie_result(ie_result, download, extra_info)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1702, in process_ie_result
-    return self.__process_playlist(ie_result, download)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1850, in __process_playlist
-    entry_result = self.__process_iterable_entry(entry, download, extra)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1477, in wrapper
-    return func(self, *args, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1876, in __process_iterable_entry
-    return self.process_ie_result(
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1652, in process_ie_result
-    return self.extract_info(
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1466, in extract_info
-    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1477, in wrapper
-    return func(self, *args, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1553, in __extract_info
-    ie_result = ie.extract(url)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/extractor/common.py", line 672, in extract
-    ie_result = self._real_extract(url)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/extractor/youtube.py", line 3708, in _real_extract
-    webpage, master_ytcfg, player_responses, player_url = self._download_player_responses(url, smuggled_data, video_id, webpage_url)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/extractor/youtube.py", line 3667, in _download_player_responses
-    webpage = self._download_webpage(
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/extractor/common.py", line 1081, in _download_webpage
-    return self.__download_webpage(url_or_request, video_id, note, errnote, None, fatal, *args, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/extractor/common.py", line 1032, in download_content
-    res = getattr(self, download_handle.__name__)(url_or_request, video_id, **kwargs)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/extractor/common.py", line 866, in _download_webpage_handle
-    urlh = self._request_webpage(url_or_request, video_id, note, errnote, fatal, data=data, headers=headers, query=query, expected_status=expected_status)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/extractor/common.py", line 805, in _request_webpage
-    return self._downloader.urlopen(self._create_request(url_or_request, data, headers, query))
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 3682, in urlopen
-    return self._opener.open(req, timeout=self._socket_timeout)
-  File "/usr/lib/python3.10/urllib/request.py", line 525, in open
-    response = meth(req, response)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/yt_dlp/utils.py", line 1414, in http_response
-    io.BytesIO(self.brotli(resp.read())), old_resp.headers, old_resp.url, old_resp.code)
-  File "/usr/lib/python3.10/http/client.py", line 459, in read
-    return self._read_chunked(amt)
-  File "/usr/lib/python3.10/http/client.py", line 582, in _read_chunked
-    chunk_left = self._get_chunk_left()
-  File "/usr/lib/python3.10/http/client.py", line 565, in _get_chunk_left
-    chunk_left = self._read_next_chunk_size()
-  File "/usr/lib/python3.10/http/client.py", line 525, in _read_next_chunk_size
-    line = self.fp.readline(_MAXLINE + 1)
-  File "/usr/lib/python3.10/socket.py", line 705, in readinto
-    return self._sock.recv_into(b)
-  File "/usr/lib/python3.10/ssl.py", line 1274, in recv_into
-    return self.read(nbytes, buffer)
-  File "/usr/lib/python3.10/ssl.py", line 1130, in read
-    return self._sslobj.read(len, buffer)
-KeyboardInterrupt
-18:34:53, DEBUG Using selector: EpollSelector
-18:34:53, DEBUG on_ready has successfully been registered as an event
-18:34:53, DEBUG on_message has successfully been registered as an event
-18:34:53, DEBUG Using selector: EpollSelector
-18:34:53, INFO logging in using static token
-18:34:54, INFO Shard ID None has connected to Gateway (Session ID: df6e1a9056728656422815b35ab1d64a).
-18:35:01, DEBUG [on_message] trying to play song with flags: '-l'
-18:35:01, DEBUG [download_from_search] - Searching for Avicii The Nights
-18:35:01, DEBUG [download_from_search] Searching local directory
-18:35:01, DEBUG [download_from_search] Found suitable local song with score 94
-18:35:01, DEBUG [on_message] added song to queue
-18:35:01, DEBUG [sync_vc_status] syncing voice status
-18:35:01, DEBUG [sync_vc_status] we should be playing music
-18:35:01, DEBUG [sync_vc_status] connecting to the right channel
-18:35:01, INFO Connecting to voice...
-18:35:01, INFO Starting voice handshake... (connection attempt 1)
-18:35:02, INFO Voice handshake complete. Endpoint found seattle1913.discord.media
-18:35:02, DEBUG [sync_vc_status] attempting to play song in the right channel
-18:35:02, DEBUG [sync_vc_status] playing the correct song...
-18:35:12, DEBUG [on_message] trying to play song with flags: '-l'
-18:35:12, DEBUG [download_from_search] - Searching for america
-18:35:12, DEBUG [download_from_search] Searching local directory
-18:35:12, DEBUG [download_from_search] Found suitable local song with score 33
-18:35:12, DEBUG [on_message] added song to queue
-18:35:12, DEBUG [sync_vc_status] syncing voice status
-18:35:12, DEBUG [sync_vc_status] we should be playing music
-18:35:12, DEBUG [sync_vc_status] switching channels from test to General
-18:35:12, INFO The voice handshake is being terminated for Channel ID 1035728052740702298 (Guild ID 1034701393858146354)
-18:35:12, INFO Connecting to voice...
-18:35:12, INFO Starting voice handshake... (connection attempt 1)
-18:35:12, INFO Disconnecting from voice normally, close code 1000.
-18:35:12, DEBUG [play_next_song] advanced to next song
-18:35:12, DEBUG [sync_vc_status] syncing voice status
-18:35:12, DEBUG [sync_vc_status] we should be playing music
-18:35:12, DEBUG [sync_vc_status] switching channels from test to General
-18:35:12, ERROR Calling the after function failed.
-Traceback (most recent call last):
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/player.py", line 711, in _call_after
-    self.after(error)
-  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 51, in play_next_song
-    MAIN_EVENT_LOOP.run_until_complete(coroutine)
-  File "/usr/lib/python3.10/asyncio/base_events.py", line 646, in run_until_complete
-    return future.result()
-  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 138, in sync_vc_status
-    current_vc = await music.current_song.user.voice.channel.connect()
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/abc.py", line 1868, in connect
-    raise ClientException('Already connected to a voice channel.')
-discord.errors.ClientException: Already connected to a voice channel.
-18:35:12, INFO ffmpeg process 9038 has not terminated. Waiting to terminate...
-18:35:12, INFO ffmpeg process 9038 should have terminated with a return code of -9.
-18:35:12, INFO Voice handshake complete. Endpoint found seattle2968.discord.media
-18:35:13, DEBUG [sync_vc_status] attempting to play song in the right channel
-18:35:13, DEBUG [sync_vc_status] playing the correct song...
-18:38:50, DEBUG [play_next_song] advanced to next song
-18:38:50, DEBUG [sync_vc_status] syncing voice status
-18:38:50, DEBUG [sync_vc_status] we should not be playing music
-18:38:50, DEBUG [sync_vc_status] we are in a voice call but should not be playing
-18:38:50, DEBUG [sync_vc_status] voice call is still connected
-18:38:50, DEBUG [sync_vc_status] disconnecting from voice call...
-18:38:50, ERROR Calling the after function failed.
-Traceback (most recent call last):
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/player.py", line 711, in _call_after
-    self.after(error)
-  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 51, in play_next_song
-    MAIN_EVENT_LOOP.run_until_complete(coroutine)
-  File "/usr/lib/python3.10/asyncio/base_events.py", line 646, in run_until_complete
-    return future.result()
-  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 92, in sync_vc_status
-    await current_vc.disconnect()
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/voice_client.py", line 506, in disconnect
-    await self.ws.close()
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/gateway.py", line 1012, in close
-    await self.ws.close(code=code)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/gateway.py", line 236, in close
-    return await super().close(code=code, message=message)
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/aiohttp/client_ws.py", line 172, in close
-    await self._waiting
-RuntimeError: Task <Task pending name='Task-142' coro=<sync_vc_status() running at /home/daniel/personal-projects/yt-discord-bot/main.py:92> cb=[_run_until_complete_cb() at /usr/lib/python3.10/asyncio/base_events.py:184]> got Future <Future pending> attached to a different loop
-18:38:50, INFO Disconnecting from voice normally, close code 1000.
-18:38:50, INFO ffmpeg process 9063 successfully terminated with return code of 0.
-18:40:30, DEBUG on_ready has successfully been registered as an event
-18:40:30, DEBUG on_message has successfully been registered as an event
-18:40:30, DEBUG Using selector: EpollSelector
-18:40:30, INFO logging in using static token
-18:40:31, INFO Shard ID None has connected to Gateway (Session ID: 26c5dd527483071384e427ebccd5d344).
-18:40:37, DEBUG [on_message] trying to play song with flags: '-l'
-18:40:37, DEBUG [download_from_search] - Searching for Avicii The Nights
-18:40:37, DEBUG [download_from_search] Searching local directory
-18:40:37, DEBUG [download_from_search] Found suitable local song with score 94
-18:40:37, DEBUG [on_message] added song to queue
-18:40:38, DEBUG [sync_vc_status] syncing voice status
-18:40:38, DEBUG [sync_vc_status] we should be playing music
-18:40:38, DEBUG [sync_vc_status] connecting to the right channel
-18:40:38, INFO Connecting to voice...
-18:40:38, INFO Starting voice handshake... (connection attempt 1)
-18:40:38, INFO Voice handshake complete. Endpoint found seattle2968.discord.media
-18:40:38, DEBUG [sync_vc_status] attempting to play song in the right channel
-18:40:38, DEBUG [sync_vc_status] playing the correct song...
-18:43:49, DEBUG [play_next_song] advanced to next song
-18:43:49, ERROR Calling the after function failed.
-Traceback (most recent call last):
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/player.py", line 711, in _call_after
-    self.after(error)
-  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 49, in play_next_song
-    client.loop.run_until_complete(coroutine)
-  File "/usr/lib/python3.10/asyncio/base_events.py", line 622, in run_until_complete
-    self._check_running()
-  File "/usr/lib/python3.10/asyncio/base_events.py", line 582, in _check_running
-    raise RuntimeError('This event loop is already running')
-RuntimeError: This event loop is already running
-18:43:49, INFO ffmpeg process 9542 successfully terminated with return code of 0.
-18:48:13, ERROR Disconnected from voice... Reconnecting in 0.25s.
-Traceback (most recent call last):
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/voice_client.py", line 456, in poll_voice_ws
-    await self.ws.poll_event()
-  File "/home/daniel/personal-projects/yt-discord-bot/.env/lib/python3.10/site-packages/discord/gateway.py", line 1005, in poll_event
-    raise ConnectionClosed(self.ws, shard_id=None, code=self._close_code)
-discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1001
-18:48:13, INFO The voice handshake is being terminated for Channel ID 1034701393858146358 (Guild ID 1034701393858146354)
-18:48:13, INFO Connecting to voice...
-18:48:13, INFO Starting voice handshake... (connection attempt 2)
-18:48:14, INFO Voice handshake complete. Endpoint found seattle2968.discord.media
-18:49:13, WARNING Shard ID None has stopped responding to the gateway. Closing and restarting.
-18:57:45, INFO The voice handshake is being terminated for Channel ID 1034701393858146358 (Guild ID 1034701393858146354)
-18:57:51, DEBUG on_ready has successfully been registered as an event
-18:57:51, DEBUG on_message has successfully been registered as an event
-18:57:51, DEBUG Using selector: EpollSelector
-18:57:51, INFO logging in using static token
-18:57:52, INFO Shard ID None has connected to Gateway (Session ID: 35b4b770d5f2b84a787eaf59d9a35a67).
-18:58:27, DEBUG [on_message] trying to play song with flags: '-l'
-18:58:27, DEBUG [download_from_search] - Searching for Mommas Song
-18:58:27, DEBUG [download_from_search] Searching local directory
-18:58:27, DEBUG [download_from_search] Found suitable local song with score 96
-18:58:27, DEBUG [on_message] added song to queue
-18:58:27, DEBUG [sync_vc_status] syncing voice status
-18:58:27, DEBUG [sync_vc_status] we should be playing music
-18:58:27, DEBUG [sync_vc_status] connecting to the right channel
-18:58:27, INFO Connecting to voice...
-18:58:27, INFO Starting voice handshake... (connection attempt 1)
-18:58:28, INFO Voice handshake complete. Endpoint found seattle2968.discord.media
-18:58:28, DEBUG [sync_vc_status] attempting to play song in the right channel
-18:58:28, DEBUG [sync_vc_status] playing the correct song...
-18:59:39, DEBUG [play_next_song] advanced to next song
-18:59:39, DEBUG [play_next_song] synced vc status
-18:59:39, DEBUG [sync_vc_status] syncing voice status
-18:59:39, DEBUG [sync_vc_status] we should not be playing music
-18:59:39, DEBUG [sync_vc_status] we are in a voice call but should not be playing
-18:59:39, DEBUG [sync_vc_status] voice call is still connected
-18:59:39, DEBUG [sync_vc_status] disconnecting from voice call...
-18:59:39, INFO ffmpeg process 10243 successfully terminated with return code of 0.
-18:59:39, INFO The voice handshake is being terminated for Channel ID 1034701393858146358 (Guild ID 1034701393858146354)
-18:59:39, DEBUG [sync_vc_status] disconnected. zeroing out variables...
-18:59:39, INFO Disconnecting from voice normally, close code 1000.
-19:00:01, DEBUG [on_message] trying to play song with flags: '-l'
-19:00:02, DEBUG [download_from_search] - Searching for Avicii The Nights
-19:00:02, DEBUG [download_from_search] Searching local directory
-19:00:02, DEBUG [download_from_search] Found suitable local song with score 94
-19:00:02, DEBUG [on_message] added song to queue
-19:00:02, DEBUG [sync_vc_status] syncing voice status
-19:00:02, DEBUG [sync_vc_status] we should be playing music
-19:00:02, DEBUG [sync_vc_status] connecting to the right channel
-19:00:02, INFO Connecting to voice...
-19:00:02, INFO Starting voice handshake... (connection attempt 1)
-19:00:02, INFO Voice handshake complete. Endpoint found seattle2968.discord.media
-19:00:02, DEBUG [sync_vc_status] attempting to play song in the right channel
-19:00:02, DEBUG [sync_vc_status] playing the correct song...
-19:00:06, DEBUG [on_message] clearing queue
-19:00:06, DEBUG [sync_vc_status] syncing voice status
-19:00:06, DEBUG [sync_vc_status] we should not be playing music
-19:00:06, DEBUG [sync_vc_status] we are in a voice call but should not be playing
-19:00:06, DEBUG [sync_vc_status] voice call is still connected
-19:00:06, DEBUG [sync_vc_status] pausing currently playing audio
-19:00:06, DEBUG [sync_vc_status] disconnecting from voice call...
-19:00:06, INFO The voice handshake is being terminated for Channel ID 1034701393858146358 (Guild ID 1034701393858146354)
-19:00:06, DEBUG [sync_vc_status] disconnected. zeroing out variables...
-19:00:06, INFO Disconnecting from voice normally, close code 1000.
-19:00:06, DEBUG [play_next_song] advanced to next song
-19:00:06, DEBUG [play_next_song] synced vc status
-19:00:06, INFO ffmpeg process 10290 has not terminated. Waiting to terminate...
-19:00:06, INFO ffmpeg process 10290 should have terminated with a return code of -9.
-19:00:06, DEBUG [sync_vc_status] syncing voice status
-19:00:06, DEBUG [sync_vc_status] we should not be playing music
-19:00:06, DEBUG [sync_vc_status] good, we are not connected to a call
-11:36:06, DEBUG on_ready has successfully been registered as an event
-11:36:06, DEBUG on_message has successfully been registered as an event
-11:36:06, DEBUG on_voice_state_update has successfully been registered as an event
-11:36:06, DEBUG Using selector: EpollSelector
-11:36:06, INFO logging in using static token
-11:36:06, INFO Shard ID None has connected to Gateway (Session ID: 689c27c71446b23c8b4640c40160e662).
-11:41:26, DEBUG on_ready has successfully been registered as an event
-11:41:26, DEBUG on_message has successfully been registered as an event
-11:41:26, DEBUG on_voice_state_update has successfully been registered as an event
-11:41:26, DEBUG Using selector: EpollSelector
-11:41:26, INFO logging in using static token
-11:41:26, INFO Shard ID None has connected to Gateway (Session ID: ff317c08c34d049a0e13558ab0c4b80c).
-11:44:15, DEBUG on_ready has successfully been registered as an event
-11:44:15, DEBUG on_message has successfully been registered as an event
-11:44:15, DEBUG on_voice_state_update has successfully been registered as an event
-11:44:15, DEBUG Using selector: EpollSelector
-11:44:15, INFO logging in using static token
-11:44:16, INFO Shard ID None has connected to Gateway (Session ID: 766ab3686074a0a3807579ff76dcc2a9).
+  File "/home/daniel/personal-projects/yt-discord-bot/main.py", line 185, in on_message
+    assert(isinstance(message.channel, TextChannel))
+AssertionError
+00:19:38, DEBUG on_ready has successfully been registered as an event
+00:19:38, DEBUG on_message has successfully been registered as an event
+00:19:38, DEBUG on_voice_state_update has successfully been registered as an event
+00:19:38, DEBUG Using selector: EpollSelector
+00:19:38, INFO logging in using static token
+00:19:39, INFO Shard ID None has connected to Gateway (Session ID: 2e75a3af71240967ee89659539af6ddf).
+00:19:42, WARNING [on_message] skipping analysis due to invalid channel
+00:20:04, DEBUG [on_message] trying to play song with flags: '-l'
+00:20:05, DEBUG [download_from_search] - Searching for america
+00:20:05, DEBUG [download_from_search] Searching local directory
+00:20:05, DEBUG [download_from_search] Found suitable local song with score 33
+00:20:05, DEBUG [on_message] added song to queue
+00:20:05, DEBUG [sync_vc_status] syncing voice status
+00:20:05, DEBUG [sync_vc_status] we should be playing music
+00:20:05, DEBUG [sync_vc_status] connecting to the right channel
+00:20:05, INFO Connecting to voice...
+00:20:05, INFO Starting voice handshake... (connection attempt 1)
+00:20:06, INFO Voice handshake complete. Endpoint found seattle1540.discord.media
+00:20:06, DEBUG [sync_vc_status] attempting to play song in the right channel
+00:20:06, DEBUG [sync_vc_status] playing the correct song...
+00:20:22, DEBUG [on_message] trying to play song with flags: '-l'
+00:20:22, DEBUG [download_from_search] - Searching for the nights
+00:20:22, DEBUG [download_from_search] Searching local directory
+00:20:22, DEBUG [download_from_search] Found suitable local song with score 69
+00:20:22, DEBUG [on_message] added song to queue
+00:20:23, DEBUG [sync_vc_status] syncing voice status
+00:20:23, DEBUG [sync_vc_status] we should be playing music
+00:20:23, DEBUG [sync_vc_status] attempting to play song in the right channel
+00:20:23, DEBUG [sync_vc_status] we are already playing the right song
+00:20:31, DEBUG [on_message] showing queue to user
+00:21:00, DEBUG [on_message] skipping to next song
+00:21:00, DEBUG [sync_vc_status] syncing voice status
+00:21:00, DEBUG [sync_vc_status] we should be playing music
+00:21:00, DEBUG [sync_vc_status] attempting to play song in the right channel
+00:21:00, DEBUG [sync_vc_status] stopped current song to play other one
+00:21:00, DEBUG [sync_vc_status] playing the correct song...
+00:21:00, DEBUG [play_next_song] advanced to next song
+00:21:00, DEBUG [play_next_song] synced vc status
+00:21:00, INFO ffmpeg process 251790 has not terminated. Waiting to terminate...
+00:21:00, INFO ffmpeg process 251790 should have terminated with a return code of -9.
+00:21:00, DEBUG [sync_vc_status] syncing voice status
+00:21:00, DEBUG [sync_vc_status] we should not be playing music
+00:21:00, DEBUG [sync_vc_status] we are in a voice call but should not be playing
+00:21:00, DEBUG [sync_vc_status] voice call is still connected
+00:21:00, DEBUG [sync_vc_status] pausing currently playing audio
+00:21:00, DEBUG [sync_vc_status] disconnecting from voice call...
+00:21:00, INFO The voice handshake is being terminated for Channel ID 1036493869291941998 (Guild ID 839675426246623262)
+00:21:00, DEBUG [sync_vc_status] disconnected. zeroing out variables...
+00:21:00, INFO Disconnecting from voice normally, close code 1000.
+00:21:00, INFO ffmpeg process 251865 has not terminated. Waiting to terminate...
+00:21:00, INFO ffmpeg process 251865 should have terminated with a return code of -9.
+00:21:00, DEBUG [sync_vc_status] syncing voice status
+00:21:00, DEBUG [sync_vc_status] we should not be playing music
+00:21:00, DEBUG [sync_vc_status] good, we are not connected to a call
+00:21:23, DEBUG [on_message] showing queue to user
+00:22:22, DEBUG on_ready has successfully been registered as an event
+00:22:22, DEBUG on_message has successfully been registered as an event
+00:22:22, DEBUG on_voice_state_update has successfully been registered as an event
+00:22:22, DEBUG Using selector: EpollSelector
+00:22:22, INFO logging in using static token
+00:22:23, INFO Shard ID None has connected to Gateway (Session ID: ec6cdb5657482bc701e453fb10e27480).
+00:22:28, DEBUG on_ready has successfully been registered as an event
+00:22:28, DEBUG on_message has successfully been registered as an event
+00:22:28, DEBUG on_voice_state_update has successfully been registered as an event
+00:22:28, DEBUG Using selector: EpollSelector
+00:22:28, INFO logging in using static token
+00:22:28, INFO Shard ID None has connected to Gateway (Session ID: a56e6ce753a92976df40a95ad435807b).
+00:22:33, DEBUG [on_message] trying to play song with flags: '-l'
+00:22:34, DEBUG [download_from_search] - Searching for america
+00:22:34, DEBUG [download_from_search] Searching local directory
+00:22:34, DEBUG [download_from_search] Found suitable local song with score 33
+00:22:34, DEBUG [on_message] added song to queue
+00:22:34, DEBUG [sync_vc_status] syncing voice status
+00:22:34, DEBUG [sync_vc_status] we should be playing music
+00:22:34, DEBUG [sync_vc_status] connecting to the right channel
+00:22:34, INFO Connecting to voice...
+00:22:34, INFO Starting voice handshake... (connection attempt 1)
+00:22:34, INFO Voice handshake complete. Endpoint found seattle1540.discord.media
+00:22:34, DEBUG [sync_vc_status] attempting to play song in the right channel
+00:22:34, DEBUG [sync_vc_status] playing the correct song...
+00:22:36, DEBUG [on_message] trying to play song with flags: '-l'
+00:22:36, DEBUG [download_from_search] - Searching for the nights
+00:22:36, DEBUG [download_from_search] Searching local directory
+00:22:36, DEBUG [download_from_search] Found suitable local song with score 69
+00:22:36, DEBUG [on_message] added song to queue
+00:22:36, DEBUG [sync_vc_status] syncing voice status
+00:22:36, DEBUG [sync_vc_status] we should be playing music
+00:22:36, DEBUG [sync_vc_status] attempting to play song in the right channel
+00:22:36, DEBUG [sync_vc_status] we are already playing the right song
+00:22:38, DEBUG [on_message] skipping to next song
+00:22:38, DEBUG [sync_vc_status] syncing voice status
+00:22:38, DEBUG [sync_vc_status] we should be playing music
+00:22:38, DEBUG [sync_vc_status] attempting to play song in the right channel
+00:22:38, DEBUG [sync_vc_status] stopped current song to play other one
+00:22:38, DEBUG [sync_vc_status] playing the correct song...
+00:22:38, WARNING [sync_vc_status] had error while syncing state: Already playing audio., trying again with fresh call vars.
+00:22:38, INFO The voice handshake is being terminated for Channel ID 1036493869291941998 (Guild ID 839675426246623262)
+00:22:38, DEBUG [sync_vc_status] syncing voice status
+00:22:38, DEBUG [sync_vc_status] we should be playing music
+00:22:38, DEBUG [sync_vc_status] connecting to the right channel
+00:22:38, INFO Connecting to voice...
+00:22:38, INFO Starting voice handshake... (connection attempt 1)
+00:22:38, INFO Disconnecting from voice normally, close code 1000.
+00:22:38, DEBUG [play_next_song] advanced to next song
+00:22:38, DEBUG [play_next_song] synced vc status
+00:22:38, INFO ffmpeg process 251968 has not terminated. Waiting to terminate...
+00:22:38, DEBUG [sync_vc_status] syncing voice status
+00:22:38, DEBUG [sync_vc_status] we should not be playing music
+00:22:38, DEBUG [sync_vc_status] good, we are not connected to a call
+00:22:38, INFO ffmpeg process 251968 should have terminated with a return code of -9.
+00:22:38, INFO Voice handshake complete. Endpoint found seattle1540.discord.media
+00:22:39, DEBUG [sync_vc_status] attempting to play song in the right channel
+00:22:39, DEBUG [sync_vc_status] playing the correct song...
+00:22:39, WARNING [sync_vc_status] had error while syncing state: 'NoneType' object has no attribute 'path', returning 2 due to too many attempts.
+00:22:39, INFO Disconnecting from voice normally, close code 1000.
+00:22:39, INFO The voice handshake is being terminated for Channel ID 1036493869291941998 (Guild ID 839675426246623262)
+00:22:39, INFO ffmpeg process 251978 has not terminated. Waiting to terminate...
+00:22:39, INFO ffmpeg process 251978 should have terminated with a return code of -9.
+00:24:38, DEBUG on_ready has successfully been registered as an event
+00:24:38, DEBUG on_message has successfully been registered as an event
+00:24:38, DEBUG on_voice_state_update has successfully been registered as an event
+00:24:38, DEBUG Using selector: EpollSelector
+00:24:38, INFO logging in using static token
+00:24:38, INFO Shard ID None has connected to Gateway (Session ID: a4a0a7dd4d5a8a1bc1b296d845531728).
+00:24:45, DEBUG [on_message] trying to play song with flags: '-l'
+00:24:46, DEBUG [download_from_search] - Searching for america
+00:24:46, DEBUG [download_from_search] Searching local directory
+00:24:46, DEBUG [download_from_search] Found suitable local song with score 33
+00:24:46, DEBUG [on_message] added song to queue
+00:24:46, DEBUG [sync_vc_status] syncing voice status
+00:24:46, DEBUG [sync_vc_status] we should be playing music
+00:24:46, DEBUG [sync_vc_status] connecting to the right channel
+00:24:46, INFO Connecting to voice...
+00:24:46, INFO Starting voice handshake... (connection attempt 1)
+00:24:46, INFO Voice handshake complete. Endpoint found seattle1540.discord.media
+00:24:46, DEBUG [sync_vc_status] attempting to play song in the right channel
+00:24:46, DEBUG [sync_vc_status] playing the correct song...
+00:24:48, DEBUG [on_message] trying to play song with flags: '-l'
+00:24:49, DEBUG [download_from_search] - Searching for the nights
+00:24:49, DEBUG [download_from_search] Searching local directory
+00:24:49, DEBUG [download_from_search] Found suitable local song with score 69
+00:24:49, DEBUG [on_message] added song to queue
+00:24:49, DEBUG [sync_vc_status] syncing voice status
+00:24:49, DEBUG [sync_vc_status] we should be playing music
+00:24:49, DEBUG [sync_vc_status] attempting to play song in the right channel
+00:24:49, DEBUG [sync_vc_status] we are already playing the right song
+00:24:51, DEBUG [on_message] skipping to next song
+00:24:51, DEBUG [sync_vc_status] syncing voice status
+00:24:51, DEBUG [sync_vc_status] we should be playing music
+00:24:51, DEBUG [sync_vc_status] attempting to play song in the right channel
+00:24:51, DEBUG [sync_vc_status] stopped current song to play other one
+00:24:51, DEBUG [sync_vc_status] playing the correct song...
+00:24:51, DEBUG [play_next_song] advanced to next song
+00:24:51, DEBUG [play_next_song] synced vc status
+00:24:51, INFO ffmpeg process 252065 has not terminated. Waiting to terminate...
+00:24:51, INFO ffmpeg process 252065 should have terminated with a return code of -9.
+00:24:51, DEBUG [sync_vc_status] syncing voice status
+00:24:51, DEBUG [sync_vc_status] we should not be playing music
+00:24:51, DEBUG [sync_vc_status] we are in a voice call but should not be playing
+00:24:51, DEBUG [sync_vc_status] voice call is still connected
+00:24:51, DEBUG [sync_vc_status] pausing currently playing audio
+00:24:51, DEBUG [sync_vc_status] disconnecting from voice call...
+00:24:51, INFO The voice handshake is being terminated for Channel ID 1036493869291941998 (Guild ID 839675426246623262)
+00:24:51, DEBUG [sync_vc_status] disconnected. zeroing out variables...
+00:24:51, INFO Disconnecting from voice normally, close code 1000.
+00:24:51, INFO ffmpeg process 252078 has not terminated. Waiting to terminate...
+00:24:51, INFO ffmpeg process 252078 should have terminated with a return code of -9.
+00:24:51, DEBUG [sync_vc_status] syncing voice status
+00:24:51, DEBUG [sync_vc_status] we should not be playing music
+00:24:51, DEBUG [sync_vc_status] good, we are not connected to a call
+00:27:37, DEBUG on_ready has successfully been registered as an event
+00:27:37, DEBUG on_message has successfully been registered as an event
+00:27:37, DEBUG on_voice_state_update has successfully been registered as an event
+00:27:37, DEBUG Using selector: EpollSelector
+00:27:37, INFO logging in using static token
+00:27:37, INFO Shard ID None has connected to Gateway (Session ID: 520dd26539d3bdc828f964aa1d8f8594).
+00:27:44, DEBUG [on_message] trying to play song with flags: '-l'
+00:27:44, DEBUG [download_from_search] - Searching for america
+00:27:44, DEBUG [download_from_search] Searching local directory
+00:27:44, DEBUG [download_from_search] Found suitable local song with score 33
+00:27:44, DEBUG [on_message] added song to queue
+00:27:44, DEBUG [sync_vc_status] syncing voice status
+00:27:44, DEBUG [sync_vc_status] we should be playing music
+00:27:44, DEBUG [sync_vc_status] connecting to the right channel
+00:27:44, INFO Connecting to voice...
+00:27:44, INFO Starting voice handshake... (connection attempt 1)
+00:27:44, INFO Voice handshake complete. Endpoint found seattle1540.discord.media
+00:27:45, DEBUG [sync_vc_status] attempting to play song in the right channel
+00:27:50, DEBUG [on_message] trying to play song with flags: '-l'
+00:27:51, DEBUG [download_from_search] - Searching for the nights
+00:27:51, DEBUG [download_from_search] Searching local directory
+00:27:51, DEBUG [download_from_search] Found suitable local song with score 69
+00:27:51, DEBUG [on_message] added song to queue
+00:27:51, DEBUG [sync_vc_status] syncing voice status
+00:27:51, DEBUG [sync_vc_status] we should be playing music
+00:27:51, DEBUG [sync_vc_status] attempting to play song in the right channel
+00:28:00, DEBUG [on_message] showing queue to user
+00:28:15, DEBUG [on_message] skipping to next song
+00:28:15, DEBUG [sync_vc_status] syncing voice status
+00:28:15, DEBUG [sync_vc_status] we should be playing music
+00:28:15, DEBUG [sync_vc_status] attempting to play song in the right channel
+00:28:17, DEBUG [on_message] showing queue to user
+00:28:20, DEBUG [on_message] clearing queue
+00:28:20, DEBUG [sync_vc_status] syncing voice status
+00:28:20, DEBUG [sync_vc_status] we should not be playing music
+00:28:20, DEBUG [sync_vc_status] we are in a voice call but should not be playing
+00:28:20, DEBUG [sync_vc_status] voice call is still connected
+00:28:20, DEBUG [sync_vc_status] disconnecting from voice call...
+00:28:20, INFO The voice handshake is being terminated for Channel ID 1036493869291941998 (Guild ID 839675426246623262)
+00:28:20, DEBUG [sync_vc_status] disconnected. zeroing out variables...
+00:28:20, INFO Disconnecting from voice normally, close code 1000.
+00:28:28, DEBUG [on_message] trying to play song with flags: '-l'
+00:28:28, DEBUG [download_from_search] - Searching for america
+00:28:28, DEBUG [download_from_search] Searching local directory
+00:28:28, DEBUG [download_from_search] Found suitable local song with score 33
+00:28:28, DEBUG [on_message] added song to queue
+00:28:28, DEBUG [sync_vc_status] syncing voice status
+00:28:28, DEBUG [sync_vc_status] we should not be playing music
+00:28:28, DEBUG [sync_vc_status] good, we are not connected to a call
+00:28:46, DEBUG [on_message] showing queue to user
+00:28:51, DEBUG [on_message] trying to play song with flags: '-l'
+00:28:51, DEBUG [download_from_search] - Searching for america
+00:28:51, DEBUG [download_from_search] Searching local directory
+00:28:51, DEBUG [download_from_search] Found suitable local song with score 33
+00:28:51, DEBUG [on_message] added song to queue
+00:28:52, DEBUG [sync_vc_status] syncing voice status
+00:28:52, DEBUG [sync_vc_status] we should not be playing music
+00:28:52, DEBUG [sync_vc_status] good, we are not connected to a call
+00:28:56, DEBUG [on_message] showing queue to user
+00:29:57, DEBUG on_ready has successfully been registered as an event
+00:29:57, DEBUG on_message has successfully been registered as an event
+00:29:57, DEBUG on_voice_state_update has successfully been registered as an event
+00:29:57, DEBUG Using selector: EpollSelector
+00:29:57, INFO logging in using static token
+00:29:58, INFO Shard ID None has connected to Gateway (Session ID: b79f6ae4d6a5f0cabea67f73d9072149).
+00:30:02, DEBUG [on_message] trying to play song with flags: '-l'
+00:30:03, DEBUG [download_from_search] - Searching for america
+00:30:03, DEBUG [download_from_search] Searching local directory
+00:30:03, DEBUG [download_from_search] Found suitable local song with score 33
+00:30:03, DEBUG [on_message] added song to queue
+00:30:03, DEBUG [sync_vc_status] syncing voice status
+00:30:03, DEBUG [sync_vc_status] we should be playing music
+00:30:03, DEBUG [sync_vc_status] connecting to the right channel
+00:30:03, INFO Connecting to voice...
+00:30:03, INFO Starting voice handshake... (connection attempt 1)
+00:30:03, INFO Voice handshake complete. Endpoint found seattle1540.discord.media
+00:30:03, DEBUG [sync_vc_status] attempting to play song in the right channel
+00:30:45, DEBUG [on_message] trying to play song with flags: '-l'
+00:30:46, DEBUG [download_from_search] - Searching for america
+00:30:46, DEBUG [download_from_search] Searching local directory
+00:30:46, DEBUG [download_from_search] Found suitable local song with score 33
+00:30:46, DEBUG [on_message] added song to queue
+00:30:46, DEBUG [sync_vc_status] syncing voice status
+00:30:46, DEBUG [sync_vc_status] we should be playing music
+00:30:46, DEBUG [sync_vc_status] music.current_song was missing correct user details, exiting with a status of 1
+00:30:55, DEBUG [on_message] clearing queue
+00:30:55, DEBUG [sync_vc_status] syncing voice status
+00:30:55, DEBUG [sync_vc_status] we should not be playing music
+00:30:55, DEBUG [sync_vc_status] we are in a voice call but should not be playing
+00:30:55, DEBUG [sync_vc_status] voice call is still connected
+00:30:55, DEBUG [sync_vc_status] disconnecting from voice call...
+00:30:55, INFO The voice handshake is being terminated for Channel ID 1036493869291941998 (Guild ID 839675426246623262)
+00:30:55, DEBUG [sync_vc_status] disconnected. zeroing out variables...
+00:30:55, INFO Disconnecting from voice normally, close code 1000.
+00:31:00, DEBUG [on_message] trying to play song with flags: '-l'
+00:31:01, DEBUG [download_from_search] - Searching for america
+00:31:01, DEBUG [download_from_search] Searching local directory
+00:31:01, DEBUG [download_from_search] Found suitable local song with score 33
+00:31:01, DEBUG [on_message] added song to queue
+00:31:01, DEBUG [sync_vc_status] syncing voice status
+00:31:01, DEBUG [sync_vc_status] we should not be playing music
+00:31:01, DEBUG [sync_vc_status] good, we are not connected to a call
+00:31:14, DEBUG [on_message] showing queue to user
+00:31:51, DEBUG on_ready has successfully been registered as an event
+00:31:51, DEBUG on_message has successfully been registered as an event
+00:31:51, DEBUG on_voice_state_update has successfully been registered as an event
+00:31:51, DEBUG Using selector: EpollSelector
+00:31:51, INFO logging in using static token
+00:31:52, INFO Shard ID None has connected to Gateway (Session ID: c9e2c0af46d2027dc9f8a97ce1dd2da7).
+00:31:56, DEBUG [on_message] trying to play song with flags: '-l'
+00:31:57, DEBUG [download_from_search] - Searching for america
+00:31:57, DEBUG [download_from_search] Searching local directory
+00:31:57, DEBUG [download_from_search] Found suitable local song with score 33
+00:31:57, DEBUG [on_message] added song to queue
+00:31:57, DEBUG [sync_vc_status] syncing voice status
+00:31:57, DEBUG [sync_vc_status] we should be playing music
+00:31:57, DEBUG [sync_vc_status] connecting to the right channel
+00:31:57, INFO Connecting to voice...
+00:31:57, INFO Starting voice handshake... (connection attempt 1)
+00:31:57, INFO Voice handshake complete. Endpoint found seattle8685.discord.media
+00:31:57, DEBUG [sync_vc_status] attempting to play song in the right channel
+00:31:57, DEBUG [sync_vc_status] playing the correct song...
+00:32:09, DEBUG [on_message] clearing queue
+00:32:09, DEBUG [sync_vc_status] syncing voice status
+00:32:09, DEBUG [sync_vc_status] we should not be playing music
+00:32:09, DEBUG [sync_vc_status] we are in a voice call but should not be playing
+00:32:09, DEBUG [sync_vc_status] voice call is still connected
+00:32:09, DEBUG [sync_vc_status] pausing currently playing audio
+00:32:09, DEBUG [sync_vc_status] disconnecting from voice call...
+00:32:09, INFO The voice handshake is being terminated for Channel ID 1035728052740702298 (Guild ID 1034701393858146354)
+00:32:09, DEBUG [sync_vc_status] disconnected. zeroing out variables...
+00:32:09, INFO Disconnecting from voice normally, close code 1000.
+00:32:10, DEBUG [play_next_song] advanced to next song
+00:32:10, DEBUG [play_next_song] synced vc status
+00:32:10, INFO ffmpeg process 252552 has not terminated. Waiting to terminate...
+00:32:10, DEBUG [sync_vc_status] syncing voice status
+00:32:10, DEBUG [sync_vc_status] we should not be playing music
+00:32:10, DEBUG [sync_vc_status] good, we are not connected to a call
+00:32:10, INFO ffmpeg process 252552 should have terminated with a return code of -9.
+00:32:21, DEBUG [on_message] trying to play song with flags: '-l'
+00:32:22, DEBUG [download_from_search] - Searching for america
+00:32:22, DEBUG [download_from_search] Searching local directory
+00:32:22, DEBUG [download_from_search] Found suitable local song with score 33
+00:32:22, DEBUG [on_message] added song to queue
+00:32:23, DEBUG [sync_vc_status] syncing voice status
+00:32:23, DEBUG [sync_vc_status] we should be playing music
+00:32:23, DEBUG [sync_vc_status] connecting to the right channel
+00:32:23, INFO Connecting to voice...
+00:32:23, INFO Starting voice handshake... (connection attempt 1)
+00:32:23, INFO Voice handshake complete. Endpoint found seattle391.discord.media
+00:32:23, DEBUG [sync_vc_status] attempting to play song in the right channel
+00:32:23, DEBUG [sync_vc_status] playing the correct song...
+00:32:44, DEBUG [on_message] trying to play song with flags: '-l'
+00:32:45, DEBUG [download_from_search] - Searching for the nights
+00:32:45, DEBUG [download_from_search] Searching local directory
+00:32:45, DEBUG [download_from_search] Found suitable local song with score 69
+00:32:45, DEBUG [on_message] added song to queue
+00:32:45, DEBUG [sync_vc_status] syncing voice status
+00:32:45, DEBUG [sync_vc_status] we should be playing music
+00:32:45, DEBUG [sync_vc_status] attempting to play song in the right channel
+00:32:45, DEBUG [sync_vc_status] we are already playing the right song
+00:32:49, DEBUG [on_message] skipping to next song
+00:32:49, DEBUG [sync_vc_status] syncing voice status
+00:32:49, DEBUG [sync_vc_status] we should be playing music
+00:32:49, DEBUG [sync_vc_status] attempting to play song in the right channel
+00:32:49, DEBUG [sync_vc_status] stopped current song to play other one
+00:32:49, DEBUG [play_next_song] advanced to next song
+00:32:49, DEBUG [play_next_song] synced vc status
+00:32:49, DEBUG [sync_vc_status] syncing voice status
+00:32:49, DEBUG [sync_vc_status] we should not be playing music
+00:32:49, DEBUG [sync_vc_status] we are in a voice call but should not be playing
+00:32:49, DEBUG [sync_vc_status] voice call is still connected
+00:32:49, DEBUG [sync_vc_status] disconnecting from voice call...
+00:32:49, INFO ffmpeg process 252597 has not terminated. Waiting to terminate...
+00:32:49, INFO The voice handshake is being terminated for Channel ID 1036493869291941998 (Guild ID 839675426246623262)
+00:32:49, DEBUG [sync_vc_status] disconnected. zeroing out variables...
+00:32:49, INFO Disconnecting from voice normally, close code 1000.
+00:32:49, INFO ffmpeg process 252597 should have terminated with a return code of -9.
+00:37:16, DEBUG on_ready has successfully been registered as an event
+00:37:16, DEBUG on_message has successfully been registered as an event
+00:37:16, DEBUG on_voice_state_update has successfully been registered as an event
+00:37:16, DEBUG Using selector: EpollSelector
+00:37:16, INFO logging in using static token
+00:37:17, INFO Shard ID None has connected to Gateway (Session ID: a0fde5c76c33e812b21ef3cf5ca3d6ba).
+00:37:24, DEBUG [on_message] trying to play song with flags: '-l'
+00:37:25, DEBUG [download_from_search] - Searching for america
+00:37:25, DEBUG [download_from_search] Searching local directory
+00:37:25, DEBUG [download_from_search] Found suitable local song with score 33
+00:37:25, DEBUG [on_message] added song to queue
+00:37:25, DEBUG [sync_vc_status] syncing voice status
+00:37:25, DEBUG [sync_vc_status] we should be playing music
+00:37:25, DEBUG [sync_vc_status] connecting to the right channel
+00:37:25, INFO Connecting to voice...
+00:37:25, INFO Starting voice handshake... (connection attempt 1)
+00:37:26, INFO Voice handshake complete. Endpoint found seattle391.discord.media
+00:37:26, DEBUG [sync_vc_status] attempting to play song in the right channel
+00:37:26, DEBUG [sync_vc_status] playing the correct song...
+00:37:28, DEBUG [on_message] trying to play song with flags: '-l'
+00:37:29, DEBUG [download_from_search] - Searching for the nights
+00:37:29, DEBUG [download_from_search] Searching local directory
+00:37:29, DEBUG [download_from_search] Found suitable local song with score 69
+00:37:29, DEBUG [on_message] added song to queue
+00:37:29, DEBUG [sync_vc_status] syncing voice status
+00:37:29, DEBUG [sync_vc_status] we should be playing music
+00:37:29, DEBUG [sync_vc_status] attempting to play song in the right channel
+00:37:29, DEBUG [sync_vc_status] we are already playing the right song
+00:37:31, DEBUG [on_message] skipping to next song
+00:37:31, DEBUG [sync_vc_status] syncing voice status
+00:37:31, DEBUG [sync_vc_status] we should be playing music
+00:37:31, DEBUG [sync_vc_status] attempting to play song in the right channel
+00:37:31, DEBUG [sync_vc_status] stopped current song to play other one
+00:37:31, DEBUG [play_next_song] advanced to next song
+00:37:31, DEBUG [play_next_song] synced vc status
+00:37:31, INFO ffmpeg process 252776 has not terminated. Waiting to terminate...
+00:37:31, INFO ffmpeg process 252776 should have terminated with a return code of -9.
+00:37:31, DEBUG [sync_vc_status] syncing voice status
+00:37:31, DEBUG [sync_vc_status] we should be playing music
+00:37:31, DEBUG [sync_vc_status] attempting to play song in the right channel
+00:37:31, DEBUG [sync_vc_status] stopped current song to play other one
+00:38:24, INFO The voice handshake is being terminated for Channel ID 1036493869291941998 (Guild ID 839675426246623262)
+00:38:25, DEBUG on_ready has successfully been registered as an event
+00:38:25, DEBUG on_message has successfully been registered as an event
+00:38:25, DEBUG on_voice_state_update has successfully been registered as an event
+00:38:25, DEBUG Using selector: EpollSelector
+00:38:25, INFO logging in using static token
+00:38:25, INFO Shard ID None has connected to Gateway (Session ID: cfad63bc2a01375b298c16d96cfe1fcc).
+00:38:28, DEBUG [on_message] trying to play song with flags: '-l'
+00:38:29, DEBUG [download_from_search] - Searching for america
+00:38:29, DEBUG [download_from_search] Searching local directory
+00:38:29, DEBUG [download_from_search] Found suitable local song with score 33
+00:38:29, DEBUG [on_message] added song to queue
+00:38:29, DEBUG [sync_vc_status] syncing voice status
+00:38:29, DEBUG [sync_vc_status] we should be playing music
+00:38:29, DEBUG [sync_vc_status] connecting to the right channel
+00:38:29, INFO Connecting to voice...
+00:38:29, INFO Starting voice handshake... (connection attempt 1)
+00:38:29, INFO Voice handshake complete. Endpoint found seattle391.discord.media
+00:38:29, DEBUG [sync_vc_status] attempting to play song in the right channel
+00:38:29, DEBUG [sync_vc_status] playing the correct song...
+00:38:31, DEBUG [on_message] trying to play song with flags: '-l'
+00:38:32, DEBUG [download_from_search] - Searching for the nights
+00:38:32, DEBUG [download_from_search] Searching local directory
+00:38:32, DEBUG [download_from_search] Found suitable local song with score 69
+00:38:32, DEBUG [on_message] added song to queue
+00:38:32, DEBUG [sync_vc_status] syncing voice status
+00:38:32, DEBUG [sync_vc_status] we should be playing music
+00:38:32, DEBUG [sync_vc_status] attempting to play song in the right channel
+00:38:32, DEBUG [sync_vc_status] we are already playing the right song
+00:38:37, DEBUG [on_message] skipping to next song
+00:38:37, DEBUG [sync_vc_status] syncing voice status
+00:38:37, DEBUG [sync_vc_status] we should be playing music
+00:38:37, DEBUG [sync_vc_status] attempting to play song in the right channel
+00:38:37, DEBUG [sync_vc_status] stopped current song to play other one
+00:38:37, DEBUG [play_next_song] advanced to next song
+00:38:37, DEBUG [play_next_song] synced vc status
+00:38:37, INFO ffmpeg process 252855 has not terminated. Waiting to terminate...
+00:38:37, INFO ffmpeg process 252855 should have terminated with a return code of -9.
+00:38:37, DEBUG [sync_vc_status] syncing voice status
+00:38:37, DEBUG [sync_vc_status] we should be playing music
+00:38:37, DEBUG [sync_vc_status] attempting to play song in the right channel
+00:38:37, DEBUG [sync_vc_status] playing the correct song...
+00:38:46, DEBUG [on_message] clearing queue
+00:38:46, DEBUG [sync_vc_status] syncing voice status
+00:38:46, DEBUG [sync_vc_status] we should not be playing music
+00:38:46, DEBUG [sync_vc_status] we are in a voice call but should not be playing
+00:38:46, DEBUG [sync_vc_status] voice call is still connected
+00:38:46, DEBUG [sync_vc_status] pausing currently playing audio
+00:38:46, DEBUG [sync_vc_status] disconnecting from voice call...
+00:38:46, INFO The voice handshake is being terminated for Channel ID 1036493869291941998 (Guild ID 839675426246623262)
+00:38:46, DEBUG [sync_vc_status] disconnected. zeroing out variables...
+00:38:46, INFO Disconnecting from voice normally, close code 1000.
+00:38:46, DEBUG [play_next_song] advanced to next song
+00:38:46, DEBUG [play_next_song] synced vc status
+00:38:46, INFO ffmpeg process 252865 has not terminated. Waiting to terminate...
+00:38:46, DEBUG [sync_vc_status] syncing voice status
+00:38:46, DEBUG [sync_vc_status] we should not be playing music
+00:38:46, DEBUG [sync_vc_status] good, we are not connected to a call
+00:38:46, INFO ffmpeg process 252865 should have terminated with a return code of -9.
