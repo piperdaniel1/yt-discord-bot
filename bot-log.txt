@@ -1,3 +1,4 @@
+
 00:06:50, DEBUG on_ready has successfully been registered as an event
 00:06:50, DEBUG on_message has successfully been registered as an event
 00:06:50, DEBUG on_voice_state_update has successfully been registered as an event
