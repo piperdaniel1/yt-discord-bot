@@ -216,12 +216,16 @@ async def on_message(message: Message):
 
     if message.content.startswith('$p ') or message.content.startswith('$play '):
         msg_content = message.content
+        VALID_FLAGS = ["-n", "-l", "-r"]
 
         try:
             cmd_flags = message.content.split(" ")[-1].lower()
 
-            # Don't search for the flags
-            msg_content = " ".join(message.content.split(" ")[0:-1])
+            # Don't search for the flags if they are present
+            for flag in VALID_FLAGS:
+                if flag in cmd_flags:
+                    msg_content = " ".join(message.content.split(" ")[0:-1])
+                    break
         except:
             cmd_flags = ""
 

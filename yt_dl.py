@@ -40,6 +40,9 @@ def simplify_song_title(title) -> str:
 
     # Remove featured artists
     title = re.sub(r"ft.[^\.\(\)\[\]]*\.*", '', title)
+    title = re.sub(r"Ft.[^\.\(\)\[\]]*\.*", '', title)
+    title = re.sub(r"FT.[^\.\(\)\[\]]*\.*", '', title)
+    title = re.sub(r"feat.[^\.\(\)\[\]]*\.*", '', title)
 
     # Remove three letter file extension
     title = re.sub(r"\....$", '', title)
