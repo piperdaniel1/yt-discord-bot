@@ -31,7 +31,7 @@ def dprint(str, type='other', priority='low'):
     if DEBUG_PROGRAM:
         print(f"[{type}]", str)
 
-def simplify_song_title(title):
+def simplify_song_title(title) -> str:
     # Remove anything wrapped in ()
     title = re.sub(r"\([^\)]+\)", '', title)
 
@@ -150,7 +150,7 @@ def find_local_file(term, threshold):
         if term in file_title:
             if len(file_title) < best_score:
                 best_score = len(file_title)
-                best_title = file_title
+                best_title = original_title
 
     if best_title != "":
         return best_title, best_score, "strict subset"
@@ -217,7 +217,9 @@ def download_from_search(term, type='yt', force=False, threshold=60) -> \
 
                 # Makes sure we still have some characters
                 if proc_title != "":
-                    os.rename(f'{MEDIA_PATH}/"{unproc_title}"', f'{MEDIA_PATH}/"{proc_title}"')
+                    before_path = f'{MEDIA_PATH}/{unproc_title}'
+                    after_path = f'{MEDIA_PATH}/{proc_title}'
+                    os.rename(before_path, after_path)
 
                     return f"{MEDIA_PATH}/{proc_title}", \
                             proc_title
@@ -229,6 +231,7 @@ def download_from_search(term, type='yt', force=False, threshold=60) -> \
         return None, None
     except Exception as e:
         logging.debug(f"[download_from_search] No suitable song found due to exception: {e}")
+        raise e
         return None, None
 
 read_config()

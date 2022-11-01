@@ -525,3 +525,134 @@ AssertionError
 14:50:41, DEBUG [download_from_search] No suitable local song found, searching remotely...
 14:50:46, DEBUG [download_from_search] Found song on YouTube, returning path and title...
 14:50:46, DEBUG [download_from_search] No suitable song found due to exception: [Errno 2] No such file or directory: '/home/daniel/.bot-media//"Simon & Garfunkel - America (Audio).mp3"' -> '/home/daniel/.bot-media//"Simon & Garfunkel - America"'
+18:25:23, DEBUG on_ready has successfully been registered as an event
+18:25:23, DEBUG on_message has successfully been registered as an event
+18:25:23, DEBUG on_voice_state_update has successfully been registered as an event
+18:25:23, DEBUG Using selector: EpollSelector
+18:25:23, INFO logging in using static token
+18:25:24, INFO Shard ID None has connected to Gateway (Session ID: 912bb2d558b1598b68830e2698b241c8).
+18:25:34, DEBUG [download_from_search] - Searching for Simon and Garfunkel - America
+18:25:34, DEBUG [download_from_search] Searching local directory
+18:25:34, DEBUG [download_from_search] Found suitable local song with score 81 using fuzzy find method.
+18:26:02, DEBUG [download_from_search] - Searching for Simon and Garfunkel - America
+18:26:02, DEBUG [download_from_search] Searching local directory
+18:26:02, DEBUG [download_from_search] Found suitable local song with score 37 using fuzzy find method.
+18:26:13, DEBUG [download_from_search] - Searching for Simon and Garfunkel - America
+18:26:13, DEBUG [download_from_search] Searching local directory
+18:26:13, DEBUG [download_from_search] No suitable local song found, searching remotely...
+18:26:21, DEBUG [download_from_search] Found song on YouTube, returning path and title...
+18:26:21, DEBUG [download_from_search] No suitable song found due to exception: [Errno 2] No such file or directory: '/home/daniel/.bot-media//"Simon & Garfunkel - America (Audio).mp3"' -> '/home/daniel/.bot-media//"Simon & Garfunkel - America"'
+18:28:32, DEBUG [download_from_search] - Searching for Simon and Garfunkel - America
+18:28:32, DEBUG [download_from_search] Searching local directory
+18:28:32, DEBUG [download_from_search] Found suitable local song with score 81 using fuzzy find method.
+18:28:40, DEBUG [download_from_search] - Searching for Simon and Garfunkel - America
+18:28:40, DEBUG [download_from_search] Searching local directory
+18:28:40, DEBUG [download_from_search] No suitable local song found, searching remotely...
+18:28:48, DEBUG [download_from_search] Found song on YouTube, returning path and title...
+18:28:48, DEBUG [download_from_search] No suitable song found due to exception: [Errno 2] No such file or directory: '/home/daniel/.bot-media//"Simon & Garfunkel - America (Audio).mp3"' -> '/home/daniel/.bot-media//"Simon & Garfunkel - America"'
+18:29:59, DEBUG [download_from_search] - Searching for Simon and Garfunkel - America
+18:29:59, DEBUG [download_from_search] Searching local directory
+18:29:59, DEBUG [download_from_search] Found suitable local song with score 81 using fuzzy find method.
+18:30:03, DEBUG [download_from_search] - Searching for Simon and Garfunkel - America
+18:30:03, DEBUG [download_from_search] Searching local directory
+18:30:03, DEBUG [download_from_search] No suitable local song found, searching remotely...
+18:30:11, DEBUG [download_from_search] Found song on YouTube, returning path and title...
+18:30:11, DEBUG [download_from_search] No suitable song found due to exception: [Errno 2] No such file or directory: '/home/daniel/.bot-media//"Simon & Garfunkel - America (Audio).mp3"' -> '/home/daniel/.bot-media//"Simon & Garfunkel - America"'
+18:30:34, DEBUG [download_from_search] - Searching for Simon and Garfunkel - America
+18:30:34, DEBUG [download_from_search] Searching local directory
+18:30:34, DEBUG [download_from_search] Found suitable local song with score 81 using fuzzy find method.
+18:30:36, DEBUG [download_from_search] - Searching for Simon and Garfunkel - America
+18:30:36, DEBUG [download_from_search] Searching local directory
+18:30:36, DEBUG [download_from_search] No suitable local song found, searching remotely...
+18:30:44, DEBUG [download_from_search] Found song on YouTube, returning path and title...
+18:30:44, DEBUG [download_from_search] No suitable song found due to exception: [Errno 2] No such file or directory: '/home/daniel/.bot-media//"Simon & Garfunkel - America (Audio).mp3"' -> '/home/daniel/.bot-media//"Simon & Garfunkel - America"'
+18:32:40, DEBUG [download_from_search] - Searching for Simon and Garfunkel - America
+18:32:40, DEBUG [download_from_search] Searching local directory
+18:32:40, DEBUG [download_from_search] No suitable local song found, searching remotely...
+18:32:48, DEBUG [download_from_search] Found song on YouTube, returning path and title...
+18:32:48, DEBUG [download_from_search] No suitable song found due to exception: [Errno 2] No such file or directory: '/home/daniel/.bot-media//"Simon & Garfunkel - America (Audio).mp3"' -> '/home/daniel/.bot-media//"Simon & Garfunkel - America"'
+18:34:51, DEBUG [download_from_search] - Searching for Simon and Garfunkel - America
+18:34:51, DEBUG [download_from_search] Searching local directory
+18:34:51, DEBUG [download_from_search] No suitable local song found, searching remotely...
+18:34:59, DEBUG [download_from_search] Found song on YouTube, returning path and title...
+18:34:59, DEBUG [download_from_search] No suitable song found due to exception: [Errno 2] No such file or directory: '/home/daniel/.bot-media//"Simon & Garfunkel - America (Audio).mp3"' -> '/home/daniel/.bot-media//"Simon & Garfunkel - America"'
+18:40:19, DEBUG [download_from_search] - Searching for Simon and Garfunkel - America
+18:40:19, DEBUG [download_from_search] Searching local directory
+18:40:19, DEBUG [download_from_search] No suitable local song found, searching remotely...
+18:40:27, DEBUG [download_from_search] Found song on YouTube, returning path and title...
+18:41:32, DEBUG on_ready has successfully been registered as an event
+18:41:32, DEBUG on_message has successfully been registered as an event
+18:41:32, DEBUG on_voice_state_update has successfully been registered as an event
+18:41:32, DEBUG Using selector: EpollSelector
+18:41:32, INFO logging in using static token
+18:41:32, INFO Shard ID None has connected to Gateway (Session ID: 2941c0eff1d223e3d4afc2d0ba24b2b9).
+18:41:39, DEBUG [on_message] trying to play song with flags: '-l'
+18:41:39, DEBUG [download_from_search] - Searching for america
+18:41:39, DEBUG [download_from_search] Searching local directory
+18:41:39, DEBUG [download_from_search] Found suitable local song with score 27 using strict subset method.
+18:41:39, DEBUG [on_message] added song to queue
+18:41:40, DEBUG [sync_vc_status] syncing voice status
+18:41:40, DEBUG [sync_vc_status] we should be playing music
+18:41:40, DEBUG [sync_vc_status] connecting to the right channel
+18:41:40, INFO Connecting to voice...
+18:41:40, INFO Starting voice handshake... (connection attempt 1)
+18:41:40, INFO Voice handshake complete. Endpoint found seattle3342.discord.media
+18:41:40, DEBUG [sync_vc_status] attempting to play song in the right channel
+18:41:40, DEBUG [sync_vc_status] playing the correct song...
+18:41:40, DEBUG [play_next_song] advanced to next song
+18:41:40, DEBUG [play_next_song] synced vc status
+18:41:40, DEBUG [sync_vc_status] syncing voice status
+18:41:40, DEBUG [sync_vc_status] we should not be playing music
+18:41:40, DEBUG [sync_vc_status] we are in a voice call but should not be playing
+18:41:40, DEBUG [sync_vc_status] voice call is still connected
+18:41:40, DEBUG [sync_vc_status] disconnecting from voice call...
+18:41:40, INFO ffmpeg process 8634 successfully terminated with return code of 1.
+18:41:40, INFO The voice handshake is being terminated for Channel ID 1034701393858146358 (Guild ID 1034701393858146354)
+18:41:40, DEBUG [sync_vc_status] disconnected. zeroing out variables...
+18:41:40, INFO Disconnecting from voice normally, close code 1000.
+18:42:36, DEBUG on_ready has successfully been registered as an event
+18:42:36, DEBUG on_message has successfully been registered as an event
+18:42:36, DEBUG on_voice_state_update has successfully been registered as an event
+18:42:36, DEBUG Using selector: EpollSelector
+18:42:36, INFO logging in using static token
+18:42:37, INFO Shard ID None has connected to Gateway (Session ID: cb02977908f4424d3e04ca92e9ea61fc).
+18:42:41, DEBUG [on_message] trying to play song with flags: '-l'
+18:42:42, DEBUG [download_from_search] - Searching for america
+18:42:42, DEBUG [download_from_search] Searching local directory
+18:42:42, DEBUG [download_from_search] Found suitable local song with score 27 using strict subset method.
+18:42:42, DEBUG [on_message] added song to queue
+18:42:42, DEBUG [sync_vc_status] syncing voice status
+18:42:42, DEBUG [sync_vc_status] we should be playing music
+18:42:42, DEBUG [sync_vc_status] connecting to the right channel
+18:42:42, INFO Connecting to voice...
+18:42:42, INFO Starting voice handshake... (connection attempt 1)
+18:42:42, INFO Voice handshake complete. Endpoint found seattle3342.discord.media
+18:42:42, DEBUG [sync_vc_status] attempting to play song in the right channel
+18:42:42, DEBUG [sync_vc_status] playing the correct song...
+18:43:00, DEBUG [on_message] trying to play song with flags: 'nights'
+18:43:01, DEBUG [download_from_search] - Searching for the
+18:43:01, DEBUG [download_from_search] Searching local directory
+18:43:01, DEBUG [download_from_search] Found suitable local song with score 19 using strict subset method.
+18:43:01, DEBUG [on_message] added song to queue
+18:43:01, DEBUG [sync_vc_status] syncing voice status
+18:43:01, DEBUG [sync_vc_status] we should be playing music
+18:43:01, DEBUG [sync_vc_status] attempting to play song in the right channel
+18:43:01, DEBUG [sync_vc_status] we are already playing the right song
+18:46:19, DEBUG [play_next_song] advanced to next song
+18:46:19, DEBUG [play_next_song] synced vc status
+18:46:19, DEBUG [sync_vc_status] syncing voice status
+18:46:19, DEBUG [sync_vc_status] we should be playing music
+18:46:19, DEBUG [sync_vc_status] attempting to play song in the right channel
+18:46:19, DEBUG [sync_vc_status] playing the correct song...
+18:46:19, INFO ffmpeg process 8669 successfully terminated with return code of 0.
+18:49:30, DEBUG [play_next_song] advanced to next song
+18:49:30, DEBUG [play_next_song] synced vc status
+18:49:30, DEBUG [sync_vc_status] syncing voice status
+18:49:30, INFO ffmpeg process 8948 successfully terminated with return code of 0.
+18:49:30, DEBUG [sync_vc_status] we should not be playing music
+18:49:30, DEBUG [sync_vc_status] we are in a voice call but should not be playing
+18:49:30, DEBUG [sync_vc_status] voice call is still connected
+18:49:30, DEBUG [sync_vc_status] disconnecting from voice call...
+18:49:30, INFO The voice handshake is being terminated for Channel ID 1034701393858146358 (Guild ID 1034701393858146354)
+18:49:30, DEBUG [sync_vc_status] disconnected. zeroing out variables...
+18:49:30, INFO Disconnecting from voice normally, close code 1000.
