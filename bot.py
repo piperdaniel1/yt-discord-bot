@@ -120,13 +120,34 @@ class MusicBot:
         playlist = Playlist(playlist_name, song_list)
         playlist.dump_to_file()
 
-    def add_songs_from_playlist(self, playlist: Playlist):
+    # Returns 1 if the playlist does not exist,
+    # 0 if the playlist was successfully loaded
+    def add_songs_from_playlist(self, playlist_name: str, user: Member):
+        playlist = Playlist(playlist_name)
+
+        try:
+            with open(f"{MEDIA_PATH}/{playlist_name}.hpl", 'r') as f:
+                # Read the playlist name
+                playlist_name = f.readline().strip()
+
+                # Read each song from the file
+                for line in f:
+                    title, path = line.split('^')
+                    playlist.songs.append(PrePlaySong(path, title))
+        except FileNotFoundError:
+            return 1
+
+        playlist.convert_songs(user)
+
+        # Effectively guaranteed to be true
         assert(playlist.READY_TO_PLAY)
 
         for song in playlist.songs:
             # This should always pass if playlist.READY_TO_PLAY is true
             assert(isinstance(song, Song))
             self.push_song_back(song)
+
+        return 0
 
     def remove_song(self, song_ind: int):
         if song_ind == 0:
