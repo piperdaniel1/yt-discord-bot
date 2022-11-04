@@ -355,7 +355,7 @@ async def on_message(message: Message):
         emoji = '⏭️'
         await message.add_reaction(emoji)
 
-    if message.content.startswith('$q') or message.content.startswith('$queue'):
+    if message.content == '$q' or message.content == '$queue':
         logging.debug("[on_message] showing queue to user")
         await message.channel.send(f".\n{music.fmt_queue()}")
 
