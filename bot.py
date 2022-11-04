@@ -31,6 +31,72 @@ class Song:
         except AttributeError:
             return False
 
+#
+# Song class without the Member field
+# This is great for playlists as they do not have a user
+# associated with them. Each PrePlaySong is converted to a song
+# when a user asks for it to be played.
+#
+class PrePlaySong:
+    def __init__(self, path: str, title: str):
+        self.path: str = path
+        self.title: str = title
+
+    def __eq__(self, other) -> bool:
+        try:
+            return self.path == other.path
+        except AttributeError:
+            return False
+
+    def convert_to_song(self, user: Member) -> Song:
+        return Song(self.path, self.title, user)
+
+class Playlist:
+    def __init__(self, name: str, songs: List[Union[Song, PrePlaySong]] = []):
+        self.songs: List[Union[Song, PrePlaySong]] = songs
+        self.playlist_name = name
+        self.READY_TO_PLAY = False
+
+    # Dump the playlist to a file
+    # Returns 1 if file already exists, 0 if the dump was successful
+    def dump_to_file(self, force = False):
+        # Check if file already exists
+        if os.path.exists(f"{MEDIA_PATH}/{self.playlist_name}.hpl") and not force:
+            return 1
+
+        # .hpl stands for Harlough PlayList
+        with open(f"{MEDIA_PATH}/{self.playlist_name}.hpl", 'w') as f:
+            # Write the playlist name to the top of the file
+            f.write(self.playlist_name + '\n')
+
+            # Write each song to the file while sanitizing the input
+            for song in self.songs:
+                f.write(song.title.replace('^', '') + "^" + song.path.replace('^', '') + '\n')
+
+        return 0
+
+    def import_from_file(self, playlist_name: str):
+        with open(f"{MEDIA_PATH}/{playlist_name}.hpl", 'r') as f:
+            # Read the playlist name
+            self.name = f.readline().strip()
+
+            # Read each song from the file
+            for line in f:
+                title, path = line.split('^')
+                self.songs.append(PrePlaySong(path, title))
+
+    # This must be run before the playlist is turned into a Queue
+    def convert_songs(self, user: Member):
+        new_arr: List[Song | PrePlaySong] = []
+        for song in self.songs:
+            if isinstance(song, PrePlaySong):
+                new_arr.append(song.convert_to_song(user))
+            else:
+                new_arr.append(song)
+
+        self.songs = new_arr
+        self.READY_TO_PLAY = True
+
 # Keeps track of songs
 class MusicBot:
     def __init__(self):
@@ -39,6 +105,34 @@ class MusicBot:
         self.is_playing: bool = False
         self.latest_song: Union[Song, None] = None
         self.skip_flag = False
+
+    def dump_queue_to_playlist_file(self, playlist_name: str):
+        assert(self.current_song is not None)
+
+        song_list: List[Song | PrePlaySong] = [self.current_song]
+        song_list.extend(self.backlog)
+
+        conv_song_list: List[Song | PrePlaySong] = []
+        for song in song_list:
+            conv_song_list.append(PrePlaySong(song.path, song.title))
+
+        song_list = conv_song_list
+        playlist = Playlist(playlist_name, song_list)
+        playlist.dump_to_file()
+
+    def add_songs_from_playlist(self, playlist: Playlist):
+        assert(playlist.READY_TO_PLAY)
+
+        for song in playlist.songs:
+            # This should always pass if playlist.READY_TO_PLAY is true
+            assert(isinstance(song, Song))
+            self.push_song_back(song)
+
+    def remove_song(self, song_ind: int):
+        if song_ind == 0:
+            self.next_song()
+        else:
+            self.backlog.pop(song_ind - 1)
 
     def fmt_queue(self):
         queue_str = ""
@@ -49,10 +143,10 @@ class MusicBot:
             assert(self.current_song is not None)
 
             queue_str += "Current Queue:\n"
-            queue_str += "🎶 " + self.current_song.title + "\n"
+            queue_str += "1 🎶 " + self.current_song.title + "\n"
             
-            for song in self.backlog:
-                queue_str += "▫️ " + song.title + "\n"
+            for i, song in enumerate(self.backlog):
+                queue_str += f"{i} ▫️ " + song.title + "\n"
 
         return queue_str
 

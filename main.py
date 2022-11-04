@@ -16,12 +16,21 @@ logging.basicConfig(filename='bot-log.txt',
                     datefmt='%H:%M:%S',
                     level=logging.DEBUG)
 
-# Must implement a global queue class
-# Should store paths to mp3 so that they
-# can be immediately played
 #
-# Need to have a listener to change queue
-# when the bot finishes a song.
+# Playlist Feature
+# You will be able to store multiple songs in a playlist. Then you can
+# $p play <playlist_name> to play the playlist
+#
+# Playlists can be created one song at a time:
+# $p add <playlist_name> <song_name>
+# To aid the parsing, the playlist name cannot have spaces in it
+# If there was no playlist with that name, it will be created
+#
+# You can also create a playlist by adding all songs from a queue:
+# $queue dump <playlist_name>
+# This will add all songs currently in the queue to the playlist
+#
+
 
 intents = discord.Intents.default()
 intents.message_content = True
