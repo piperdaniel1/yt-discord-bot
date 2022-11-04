@@ -61,11 +61,11 @@ class Playlist:
     # Returns 1 if file already exists, 0 if the dump was successful
     def dump_to_file(self, force = False):
         # Check if file already exists
-        if os.path.exists(f"{MEDIA_PATH}/{self.playlist_name}.hpl") and not force:
+        if os.path.exists(f"{MEDIA_PATH}/playlists/{self.playlist_name}.hpl") and not force:
             return 1
 
         # .hpl stands for Harlough PlayList
-        with open(f"{MEDIA_PATH}/{self.playlist_name}.hpl", 'w') as f:
+        with open(f"{MEDIA_PATH}/playlists/{self.playlist_name}.hpl", 'w') as f:
             # Write the playlist name to the top of the file
             f.write(self.playlist_name + '\n')
 
@@ -76,7 +76,7 @@ class Playlist:
         return 0
 
     def import_from_file(self, playlist_name: str):
-        with open(f"{MEDIA_PATH}/{playlist_name}.hpl", 'r') as f:
+        with open(f"{MEDIA_PATH}/playlists/{playlist_name}.hpl", 'r') as f:
             # Read the playlist name
             self.name = f.readline().strip()
 
@@ -130,7 +130,7 @@ class MusicBot:
         playlist = Playlist(playlist_name)
 
         try:
-            with open(f"{MEDIA_PATH}/{playlist_name}.hpl", 'r') as f:
+            with open(f"{MEDIA_PATH}/playlists/{playlist_name}.hpl", 'r') as f:
                 # Read the playlist name
                 playlist_name = f.readline().strip()
 
