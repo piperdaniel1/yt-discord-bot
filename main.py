@@ -22,7 +22,7 @@ logging.basicConfig(filename='bot-log.txt',
 # $p play <playlist_name> to play the playlist
 #
 # Playlists can be created one song at a time:
-# $p add <playlist_name> <song_name>
+# $list add <playlist_name> <song_name>
 # To aid the parsing, the playlist name cannot have spaces in it
 # If there was no playlist with that name, it will be created
 #
@@ -30,7 +30,6 @@ logging.basicConfig(filename='bot-log.txt',
 # $queue dump <playlist_name>
 # This will add all songs currently in the queue to the playlist
 #
-
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -69,6 +68,8 @@ def play_next_song(error):
 # 0 - Sync was successful
 # 1 - Not successful, only way to recover is to skip to the next song
 # 2 - Not successful, may be worth retrying the sync before skipping
+#
+# I acknowledge that this is a bit of a mess, but it works (mostly)
 async def sync_vc_status(reconnect_to_vc = False, attempt = 0):
     logging.debug("[sync_vc_status] syncing voice status")
     global current_vc
@@ -210,16 +211,22 @@ async def on_message(message: Message):
 
     if message.content.startswith('$help'):
         logging.debug("[on_message] Printing help message")
-        await message.channel.send(f'.\nCommand help:\n$play [song title or url]\
+        await message.channel.send(f'.\nCommand help:\nThe Basics\
+                                    \n$[p]lay [song title or url]\
                                     \n    -l Only search locally for the song\
                                     \n    -r Only search remotely for the song\
                                     \n    -n Put this at the front of the queue\
-                                    \n$stop - pause the current song\
-                                    \n$resume - unpause the current song\
-                                    \n$clear - clears the queue\
-                                    \n$next - skip the current song in the queue\
-                                    \n$queue - shows the current queue\
-                                    \n$help - shows this message\
+                                    \n$[s]top - pause the current song\
+                                    \n$[r]esume - unpause the current song\
+                                    \n$[c]lear - clears the queue\
+                                    \n$[n]ext - skip the current song in the queue\
+                                    \n$[q]ueue - shows the current queue\
+                                    \n$[h]elp - shows this message\
+                                    \n\nOthers\
+                                    \n$[d]elete [s]ong [queue index] - deletes the song at the given index from the queue\
+                                    \n$[sw]ap [queue index] [new index] - moves the song at the given index to the new index\
+                                    \n$[q]ueue [d]ump [playlist_name (no spaces)] - dumps the current queue to a playlist with the provided name\
+                                    \n$[q]ueue [l]oad [playlist_name (no spaces)] - loads the playlist with the provided name into the queue\
                                     \n\nMost commands can be abbreviated to one letter. Flags should be appended to the end of the command. You must include a space before your flags. For example:\
                                     \n$play Avicii - The Nights -l-f')
 
@@ -351,6 +358,81 @@ async def on_message(message: Message):
     if message.content.startswith('$q') or message.content.startswith('$queue'):
         logging.debug("[on_message] showing queue to user")
         await message.channel.send(f".\n{music.fmt_queue()}")
+
+    if message.content.startswith('$ds ') or message.content.startswith('$delete song '):
+        logging.debug("[on_message] deleting song from queue")
+        try:
+            index = int(message.content.split(" ")[-1])
+            status = music.remove_song(index)
+
+            assert(status == 0)
+    
+            await sync_vc_status()
+            await message.add_reaction('🗑️')
+        except:
+            await message.channel.send(f"Invalid queue index, refer to $queue for valid indices.")
+
+    if message.content.startswith('$sw ') or message.content.startswith('$swap '):
+        logging.debug("[on_message] swapping songs in queue")
+        try:
+            indices = message.content.split(" ")[-2:]
+            status = music.swap_songs(int(indices[0]), int(indices[1]))
+
+            assert(status == 0)
+
+            await sync_vc_status()
+            await message.add_reaction('🔄')
+        except:
+            await message.channel.send(f"Invalid queue indices, refer to $queue for valid indices.")
+
+    if message.content.startswith('$qd ') or message.content.startswith('$queue dump '):
+        logging.debug("[on_message] dumping queue to file")
+        try:
+            playlist_name = message.content.split(" ")[-1]
+            status = music.dump_queue_to_playlist_file(playlist_name)
+
+            if status == 0:
+                await message.add_reaction('📥')
+            elif status == 1:
+                await message.add_reaction('❌')
+                await message.channel.send(f"Error, playlist name already exists.")
+            else:
+                await message.add_reaction('❌')
+                await message.channel.send(f"There are no songs in the queue!")
+        except:
+            await message.channel.send(f"Error, could not dump queue to playlist.")
+
+    if message.content.startswith('$ql ') or message.content.startswith('$queue load '):
+        logging.debug("[on_message] loading queue from file")
+        try:
+            playlist_name = message.content.split(" ")[-1]
+            author = message.author
+
+            try:
+                assert(isinstance(author, Member)) 
+            except AssertionError:
+                logging.debug("[on_message] did not have access to channel")
+                await message.channel.send(f"I can't join that channel!")
+                return
+
+            if author.voice is None:
+                logging.debug("[on_message] user was not in a channel")
+                await message.channel.send(f"Join a voice channel first! 😴")
+                return
+
+            status = music.add_songs_from_playlist(playlist_name, author)
+
+            if status == 0:
+                await sync_vc_status()
+                await message.add_reaction('📤')
+            elif status == 1:
+                await message.add_reaction('❌')
+                await message.channel.send(f"Error, playlist name does not exist.")
+            else:
+                await message.add_reaction('❌')
+                await message.channel.send(f"Error, could not load playlist.")
+        except:
+            await message.channel.send(f"Error, could not load playlist.")
 
 @client.event
 async def on_voice_state_update(member: Member, before: VoiceState, after: VoiceState):

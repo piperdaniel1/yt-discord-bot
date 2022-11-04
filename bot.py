@@ -107,7 +107,10 @@ class MusicBot:
         self.skip_flag = False
 
     def dump_queue_to_playlist_file(self, playlist_name: str):
-        assert(self.current_song is not None)
+        try:
+            assert(self.current_song is not None)
+        except AssertionError:
+            return 2
 
         song_list: List[Song | PrePlaySong] = [self.current_song]
         song_list.extend(self.backlog)
@@ -118,7 +121,8 @@ class MusicBot:
 
         song_list = conv_song_list
         playlist = Playlist(playlist_name, song_list)
-        playlist.dump_to_file()
+
+        return playlist.dump_to_file()
 
     # Returns 1 if the playlist does not exist,
     # 0 if the playlist was successfully loaded
@@ -153,7 +157,24 @@ class MusicBot:
         if song_ind == 0:
             self.next_song()
         else:
-            self.backlog.pop(song_ind - 1)
+            try:
+                self.backlog.pop(song_ind - 1)
+            except IndexError:
+                return 1
+
+        return 0
+
+    def swap_songs(self, song_ind_1: int, song_ind_2: int):
+        if song_ind_1 == 0 or song_ind_2 == 0:
+            return 1
+
+        try:
+            self.backlog[song_ind_1 - 1], self.backlog[song_ind_2 - 1] = \
+                    self.backlog[song_ind_2 - 1], self.backlog[song_ind_1 - 1]
+        except IndexError:
+            return 1
+
+        return 0
 
     def fmt_queue(self):
         queue_str = ""
