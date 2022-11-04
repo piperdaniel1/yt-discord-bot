@@ -11,7 +11,9 @@ import logging
 import asyncio
 import re
 
-logging.basicConfig(filename='bot-log.txt',
+logging.basicConfig(handlers=[\
+                        logging.FileHandler(filename='bot-log.txt', encoding='utf-8', mode='w'),\
+                        logging.StreamHandler()],
                     format='%(asctime)s, %(levelname)s %(message)s',
                     datefmt='%H:%M:%S',
                     level=logging.DEBUG)
@@ -363,12 +365,13 @@ async def on_message(message: Message):
         logging.debug("[on_message] deleting song from queue")
         try:
             index = int(message.content.split(" ")[-1])
-            status = music.remove_song(index)
+            status = music.remove_song(index-1)
 
             assert(status == 0)
     
             await sync_vc_status()
             await message.add_reaction('🗑️')
+            await message.channel.send(f".\n{music.fmt_queue()}")
         except:
             await message.channel.send(f"Invalid queue index, refer to $queue for valid indices.")
 
@@ -392,14 +395,18 @@ async def on_message(message: Message):
             status = music.dump_queue_to_playlist_file(playlist_name)
 
             if status == 0:
+                logging.debug("[on_message] dumped queue")
                 await message.add_reaction('📥')
             elif status == 1:
                 await message.add_reaction('❌')
+                logging.debug("[on_message] could not dump, name already exists")
                 await message.channel.send(f"Error, playlist name already exists.")
             else:
                 await message.add_reaction('❌')
+                logging.debug("[on_message] could not dump, queue empty")
                 await message.channel.send(f"There are no songs in the queue!")
-        except:
+        except Exception as e:
+            logging.debug("[on_message] could not dump, exception: ", e)
             await message.channel.send(f"Error, could not dump queue to playlist.")
 
     if message.content.startswith('$ql ') or message.content.startswith('$queue load '):

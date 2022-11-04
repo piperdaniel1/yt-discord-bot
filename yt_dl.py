@@ -4,10 +4,14 @@ from fuzzywuzzy import fuzz
 import re
 import os
 import logging
-logging.basicConfig(filename='bot-log.txt',
+
+logging.basicConfig(handlers=[\
+                        logging.FileHandler(filename='bot-log.txt', encoding='utf-8', mode='w'),\
+                        logging.StreamHandler()],
                     format='%(asctime)s, %(levelname)s %(message)s',
                     datefmt='%H:%M:%S',
                     level=logging.DEBUG)
+
 #
 # Idea, on query from discord bot:
 # Check file directory for a similar song name

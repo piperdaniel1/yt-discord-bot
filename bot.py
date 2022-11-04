@@ -5,7 +5,9 @@ from discord.member import Member
 from yt_dl import *
 from typing import List, Union
 import logging
-logging.basicConfig(filename='bot-log.txt',
+logging.basicConfig(handlers=[\
+                        logging.FileHandler(filename='bot-log.txt', encoding='utf-8', mode='w'),\
+                        logging.StreamHandler()],
                     format='%(asctime)s, %(levelname)s %(message)s',
                     datefmt='%H:%M:%S',
                     level=logging.DEBUG)
@@ -83,6 +85,9 @@ class Playlist:
             # Read each song from the file
             for line in f:
                 title, path = line.split('^')
+                title = title.strip()
+                path = path.strip()
+
                 self.songs.append(PrePlaySong(path, title))
 
     # This must be run before the playlist is turned into a Queue
@@ -137,6 +142,8 @@ class MusicBot:
                 # Read each song from the file
                 for line in f:
                     title, path = line.split('^')
+                    title = title.strip()
+                    path = path.strip()
                     playlist.songs.append(PrePlaySong(path, title))
         except FileNotFoundError:
             return 1
@@ -155,7 +162,7 @@ class MusicBot:
 
     def remove_song(self, song_ind: int):
         if song_ind == 0:
-            self.next_song()
+            self.skip_flag = True
         else:
             try:
                 self.backlog.pop(song_ind - 1)
@@ -188,7 +195,7 @@ class MusicBot:
             queue_str += "1 🎶 " + self.current_song.title + "\n"
             
             for i, song in enumerate(self.backlog):
-                queue_str += f"{i} ▫️ " + song.title + "\n"
+                queue_str += f"{i+2} ▫️ " + song.title + "\n"
 
         return queue_str
 
