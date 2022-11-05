@@ -445,7 +445,7 @@ async def on_message(message: Message):
 async def on_voice_state_update(member: Member, before: VoiceState, after: VoiceState):
     assert(client.user is not None)
 
-    if before.channel is None and after.channel is not None \
+    if (before.channel is None or (before.channel.name != "Lobby" and before.channel.name != "Gaming")) and after.channel is not None \
             and member.id != client.user.id and after.channel.name != "afk"\
             and after.channel.name != "kinda-fucked" and after.channel.name != "robo-bitches":
         channels = list(client.get_all_channels())
