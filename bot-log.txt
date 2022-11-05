@@ -92,3 +92,20 @@
 16:13:44, DEBUG [sync_vc_status] we should be playing music
 16:13:44, DEBUG [sync_vc_status] attempting to play song in the right channel
 16:13:44, DEBUG [sync_vc_status] we are already playing the right song
+16:14:16, DEBUG [on_message] clearing queue
+16:14:16, DEBUG [sync_vc_status] syncing voice status
+16:14:16, DEBUG [sync_vc_status] we should not be playing music
+16:14:16, DEBUG [sync_vc_status] we are in a voice call but should not be playing
+16:14:16, DEBUG [sync_vc_status] voice call is still connected
+16:14:16, DEBUG [sync_vc_status] pausing currently playing audio
+16:14:16, DEBUG [sync_vc_status] disconnecting from voice call...
+16:14:16, INFO The voice handshake is being terminated for Channel ID 1034701393858146358 (Guild ID 1034701393858146354)
+16:14:16, DEBUG [sync_vc_status] disconnected. zeroing out variables...
+16:14:16, INFO Disconnecting from voice normally, close code 1000.
+16:14:16, DEBUG [play_next_song] advanced to next song
+16:14:16, DEBUG [play_next_song] synced vc status
+16:14:16, INFO ffmpeg process 17825 has not terminated. Waiting to terminate...
+16:14:16, INFO ffmpeg process 17825 should have terminated with a return code of -9.
+16:14:16, DEBUG [sync_vc_status] syncing voice status
+16:14:16, DEBUG [sync_vc_status] we should not be playing music
+16:14:16, DEBUG [sync_vc_status] good, we are not connected to a call

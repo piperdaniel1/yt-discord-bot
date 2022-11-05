@@ -446,15 +446,16 @@ async def on_voice_state_update(member: Member, before: VoiceState, after: Voice
     assert(client.user is not None)
 
     if before.channel is None and after.channel is not None \
-       and member.id != client.user.id and after.channel.name != "afk":
+            and member.id != client.user.id and after.channel.name != "afk"\
+            and after.channel.name != "kinda-fucked" and after.channel.name != "robo-bitches":
         channels = list(client.get_all_channels())
 
         for channel in channels:
             if channel.name == "on-announcement" and \
-                    isinstance(channel, TextChannel) and \
-                    channel.guild.name == after.channel.guild.name:
-                await channel.send(f"{member.display_name} has joined the {after.channel.name} voice channel!")
-                break
+                isinstance(channel, TextChannel) and \
+                channel.guild.name == after.channel.guild.name:
+
+                await channel.send(f"@here {member.display_name} has joined the {after.channel.name} voice channel!")
 
 with open(".dc-token", "r") as f:
     token = f.readline()
